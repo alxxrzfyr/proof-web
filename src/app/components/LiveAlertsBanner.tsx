@@ -17,8 +17,11 @@ export function LiveAlertsBanner() {
 
   useEffect(() => {
     // Fetch the JSON file from the public directory
-    fetch("/alerts.json")
-      .then((res) => res.json())
+    fetch("alerts.json") // Relative fetch works on GitHub Pages Subpaths
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
       .then((data) => {
         // Grab the top 6 most recent alerts
         const alertsList = data.alerts || data;

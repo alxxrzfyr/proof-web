@@ -172,8 +172,11 @@ export function ScamInfoSection({ lang }: Props) {
   const [alertScope, setAlertScope] = useState<"local" | "international">("local");
 
   useEffect(() => {
-    fetch("/alerts.json")
-      .then((res) => res.json())
+    fetch("alerts.json") // Relative fetch works on GitHub Pages Subpaths
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
       .then((data) => {
         setAlerts(data.alerts || data);
       })
