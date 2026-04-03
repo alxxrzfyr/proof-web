@@ -1,514 +1,190 @@
-// fetch-alerts.js
-// ═══════════════════════════════════════════════════════════════
-// Fetches scam/cyber alerts ONLY from registered, trusted PH sources.
-// Two-layer trust system:
-//   1. TRUSTED_PUBLISHERS — whitelist of verified publisher names
-//   2. TRUSTED_DOMAINS   — whitelist of verified article domains
-// Any article not matching either layer is silently rejected.
-//
-// Zero external dependencies — uses only Node built-ins.
-// Run manually:  node fetch-alerts.js
-// Run via CI:    see .github/workflows/fetch-alerts.yml
-// ═══════════════════════════════════════════════════════════════
-
-import { writeFile } from "fs/promises";
+import { writeFile, readFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
-const __dirname   = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = join(__dirname, "public", "alerts.json");
+const MAX_ALERTS = 6;
 
-// ── Config ──────────────────────────────────────────────────────
-const MAX_TOTAL_ALERTS = 12;
-const FETCH_TIMEOUT_MS = 12_000;
-const MAX_RETRIES      = 3;
-const RETRY_DELAY_MS      = 1_500;
-const MAX_ARTICLE_AGE_DAYS = 7;   // reject anything older than 7 days
-
-// ═══════════════════════════════════════════════════════════════
-// LAYER 1 — TRUSTED PUBLISHER NAMES
-// ───────────────────────────────────────────────────────────────
-// Google News embeds the publisher name inside the article title
-// as "Headline - Publisher Name". We extract it and reject any
-// article whose publisher is NOT in this set.
-//
-// To add a new source: add its exact Google News publisher label
-// (lowercased) to this Set.
-// ═══════════════════════════════════════════════════════════════
-const TRUSTED_PUBLISHERS = new Set([
-    // ── Philippine Government & Official Bodies ──────────────
-    "bangko sentral ng pilipinas",
-    "bsp",
-    "cicc",                             
-    "philippine national police",
-    "pnp",
-    "pnp-acg",
-    "nbi",                              
-    "dict",                             
-    "securities and exchange commission",
-    "sec",
-    "department of trade and industry",
-    "dti",
-    "anti-money laundering council",
-    "amlc",
-    "philippine information agency",
-    "pia",
-    "philippine news agency",
-    "pna",
-    "department of justice",
-    "doj",
-
-    // ── Reliable Philippine News Outlets ─────────────────────
-    "inquirer.net",
-    "philippine daily inquirer",
-    "gma news",
-    "gma network",
-    "the philippine star",
-    "philstar",
-    "philstar.com",
-    "manila bulletin",
-    "mb.com.ph",
-    "rappler",
-    "cnn philippines",
-    "abs-cbn news",
-    "abs-cbn",
-    "one news",
-    "business mirror",
-    "businessmirror",
-    "businessworld",
-    "business world",
-    "mindanews",
-    "sunstar",
-    "sunstar cebu",
-    "daily tribune",
-    "manila standard",
-    "malaya business insight",
-    "interaksyon",
-    "reuters",
-    "associated press",
-    "ap",
-]);
-
-// ═══════════════════════════════════════════════════════════════
-// LAYER 2 — TRUSTED ARTICLE DOMAINS
-// ───────────────────────────────────────────────────────────────
-// For sources whose RSS links go directly to the article
-// (not through a Google News redirect), we also check the domain.
-// Google News redirect URLs (news.google.com/...) bypass domain
-// check since we can't resolve them without an extra HTTP call —
-// they fall back to the publisher name check instead.
-// ═══════════════════════════════════════════════════════════════
-const TRUSTED_DOMAINS = new Set([
-    // Government
-    "bsp.gov.ph",
-    "cicc.gov.ph",
-    "pnp.gov.ph",
-    "acg.pnp.gov.ph",
-    "nbi.gov.ph",
-    "dict.gov.ph",
-    "sec.gov.ph",
-    "dti.gov.ph",
-    "amlc.gov.ph",
-    "pia.gov.ph",
-    "pna.gov.ph",
-    "doj.gov.ph",
-
-    // Reliable news
-    "inquirer.net",
-    "newsinfo.inquirer.net",
-    "technology.inquirer.net",
-    "gmanetwork.com",
-    "news.gmanetwork.com",
-    "philstar.com",
-    "mb.com.ph",
-    "rappler.com",
-    "cnnphilippines.com",
-    "abs-cbn.com",
-    "news.abs-cbn.com",
-    "onenews.ph",
-    "businessmirror.com.ph",
-    "bworldonline.com",
-    "mindanews.com",
-    "sunstar.com.ph",
-    "tribune.net.ph",
-    "manilastandard.net",
-    "malaya.com.ph",
-    "interaksyon.com",
-    "reuters.com",
-    "apnews.com",
-
-    // Google News redirect — domain check not applicable, handled by publisher check
-    "news.google.com",
-]);
-
-// ═══════════════════════════════════════════════════════════════
-// RSS SOURCES
-// ───────────────────────────────────────────────────────────────
-// Three tiers:
-//   A) Direct RSS from reliable outlets — most trustworthy
-//   B) Google News scoped to specific trusted gov sites
-//   C) Google News keyword search — filtered by TRUSTED_PUBLISHERS
-// ═══════════════════════════════════════════════════════════════
-const SOURCES = [
-
-    // ── A) Direct RSS from reliable PH outlets ───────────────
-    {
-        id:          "pna-direct",
-        sourceLabel: "Philippine News Agency",
-        sourceLogo:  "account_balance",
-        category:    "official",
-        url:         "https://www.pna.gov.ph/rss/headlines",
-        keywords:    ["scam","fraud","phishing","cybercrime","estafa","modus","gcash","sim swap","online","cyber"],
-        maxItems:    3,
-        directRSS:   true,  // domain already trusted — skip publisher check
-    },
-    {
-        id:          "inquirer-tech",
-        sourceLabel: "Inquirer.net",
-        sourceLogo:  "newspaper",
-        category:    "news",
-        url:         "https://technology.inquirer.net/feed",
-        keywords:    ["scam","fraud","phishing","cybercrime","estafa","gcash","sim swap"],
-        maxItems:    3,
-        directRSS:   true,
-    },
-    {
-        id:          "gma-tech",
-        sourceLabel: "GMA News",
-        sourceLogo:  "newspaper",
-        category:    "news",
-        url:         "https://www.gmanetwork.com/news/rss/technology/",
-        keywords:    ["scam","fraud","phishing","cybercrime","estafa","gcash","sim swap"],
-        maxItems:    3,
-        directRSS:   true,
-    },
-    {
-        id:          "rappler-tech",
-        sourceLabel: "Rappler",
-        sourceLogo:  "newspaper",
-        category:    "news",
-        url:         "https://www.rappler.com/technology/internet-culture/feed/",
-        keywords:    ["scam","fraud","phishing","cybercrime","philippines"],
-        maxItems:    2,
-        directRSS:   true,
-    },
-
-    // ── B) Google News scoped to trusted gov sites ───────────
-    {
-        id:          "gnews-bsp",
-        sourceLabel: "Bangko Sentral ng Pilipinas",
-        sourceLogo:  "account_balance",
-        category:    "banking",
-        url:         "https://news.google.com/rss/search?q=site:bsp.gov.ph+advisory+scam+fraud&hl=en-PH&gl=PH&ceid=PH:en",
-        keywords:    [],
-        maxItems:    3,
-        directRSS:   false,
-    },
-    {
-        id:          "gnews-sec",
-        sourceLabel: "Securities and Exchange Commission",
-        sourceLogo:  "gavel",
-        category:    "investment scam",
-        url:         "https://news.google.com/rss/search?q=site:sec.gov.ph+advisory+investment+scam&hl=en-PH&gl=PH&ceid=PH:en",
-        keywords:    [],
-        maxItems:    2,
-        directRSS:   false,
-    },
-    {
-        id:          "gnews-cicc",
-        sourceLabel: "CICC",
-        sourceLogo:  "security",
-        category:    "cybercrime",
-        url:         "https://news.google.com/rss/search?q=site:cicc.gov.ph&hl=en-PH&gl=PH&ceid=PH:en",
-        keywords:    [],
-        maxItems:    2,
-        directRSS:   false,
-    },
-
-    // ── C) Google News keyword search — publisher-filtered ───
-    {
-        id:          "gnews-scam",
-        sourceLabel: "Google News",
-        sourceLogo:  "newspaper",
-        category:    "scam",
-        url:         "https://news.google.com/rss/search?q=scam+fraud+Philippines+when:7d&hl=en-PH&gl=PH&ceid=PH:en",
-        keywords:    [],
-        maxItems:    4,
-        directRSS:   false,
-    },
-    {
-        id:          "gnews-cyber",
-        sourceLabel: "Google News",
-        sourceLogo:  "security",
-        category:    "cybercrime",
-        url:         "https://news.google.com/rss/search?q=cybercrime+phishing+gcash+Philippines+when:7d&hl=en-PH&gl=PH&ceid=PH:en",
-        keywords:    [],
-        maxItems:    3,
-        directRSS:   false,
-    },
-    {
-        id:          "gnews-pnp",
-        sourceLabel: "Google News",
-        sourceLogo:  "local_police",
-        category:    "law enforcement",
-        url:         "https://news.google.com/rss/search?q=PNP+NBI+cybercrime+arrest+Philippines+when:7d&hl=en-PH&gl=PH&ceid=PH:en",
-        keywords:    [],
-        maxItems:    3,
-        directRSS:   false,
-    },
+// Reliable & Official RSS sources based on your research
+const INTL_FEEDS = [
+    { url: "https://www.cisa.gov/cybersecurity-advisories/all.xml", label: "CISA Advisories" },
+    { url: "https://www.cisa.gov/news-events/news/rss.xml", label: "CISA News" },
+    { url: "https://www.fbi.gov/investigate/cyber/alerts/RSS", label: "FBI Cyber Alerts" },
+    { url: "https://www.ftc.gov/news-events/stay-connected/rss-feeds", label: "FTC Consumer Advice" },
+    { url: "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml", label: "NCSC UK" },
+    { url: "https://cert.europa.eu/publications/security-advisories-rss", label: "CERT-EU" },
+    { url: "https://isc.sans.edu/rssfeed_full.xml", label: "SANS ISC" },
+    { url: "https://krebsonsecurity.com/feed", label: "Krebs on Security" },
+    { url: "https://feeds.feedburner.com/TheHackersNews", label: "The Hacker News" },
+    { url: "https://www.darkreading.com/rss.xml", label: "Dark Reading" }
 ];
 
-// ── Trust checks ────────────────────────────────────────────────
-function isTrustedPublisher(publisher = "") {
-    return TRUSTED_PUBLISHERS.has(publisher.toLowerCase().trim());
-}
+const LOCAL_FEEDS = [
+    { url: "https://mastodon.social/@rssphilippinenewsagency.rss", label: "PNA (Official)" },
+    { url: "https://technology.inquirer.net/feed", label: "Inquirer (Technology)" },
+    { url: "https://globalnation.inquirer.net/feed", label: "Inquirer (Global News)" },
+    { url: "https://newsinfo.inquirer.net/feed", label: "Inquirer (Newsinfo)" },
+    { url: "https://www.gmanetwork.com/news/rss/", label: "GMA News Online" },
+    { url: "https://www.philstar.com/rss/", label: "Philstar" },
+    { url: "https://www.rappler.com/feed", label: "Rappler" },
+    { url: "https://cirt.gov.bd/feed/", label: "BGD e-GOV CIRT" }
+];
 
-function isTrustedDomain(url = "") {
-    try {
-        const hostname = new URL(url).hostname.replace(/^www\./, "");
-        return TRUSTED_DOMAINS.has(hostname);
-    } catch { return false; }
-}
-
-function isTrusted(item, source) {
-    if (source.directRSS)           return true;  // source domain already vetted
-    if (isTrustedDomain(item.link)) return true;  // direct article domain matches
-    if (isTrustedPublisher(item.publisher)) return true; // Google News publisher matches
-    return false;
-}
-
-// ── Text helpers ────────────────────────────────────────────────
-function cleanText(raw = "") {
-    return raw
-        .replace(/<[^>]+>/g, " ")
-        .replace(/&amp;/g,   "&")
-        .replace(/&lt;/g,    "<")
-        .replace(/&gt;/g,    ">")
-        .replace(/&quot;/gi, '"')
-        .replace(/&apos;|&#39;/gi, "'")
-        .replace(/&nbsp;/gi, " ")
-        .replace(/&#(\d+);/g,        (_, n) => String.fromCharCode(+n))
-        .replace(/&#x([0-9a-f]+);/gi,(_, h) => String.fromCharCode(parseInt(h, 16)))
-        .replace(/\s+/g, " ")
-        .trim();
-}
-
-function splitTitle(raw) {
-    const i = raw.lastIndexOf(" - ");
-    if (i > 10) return { headline: raw.slice(0, i).trim(), publisher: raw.slice(i + 3).trim() };
-    return { headline: raw, publisher: "" };
-}
-
-function inferSeverity(title = "") {
-    const t = title.toLowerCase();
-    if (/urgent|critical|immediate|warning|high.risk|severe|breach|hack|attack|sim.swap/.test(t)) return "high";
-    if (/reminder|advisory|notice|alert|caution|scam|fraud|phishing|estafa|modus|gcash/.test(t))  return "medium";
-    return "low";
-}
-
-function matchesKeywords(title = "", keywords = []) {
-    if (!keywords.length) return true;
-    const t = title.toLowerCase();
-    return keywords.some(kw => t.includes(kw.toLowerCase()));
-}
-
-// ── Date freshness check ────────────────────────────────────────
-function isFreshEnough(dateObj) {
-    if (isNaN(dateObj)) return false; // unparseable date = reject
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - MAX_ARTICLE_AGE_DAYS);
-    const fresh = dateObj >= cutoff;
-    return fresh;
-}
-
-function isValidUrl(str) {
-    try { return ["http:", "https:"].includes(new URL(str).protocol); }
-    catch { return false; }
-}
-
-// ── Minimal RSS parser ──────────────────────────────────────────
-function parseRSS(xml) {
-    const items  = [];
-    const blocks = xml.match(/<item[\s\S]*?<\/item>/gi) ?? [];
-
-    for (const block of blocks) {
-        const get = (tag) => {
-            const m = block.match(
-                new RegExp(`<${tag}[^>]*>(?:<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>|([\\s\\S]*?))<\\/${tag}>`, "i")
-            );
-            return m ? (m[1] ?? m[2] ?? "").trim() : "";
-        };
-
-        const rawTitle = cleanText(get("title"));
-        const link     = get("link") || get("guid");
-        const pubDate  = get("pubDate") || get("dc:date");
-
-        if (!rawTitle || !isValidUrl(link)) continue;
-
-        const { headline, publisher } = splitTitle(rawTitle);
-
-        let date = new Date().toISOString().slice(0, 10);
-        let parsedDate = new Date();
-        if (pubDate) {
-            parsedDate = new Date(pubDate);
-            if (!isNaN(parsedDate)) {
-                // Format the date nicely to "Month Name Day, Year"
-                const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-                date = parsedDate.toLocaleDateString('en-US', dateOptions);
-            }
-        }
-
-        items.push({ title: headline, publisher, link, date, rawDate: parsedDate });
-    }
-    return items;
-}
-
-// ── Fetch with retry (exponential backoff) ──────────────────────
-async function fetchWithRetry(url, options, retries = MAX_RETRIES) {
-    for (let attempt = 1; attempt <= retries; attempt++) {
+async function fetchFromFeeds(feeds, type) {
+    console.log(`Fetching ${type} alerts from official sources...`);
+    let allItems = [];
+    
+    for (const feed of feeds) {
         try {
-            const res = await fetch(url, {
-                ...options,
-                signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+            // Fake user-agent slightly to prevent 403s on strict news sites
+            const response = await fetch(feed.url, { 
+                headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }
             });
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            return res;
-        } catch (err) {
-            if (attempt === retries) throw err;
-            const delay = RETRY_DELAY_MS * Math.pow(2, attempt - 1);
-            console.warn(`  ↻ Retry ${attempt}/${retries - 1} for ${url} — ${err.message} (wait ${delay}ms)`);
-            await new Promise(r => setTimeout(r, delay));
+            if (!response.ok) {
+                console.error(`HTTP Error ${response.status} for ${feed.url}`);
+                continue;
+            }
+
+            const xmlText = await response.text();
+            // Support both RSS <item> and Atom <entry>
+            const items = [...xmlText.matchAll(/<(?:item|entry)>([\s\S]*?)<\/(?:item|entry)>/gi)];
+
+            items.forEach((itemMatch) => {
+                const block = itemMatch[1];
+                const titleRaw = (block.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || "No Title";
+                
+                const descMatch = block.match(/<description[^>]*>([\s\S]*?)<\/description>/i) 
+                               || block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i) 
+                               || block.match(/<content[^>]*>([\s\S]*?)<\/content>/i);
+                const descRaw = descMatch ? descMatch[1] : "";
+
+                const linkMatch = block.match(/<link[^>]*href=["'](.*?)["']/i) || block.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
+                const linkRaw = linkMatch ? linkMatch[1] : "#";
+
+                const dateMatch = block.match(/<(?:pubDate|published|updated|dc:date)[^>]*>([\s\S]*?)<\/(?:pubDate|published|updated|dc:date)>/i);
+                const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();
+
+                const title = titleRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").replace(/<[^>]+>/g, '').trim();
+                const desc = descRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").replace(/<[^>]+>/g, '').trim();
+                const link = linkRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").trim();
+                
+                // Strictly filter local news to ONLY cyber/scam topics (Intl feeds provide pure cyber news primarily)
+                const keywordRegex = /scam|cyber|hack|phish|fraud|breach|malware|ransomware|smishing|vishing/i;
+                const isRelevant = type === "international" || keywordRegex.test(title) || keywordRegex.test(desc);
+
+                if (isRelevant) {
+                    const dateObj = new Date(pubDate);
+                    const displayDate = isNaN(dateObj)
+                        ? "Recently"
+                        : dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
+                    // Find base domain for the logo
+                    let domainIcon = "https://icons.duckduckgo.com/ip3/news.google.com.ico"; // Fallback
+                    try {
+                        const urlObj = new URL(feed.url);
+                        domainIcon = `https://icons.duckduckgo.com/ip3/${urlObj.hostname.replace("feeds.feedburner.com", "thehackernews.com")}.ico`;
+                    } catch(e) {}
+
+                    allItems.push({
+                        id: `alert-${type}-${Date.now()}-${Math.random().toString(36).substring(7)}`,
+                        title: title,
+                        url: link,
+                        source: feed.label,
+                        sourceLabel: feed.label,
+                        sourceLogo: "newspaper",
+                        category: "cybercrime",
+                        severity: "medium",
+                        date: displayDate,
+                        rawDate: isNaN(dateObj) ? new Date().toISOString() : dateObj.toISOString(),
+                        logo: domainIcon,
+                        scope: type
+                    });
+                }
+            });
+        } catch (error) {
+            console.error(`Failed fetching from ${feed.url}:`, error.message);
         }
     }
+
+    return allItems;
 }
 
-// ── Fetch one source ────────────────────────────────────────────
-// (Fetch logic moved into main loop for brevity)
+function mergeAlerts(fetched, existing, type) {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    
+    const freshAlerts = fetched.filter(a => new Date(a.rawDate) >= sevenDaysAgo);
+    const existingType = existing.filter(a => a.scope === type);
 
-
-// ── Main ────────────────────────────────────────────────────────
-async function main() {
-    console.log("fetch-alerts: starting —", new Date().toISOString());
-    console.log(`fetch-alerts: ${TRUSTED_PUBLISHERS.size} trusted publishers | ${TRUSTED_DOMAINS.size} trusted domains`);
-
-    const results = [];
-    const errors  = [];
-
-    await Promise.allSettled(
-        SOURCES.map(async (source) => {
-            try {
-                const res = await fetchWithRetry(source.url, {
-                    headers: {
-                        "User-Agent": "PROOF-CampaignBot/1.0 (scam awareness; github.com/proof-campaign)",
-                        "Accept":     "application/rss+xml, application/xml, text/xml, */*",
-                    },
-                });
-
-                const xml = await res.text();
-                const raw = parseRSS(xml);
-
-                let rejected = 0;
-                const items = raw
-                    .filter(item => {
-                        if (!matchesKeywords(item.title, source.keywords)) return false;
-                        if (!isFreshEnough(item.rawDate)) {
-                            rejected++;
-                            return false;
-                        }
-                        if (!isTrusted(item, source)) {
-                            rejected++;
-                            return false;
-                        }
-                        return true;
-                    })
-                    .slice(0, source.maxItems)
-                    .map((item, i) => {
-                        // Extract original domain from google news if possible (naive extraction), 
-                        // fallback to checking the source title.
-                        let hostname = "news.google.com";
-                        
-                        // Give it an icon based on the publisher
-                        let logoUrl;
-                        const publisher = (item.publisher || source.sourceLabel).toLowerCase();
-                        if (publisher.includes('inquirer')) logoUrl = 'https://icons.duckduckgo.com/ip3/inquirer.net.ico';
-                        else if (publisher.includes('pna') || publisher.includes('agency')) logoUrl = 'https://icons.duckduckgo.com/ip3/pna.gov.ph.ico';
-                        else if (publisher.includes('gma')) logoUrl = 'https://icons.duckduckgo.com/ip3/gmanetwork.com.ico';
-                        else if (publisher.includes('rappler')) logoUrl = 'https://icons.duckduckgo.com/ip3/rappler.com.ico';
-                        else if (publisher.includes('cnn')) logoUrl = 'https://icons.duckduckgo.com/ip3/cnnphilippines.com.ico';
-                        else if (publisher.includes('abs-cbn')) logoUrl = 'https://icons.duckduckgo.com/ip3/abs-cbn.com.ico';
-                        else if (publisher.includes('bsp')) logoUrl = 'https://icons.duckduckgo.com/ip3/bsp.gov.ph.ico';
-                        else if (publisher.includes('nbi')) logoUrl = 'https://icons.duckduckgo.com/ip3/nbi.gov.ph.ico';
-                        else if (publisher.includes('pnp')) logoUrl = 'https://icons.duckduckgo.com/ip3/pnp.gov.ph.ico';
-                        else if (publisher.includes('sec')) logoUrl = 'https://icons.duckduckgo.com/ip3/sec.gov.ph.ico';
-                        else if (publisher.includes('standard')) logoUrl = 'https://icons.duckduckgo.com/ip3/manilastandard.net.ico';
-                        else if (publisher.includes('star')) logoUrl = 'https://icons.duckduckgo.com/ip3/philstar.com.ico';
-                        else if (publisher.includes('sun')) logoUrl = 'https://icons.duckduckgo.com/ip3/sunstar.com.ph.ico';
-                        else if (publisher.includes('bulletin')) logoUrl = 'https://icons.duckduckgo.com/ip3/mb.com.ph.ico';
-                        else if (publisher.includes('mirror')) logoUrl = 'https://icons.duckduckgo.com/ip3/businessmirror.com.ph.ico';
-                        else if (publisher.includes('world')) logoUrl = 'https://icons.duckduckgo.com/ip3/bworldonline.com.ico';
-                        else {
-                            try { hostname = new URL(item.link).hostname; } catch(e) {}
-                            logoUrl = `https://icons.duckduckgo.com/ip3/${hostname}.ico`;
-                        }
-                        
-                        return {
-                            id:          `${source.id}-${item.date}-${i}`,
-                            source:      source.directRSS ? source.sourceLabel : (item.publisher || source.sourceLabel),
-                            sourceLabel: source.directRSS ? source.sourceLabel : (item.publisher || source.sourceLabel),
-                            sourceLogo:  source.sourceLogo,
-                            category:    source.category,
-                            severity:    inferSeverity(item.title),
-                            date:        item.date,
-                            rawDate:     item.rawDate.toISOString(),
-                            title:       item.title,
-                            summary:     "Read more at the source.",
-                            url:         item.link,
-                            logo:        logoUrl
-                        };
-                    });
-
-                results.push(...items);
-                console.log(`  ✓ ${source.id} — ${items.length} trusted item(s)`);
-            } catch (err) {
-                errors.push({ source: source.id, error: err.message });
-                console.warn(`  ✗ ${source.id} — ${err.message}`);
+    const allAlertsMap = new Map();
+    [...existingType, ...freshAlerts].forEach(alert => {
+        if (!alert.rawDate) alert.rawDate = new Date(alert.date).toISOString();
+        const key = alert.title.toLowerCase().trim();
+        if (!allAlertsMap.has(key)) {
+            allAlertsMap.set(key, alert);
+        } else {
+            if (new Date(alert.rawDate) > new Date(allAlertsMap.get(key).rawDate)) {
+                allAlertsMap.set(key, alert);
             }
-        })
-    );
-
-    results.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
-
-    const seenTitles = new Set();
-    const seenUrls   = new Set();
-    const deduped    = results.filter(item => {
-        const key = item.title.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 40);
-        if (seenTitles.has(key) || seenUrls.has(item.url)) return false;
-        seenTitles.add(key);
-        seenUrls.add(item.url);
-        return true;
+        }
     });
 
-    const final = deduped.slice(0, MAX_TOTAL_ALERTS);
-
-    if (final.length === 0 && errors.length === SOURCES.length) {
-        console.warn("fetch-alerts: all sources failed — keeping existing alerts.json");
-        process.exit(0);
-    }
-
-    const output = {
-        fetchedAt:      new Date().toISOString(),
-        trustedSources: TRUSTED_PUBLISHERS.size,
-        alerts:         final,
-    };
-
-    await writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2), "utf8");
-    console.log(`fetch-alerts: wrote ${final.length} trusted alert(s) → alerts.json`);
-
-    if (errors.length) console.warn(`fetch-alerts: ${errors.length} source(s) had errors —`, errors);
-    if (final.length === 0) { console.error("fetch-alerts: no trusted alerts found."); process.exit(1); }
+    return Array.from(allAlertsMap.values())
+        .sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate))
+        .slice(0, MAX_ALERTS);
 }
 
-main().catch(err => {
-    console.error("fetch-alerts: fatal —", err);
-    process.exit(1);
-});
+async function fetchLatestAlerts() {
+    try {
+        const [localFetched, intlFetched] = await Promise.all([
+            fetchFromFeeds(LOCAL_FEEDS, "local"),
+            fetchFromFeeds(INTL_FEEDS, "international")
+        ]);
+
+        let existingLocal = [];
+        let existingIntl = [];
+        try {
+            const prevContent = await readFile(OUTPUT_PATH, "utf8");
+            const prevData = JSON.parse(prevContent);
+            const allExisting = prevData.alerts || Object.values(prevData).flat() || [];
+            existingLocal = allExisting.filter(a => a.scope === "local");
+            existingIntl = allExisting.filter(a => a.scope === "international");
+            
+            // Backwards compatibility if old structure didn't have scope
+            if (existingLocal.length === 0 && allExisting.length > 0 && !allExisting[0].scope) {
+                // assume previous were local
+                existingLocal = allExisting.map(a => ({...a, scope: "local"}));
+            }
+        } catch(e) {}
+
+        const finalLocal = mergeAlerts(localFetched, existingLocal, "local");
+        const finalIntl = mergeAlerts(intlFetched, existingIntl, "international");
+
+        const newLocalTitles = finalLocal.map(a => a.title).join("|");
+        const oldLocalTitles = existingLocal.slice(0, MAX_ALERTS).map(a => a.title).join("|");
+        const newIntlTitles = finalIntl.map(a => a.title).join("|");
+        const oldIntlTitles = existingIntl.slice(0, MAX_ALERTS).map(a => a.title).join("|");
+
+        const isUnchanged = (newLocalTitles === oldLocalTitles) && (newIntlTitles === oldIntlTitles);
+
+        if (isUnchanged && existingLocal.length > 0 && existingIntl.length > 0) {
+            console.log(`No new local or international news found within the last 7 days. Maintaining existing alerts.`);
+            process.exit(0);
+        }
+
+        const outputData = {
+            fetchedAt: new Date().toISOString(),
+            alerts: [...finalLocal, ...finalIntl]
+        };
+
+        await writeFile(OUTPUT_PATH, JSON.stringify(outputData, null, 2), "utf-8");
+        console.log(`Successfully wrote ${finalLocal.length} local and ${finalIntl.length} international alerts to ${OUTPUT_PATH}`);
+        
+    } catch (error) {
+        console.error("Error fetching alerts:", error);
+        process.exit(1); 
+    }
+}
+
+fetchLatestAlerts();

@@ -169,6 +169,7 @@ function LogoImage({ name }: { name: string }) {
 export function ScamInfoSection({ lang }: Props) {
   const t = (key: string) => translations[lang]?.[key] || translations.en[key] || key;
   const [alerts, setAlerts] = useState<any[]>(staticAlerts);
+  const [alertScope, setAlertScope] = useState<"local" | "international">("local");
 
   useEffect(() => {
     fetch("/alerts.json")
@@ -274,15 +275,35 @@ export function ScamInfoSection({ lang }: Props) {
 
           {/* Live Alerts — Redesigned as a news ticker / card grid */}
           <div className="mb-10 sm:mb-14">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-xl">notifications_active</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-3 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
+                  <span className="material-symbols-outlined text-white text-xl">notifications_active</span>
+                </div>
+                <div>
+                  <h3 className="text-[#1a1816] uppercase tracking-tight" style={{ fontWeight: 900, fontSize: "1.25rem" }}>Live Alerts</h3>
+                  <p className="text-[#5c544d] text-xs" style={{ fontWeight: 600 }}>Latest scam reports & advisories</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-[#1a1816] uppercase tracking-tight" style={{ fontWeight: 900, fontSize: "1.25rem" }}>Live Alerts</h3>
-                <p className="text-[#5c544d] text-xs" style={{ fontWeight: 600 }}>Latest scam reports & advisories in the Philippines</p>
+              
+              <div className="flex items-center bg-[#f8f7f5] rounded-full p-1 border border-[#e5ded4] sm:ml-auto">
+                <button 
+                  onClick={() => setAlertScope("local")}
+                  className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all ${alertScope === "local" ? "bg-[#0a2fad] text-white shadow-sm" : "text-[#5c544d] hover:text-[#1a1816]"}`}
+                  style={{ fontWeight: alertScope === "local" ? 800 : 700 }}
+                >
+                  Local (PH)
+                </button>
+                <button 
+                  onClick={() => setAlertScope("international")}
+                  className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all ${alertScope === "international" ? "bg-[#0a2fad] text-white shadow-sm" : "text-[#5c544d] hover:text-[#1a1816]"}`}
+                  style={{ fontWeight: alertScope === "international" ? 800 : 700 }}
+                >
+                  International
+                </button>
               </div>
-              <div className="ml-auto hidden sm:flex items-center gap-1.5">
+
+              <div className="hidden lg:flex items-center gap-1.5 ml-3">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
@@ -292,7 +313,7 @@ export function ScamInfoSection({ lang }: Props) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {alerts.slice(0, 6).map((alert) => (
+              {alerts.filter(a => a.scope === alertScope || (!a.scope && alertScope === "local")).slice(0, 6).map((alert) => (
                 <a
                   key={alert.id}
                   href={alert.url}
