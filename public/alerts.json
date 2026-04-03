@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-03T14:37:19.193Z",
+  "fetchedAt": "2026-04-03T16:02:59.933Z",
   "trustedSources": 48,
   "alerts": [
     {
@@ -31,7 +31,7 @@
       "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
     },
     {
-      "id": "gnews-scam-April 1, 2026-0",
+      "id": "gnews-scam-April 1, 2026-1",
       "source": "WalasTech",
       "sourceLabel": "WalasTech",
       "sourceLogo": "newspaper",
@@ -45,13 +45,13 @@
       "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
     },
     {
-      "id": "gnews-scam-April 1, 2026-3",
+      "id": "gnews-scam-March 31, 2026-3",
       "source": "Inquirer.net",
       "sourceLabel": "Inquirer.net",
       "sourceLogo": "newspaper",
       "category": "scam",
       "severity": "medium",
-      "date": "April 1, 2026",
+      "date": "March 31, 2026",
       "rawDate": "2026-03-31T18:07:00.000Z",
       "title": "SEC sues group selling ‘access’ to Marcos wealth for fraudulent investments",
       "summary": "Read more at the source.",
@@ -73,7 +73,7 @@
       "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
     },
     {
-      "id": "gnews-scam-March 28, 2026-1",
+      "id": "gnews-scam-March 28, 2026-0",
       "source": "Travel And Tour World",
       "sourceLabel": "Travel And Tour World",
       "sourceLogo": "newspaper",
