@@ -40,5 +40,5 @@ The platform relies on a zero-dependency script run hourly via GitHub Actions (`
    ```
 
 ---
-*Design originally generated from [Figma](https://www.figma.com/design/bVamNm31ntWSrQz4POl6ZL/Review-project-attachments).*
+*Design originally generated from [Figma].*
   

@@ -133,7 +133,7 @@ export default function App() {
 
                 <div className="bg-[#f8f7f5] border border-[#e5ded4] rounded-xl p-4 sm:p-5">
                   <p className="text-[#5c544d] text-xs sm:text-sm" style={{ fontWeight: 500 }}>
-                    Last updated: April 2, 2026. If you have questions about these terms, please contact the P.R.O.O.F. campaign team.
+                    Last updated: April 2026. If you have questions about these terms, please contact the P.R.O.O.F. campaign team.
                   </p>
                 </div>
               </div>
