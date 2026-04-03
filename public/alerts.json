@@ -1,7 +1,34 @@
 {
-  "fetchedAt": "2026-04-03T17:26:26.638Z",
-  "trustedSources": 48,
+  "fetchedAt": "2026-04-03T19:20:47.780Z",
   "alerts": [
+    {
+      "id": "alert-local-1775244043784-povjvh",
+      "title": "Sri Lanka arrests 152 in alleged Chinese-run cyberscam",
+      "url": "https://globalnation.inquirer.net/316803/sri-lanka-arrests-152-in-alleged-chinese-run-cyberscam",
+      "source": "Inquirer (Global News)",
+      "sourceLabel": "Inquirer (Global News)",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 4, 2026",
+      "rawDate": "2026-04-04T03:19:02.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/globalnation.inquirer.net.ico",
+      "scope": "local"
+    },
+    {
+      "id": "alert-local-1775244046404-sfh4so",
+      "title": "Singapore charges 1 more individual with AI chip fraud",
+      "url": "https://www.rappler.com/technology/singapore-charges-jenny-lim-artificial-intelligence-chip-fraud/",
+      "source": "Rappler",
+      "sourceLabel": "Rappler",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 3, 2026",
+      "rawDate": "2026-04-03T07:03:46.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.rappler.com.ico",
+      "scope": "local"
+    },
     {
       "id": "gnews-cyber-April 3, 2026-1",
       "source": "Manila Standard",
@@ -14,7 +41,22 @@
       "title": "GCash warns users against scams during Holy Week",
       "summary": "Read more at the source.",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPUFBmcXRlQ0VoNm4tSDRnX1ZNNXNGTF9GZVdJbUhCaVRsMmU2RlpyTHByY2RtQURCUmlhMlRqaGU4Z0p3M3VmUVdxVmR2LTZPWTNNbW5oakNUSlhSUTQ5Mk5SejdkUXNaQVVITTc0NkpPT05HcmZZVGVpOER6YnljUW1nQnhlbHhUemZrVi1ZNHBnbGRvemxaTVJER3pxWW1Tbk1xbTNVai02MnJYM2dV?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/manilastandard.net.ico"
+      "logo": "https://icons.duckduckgo.com/ip3/manilastandard.net.ico",
+      "scope": "local"
+    },
+    {
+      "id": "alert-local-1775244043008-gn9yjp",
+      "title": "Opinion: The gamers are wrong, Roblox doesn’t deserve the benefit of the doubt",
+      "url": "https://technology.inquirer.net/145853/roblox-philippines-ban",
+      "source": "Inquirer (Technology)",
+      "sourceLabel": "Inquirer (Technology)",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 2, 2026",
+      "rawDate": "2026-04-02T20:30:41.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/technology.inquirer.net.ico",
+      "scope": "local"
     },
     {
       "id": "gnews-scam-April 1, 2026-3",
@@ -28,7 +70,8 @@
       "title": "Four foreigners nabbed by BI over fraud, other illegal activities",
       "summary": "Read more at the source.",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNS1RnWnpYczdMVHp3eEdLc3JjblZKREQ4bGdSUXVqUDhyZ0t6WG4yRDFRaWtlbkFqd0xUWjF6Rm9DNkJRSG12ZjdqSlJuQXFkbFNWWVI4WlRPenp4enF6emNKakhJRWd2VUJ6SV9sVWljRnk4TWFzSHFxRFJTdG1LZTg5VTFIRU9ydUx3MTROQmhQRFZ4cl8xa0hQQWhoQ1JfWFBISkFRWUvSAa4BQVVfeXFMTW1BaWlWYm14a1Q3NTFiOVQ0V3FsMV9mbWh6NThjOW9VY1hqbEZlZV9TcDUxa2RsZlZ2RlhFTGNDUjVBbzV4dFZuc1p0dmtPRTVpX2lDUzJtS1dRLVRSbWt1NzV5d0cxNHFuQnBYS1g5YzgtbkJVQVN6X2Vud1BHVDRkZ3pfUVpHTFJKN25qRm5NZjJSNF9fNVF1Zk1qNEd4U3hzRnFUZ3FFVHlxZnJ3?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/inquirer.net.ico"
+      "logo": "https://icons.duckduckgo.com/ip3/inquirer.net.ico",
+      "scope": "local"
     },
     {
       "id": "gnews-cyber-April 1, 2026-0",
@@ -42,49 +85,92 @@
       "title": "GCash urges vigilance against online scams and fraud this Holy Week",
       "summary": "Read more at the source.",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeEVEODNUU0ZqNEhpVjRiQ1MwMzkxNnVmZ21GMU5adERpdmxxdVdQM09UQkJOMmFiNVdiMUlRcGFZaFRGY2Eya3lxaUdaYWRwM3FrS3VSaUNuSFNwTi0yeVVQcU1pTGV6eTc5OHE5bHZTcHAtWHIwS3MxQkpLazhJYlR6VUdTV0lXb1ZMUlQ4MG5Hci1YWFhNeU1ZYjVETW1wQ2NB?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
+      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico",
+      "scope": "local"
     },
     {
-      "id": "gnews-scam-April 1, 2026-0",
-      "source": "WalasTech",
-      "sourceLabel": "WalasTech",
+      "id": "alert-international-1775244046205-s6vetf",
+      "title": "Black Hat USA",
+      "url": "https://www.darkreading.com/events/black-hat-usa",
+      "source": "Dark Reading",
+      "sourceLabel": "Dark Reading",
       "sourceLogo": "newspaper",
-      "category": "scam",
+      "category": "cybercrime",
       "severity": "medium",
-      "date": "April 1, 2026",
-      "rawDate": "2026-04-01T08:39:32.000Z",
-      "title": "BPI reminds Filipinos to stay alert vs scams this Holy Week",
-      "summary": "Read more at the source.",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNTIxMjRaNFIyWkVsX19qMHdJVjU3cHJLWGlGQXBKZ2diQ0dtbW5JZndwY1BkQUdjQUp2dm82MUtwWS1abnVfVEVja01BME1hVHVrcDNNSkpMdXJNbV82UnJLQWRKU3hnaEZqd3ZrZk5LVFVOVW1SRVNJcE9tRXNqZjRzcFVMWWl1NGJpRFhVZFM?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
+      "date": "August 1, 2026",
+      "rawDate": "2026-08-01T11:00:00.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.darkreading.com.ico",
+      "scope": "international"
     },
     {
-      "id": "gnews-scam-March 31, 2026-2",
-      "source": "Newsbytes.PH",
-      "sourceLabel": "Newsbytes.PH",
+      "id": "alert-international-1775244044785-8fzac",
+      "title": "2026-004: Critical Vulnerability in SharePoint Exploited",
+      "url": "https://cert.europa.eu/publications/security-advisories/2026-004/",
+      "source": "CERT-EU",
+      "sourceLabel": "CERT-EU",
       "sourceLogo": "newspaper",
-      "category": "scam",
+      "category": "cybercrime",
       "severity": "medium",
-      "date": "March 31, 2026",
-      "rawDate": "2026-03-31T04:47:58.000Z",
-      "title": "BPI warns of scams during Holy Week, April Fool’s Day",
-      "summary": "Read more at the source.",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNQzBTd0g1bElkN0dXV2l6RVd5OWdvWWVJcjhnTEg5b2JXaHhRTXlMcy1VYjJ0WU1jLXU4SlUtSVh3TDJocnFtSXZDdno2c1g5b29telVSMWhrcUltRGNUc24yMjVuZS03Sm9WY1Z1dERjM2x0dlFEQmk0Y0NLM2NPb2VYSTRTMWVFcnZSYg?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
+      "date": "Recently",
+      "rawDate": "2026-04-03T19:20:44.785Z",
+      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
+      "scope": "international"
     },
     {
-      "id": "gnews-scam-March 28, 2026-1",
-      "source": "Travel And Tour World",
-      "sourceLabel": "Travel And Tour World",
+      "id": "alert-international-1775244044785-scx5p",
+      "title": "2026-003: Multiple Vulnerabilities in Citrix NetScaler and Citrix ADC",
+      "url": "https://cert.europa.eu/publications/security-advisories/2026-003/",
+      "source": "CERT-EU",
+      "sourceLabel": "CERT-EU",
       "sourceLogo": "newspaper",
-      "category": "scam",
+      "category": "cybercrime",
       "severity": "medium",
-      "date": "March 28, 2026",
-      "rawDate": "2026-03-28T06:59:25.000Z",
-      "title": "Alarming Rise of Online Hotel Booking Scams in the Philippines Threatens Cebu and Bohol Tourism, Putting Travelers’ Vacation Plans at Risk — Here’s Everything You Need to Know",
-      "summary": "Read more at the source.",
-      "url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxQYllZY2VTWUNrb2JrNTdHQldMZFpTX2pfWEtSZ20tR0xjN1hVVDBTQ1oybDRZQXQ0ZklzSko5bm9IY1E4T2dEdXBxVm4yNTFaYW42WnRDRDl6eExBY0JYWTZyZjRWbjdKUkpnV010VmNCYlluM2JmTmhxN29yNWl1THltZ1Q5T2hGMGdvaTVWby1CdjJQS1YtMWxyMi1RbHdXY3FrZ2w4YVlYQmpkaGNYS0NTWTczTThpM0dscU9jNHdEbFFJQVhiZDRwMzUxeWtjNTVaSV9sdVJxRWowR2VPQWM3a3hLR29yUmVGZjdWMXNsOXBqY0doOEptTEhBc0NfYU5QT0JnS0NGRVNjd1RnaXRxb1RhYXI3VFRkYUxpeWxOcW1WaFc0OFVZaF8yeHgybmYtZWJndXVLMldCSVpxdg?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/bworldonline.com.ico"
+      "date": "Recently",
+      "rawDate": "2026-04-03T19:20:44.785Z",
+      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
+      "scope": "international"
+    },
+    {
+      "id": "alert-international-1775244044785-qj3cpa",
+      "title": "2026-002: Multiple Vulnerabilities in Cisco Products",
+      "url": "https://cert.europa.eu/publications/security-advisories/2026-002/",
+      "source": "CERT-EU",
+      "sourceLabel": "CERT-EU",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "Recently",
+      "rawDate": "2026-04-03T19:20:44.785Z",
+      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
+      "scope": "international"
+    },
+    {
+      "id": "alert-international-1775244044785-d3jww",
+      "title": "2026-001: Critical vulnerabilities in Ivanti EPMM",
+      "url": "https://cert.europa.eu/publications/security-advisories/2026-001/",
+      "source": "CERT-EU",
+      "sourceLabel": "CERT-EU",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "Recently",
+      "rawDate": "2026-04-03T19:20:44.785Z",
+      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
+      "scope": "international"
+    },
+    {
+      "id": "alert-international-1775244044785-vu9th9",
+      "title": "2025-042: Critical Vulnerability in Cisco Secure Email and Web Manager",
+      "url": "https://cert.europa.eu/publications/security-advisories/2025-042/",
+      "source": "CERT-EU",
+      "sourceLabel": "CERT-EU",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "Recently",
+      "rawDate": "2026-04-03T19:20:44.785Z",
+      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
+      "scope": "international"
     }
   ]
 }
