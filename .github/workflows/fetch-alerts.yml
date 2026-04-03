@@ -6,7 +6,7 @@
 # GitHub Pages picks up the new file automatically on next deploy.
 # ═══════════════════════════════════════════════════════════════
 
-name: Refresh Scam Alerts
+name: automated alert scam
 
 on:
   schedule:
