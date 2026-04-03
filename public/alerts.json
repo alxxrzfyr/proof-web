@@ -1,0 +1,90 @@
+{
+  "fetchedAt": "2026-04-03T14:37:19.193Z",
+  "trustedSources": 48,
+  "alerts": [
+    {
+      "id": "gnews-cyber-April 3, 2026-1",
+      "source": "Manila Standard",
+      "sourceLabel": "Manila Standard",
+      "sourceLogo": "security",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 3, 2026",
+      "rawDate": "2026-04-03T03:58:33.000Z",
+      "title": "GCash warns users against scams during Holy Week",
+      "summary": "Read more at the source.",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPUFBmcXRlQ0VoNm4tSDRnX1ZNNXNGTF9GZVdJbUhCaVRsMmU2RlpyTHByY2RtQURCUmlhMlRqaGU4Z0p3M3VmUVdxVmR2LTZPWTNNbW5oakNUSlhSUTQ5Mk5SejdkUXNaQVVITTc0NkpPT05HcmZZVGVpOER6YnljUW1nQnhlbHhUemZrVi1ZNHBnbGRvemxaTVJER3pxWW1Tbk1xbTNVai02MnJYM2dV?oc=5",
+      "logo": "https://icons.duckduckgo.com/ip3/manilastandard.net.ico"
+    },
+    {
+      "id": "gnews-cyber-April 1, 2026-0",
+      "source": "Mindanao Times",
+      "sourceLabel": "Mindanao Times",
+      "sourceLogo": "security",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 1, 2026",
+      "rawDate": "2026-04-01T09:15:31.000Z",
+      "title": "GCash urges vigilance against online scams and fraud this Holy Week",
+      "summary": "Read more at the source.",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeEVEODNUU0ZqNEhpVjRiQ1MwMzkxNnVmZ21GMU5adERpdmxxdVdQM09UQkJOMmFiNVdiMUlRcGFZaFRGY2Eya3lxaUdaYWRwM3FrS3VSaUNuSFNwTi0yeVVQcU1pTGV6eTc5OHE5bHZTcHAtWHIwS3MxQkpLazhJYlR6VUdTV0lXb1ZMUlQ4MG5Hci1YWFhNeU1ZYjVETW1wQ2NB?oc=5",
+      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
+    },
+    {
+      "id": "gnews-scam-April 1, 2026-0",
+      "source": "WalasTech",
+      "sourceLabel": "WalasTech",
+      "sourceLogo": "newspaper",
+      "category": "scam",
+      "severity": "medium",
+      "date": "April 1, 2026",
+      "rawDate": "2026-04-01T08:39:32.000Z",
+      "title": "BPI reminds Filipinos to stay alert vs scams this Holy Week",
+      "summary": "Read more at the source.",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNTIxMjRaNFIyWkVsX19qMHdJVjU3cHJLWGlGQXBKZ2diQ0dtbW5JZndwY1BkQUdjQUp2dm82MUtwWS1abnVfVEVja01BME1hVHVrcDNNSkpMdXJNbV82UnJLQWRKU3hnaEZqd3ZrZk5LVFVOVW1SRVNJcE9tRXNqZjRzcFVMWWl1NGJpRFhVZFM?oc=5",
+      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
+    },
+    {
+      "id": "gnews-scam-April 1, 2026-3",
+      "source": "Inquirer.net",
+      "sourceLabel": "Inquirer.net",
+      "sourceLogo": "newspaper",
+      "category": "scam",
+      "severity": "medium",
+      "date": "April 1, 2026",
+      "rawDate": "2026-03-31T18:07:00.000Z",
+      "title": "SEC sues group selling ‘access’ to Marcos wealth for fraudulent investments",
+      "summary": "Read more at the source.",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOQTZRUFlsVmJ2blFrWDRXMFFtYTdNMFBHRVZYWE1Ob3ZlMThfNzVXNHJQR0JMSVY0c1F4Tm1VVGx4cWNUUHktWk9JczJfa1NDN1JEbnl6c29lMmhMYlZOU0xDWGJ2aElFaFo3SmFSVmZyc3JGZ1RfSFZZMW5rbldzVkFDOV9acnVaTHpHOWxYZGJ5QlJKNkZ1anBSM052amZfNFJUZ0hBSk11NTFIY1FlTkNUM0LSAbQBQVVfeXFMTkE2UVBZbFZidm5Ra1g0VzBRbWE3TTBQR0VWWFhNTm92ZTE4Xzc1VzRyUEdCTElWNHNReE5tVVRseHFjVFB5LVpPSXMyX2tTQzdSRG55enNvZTJoTGJWTlNMQ1hidmhJRWhaN0phUlZmcnNyRmdUX0hWWTFua25Xc1ZBQzlfWnJ1Wkx6RzlsWGRieUJSSjZGdWpwUjNOdmpmXzRSVGdIQUpNdTUxSGNRZU5DVDNC?oc=5",
+      "logo": "https://icons.duckduckgo.com/ip3/inquirer.net.ico"
+    },
+    {
+      "id": "gnews-scam-March 31, 2026-2",
+      "source": "Newsbytes.PH",
+      "sourceLabel": "Newsbytes.PH",
+      "sourceLogo": "newspaper",
+      "category": "scam",
+      "severity": "medium",
+      "date": "March 31, 2026",
+      "rawDate": "2026-03-31T04:47:58.000Z",
+      "title": "BPI warns of scams during Holy Week, April Fool’s Day",
+      "summary": "Read more at the source.",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNQzBTd0g1bElkN0dXV2l6RVd5OWdvWWVJcjhnTEg5b2JXaHhRTXlMcy1VYjJ0WU1jLXU4SlUtSVh3TDJocnFtSXZDdno2c1g5b29telVSMWhrcUltRGNUc24yMjVuZS03Sm9WY1Z1dERjM2x0dlFEQmk0Y0NLM2NPb2VYSTRTMWVFcnZSYg?oc=5",
+      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico"
+    },
+    {
+      "id": "gnews-scam-March 28, 2026-1",
+      "source": "Travel And Tour World",
+      "sourceLabel": "Travel And Tour World",
+      "sourceLogo": "newspaper",
+      "category": "scam",
+      "severity": "medium",
+      "date": "March 28, 2026",
+      "rawDate": "2026-03-28T06:59:25.000Z",
+      "title": "Alarming Rise of Online Hotel Booking Scams in the Philippines Threatens Cebu and Bohol Tourism, Putting Travelers’ Vacation Plans at Risk — Here’s Everything You Need to Know",
+      "summary": "Read more at the source.",
+      "url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxQYllZY2VTWUNrb2JrNTdHQldMZFpTX2pfWEtSZ20tR0xjN1hVVDBTQ1oybDRZQXQ0ZklzSko5bm9IY1E4T2dEdXBxVm4yNTFaYW42WnRDRDl6eExBY0JYWTZyZjRWbjdKUkpnV010VmNCYlluM2JmTmhxN29yNWl1THltZ1Q5T2hGMGdvaTVWby1CdjJQS1YtMWxyMi1RbHdXY3FrZ2w4YVlYQmpkaGNYS0NTWTczTThpM0dscU9jNHdEbFFJQVhiZDRwMzUxeWtjNTVaSV9sdVJxRWowR2VPQWM3a3hLR29yUmVGZjdWMXNsOXBqY0doOEptTEhBc0NfYU5QT0JnS0NGRVNjd1RnaXRxb1RhYXI3VFRkYUxpeWxOcW1WaFc0OFVZaF8yeHgybmYtZWJndXVLMldCSVpxdg?oc=5",
+      "logo": "https://icons.duckduckgo.com/ip3/bworldonline.com.ico"
+    }
+  ]
+}

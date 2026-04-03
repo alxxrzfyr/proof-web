@@ -1,0 +1,138 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 18px;
+  --background: #f4f1ea;
+  --foreground: #1a1816;
+  --text-body: clamp(1.1rem, 0.5vw + 1rem, 1.35rem);
+  --text-h1: clamp(2.5rem, 2vw + 1.75rem, 4rem);
+  --text-h2: clamp(2rem, 1.5vw + 1.5rem, 3rem);
+  --text-h3: clamp(1.65rem, 1vw + 1.25rem, 2.5rem);
+  --text-h4: clamp(1.35rem, 1vw + 1.1rem, 1.9rem);
+}
+
+@theme inline {
+  --color-city-blue: #0a2fad;
+  --color-birdhouse-brown: #4a3224;
+  --color-nano-white: #f4f1ea;
+  --color-modest-white: #e5ded4;
+  --color-brownish-black: #1a1816;
+  --color-pure-white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.75;
+  overflow-x: hidden;
+  background-color: #f4f1ea;
+  color: #1a1816;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-sleek {
+  font-family: 'Google Sans Flex', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* Accessibility */
+html.a11y-large-text {
+  --text-body: clamp(1.35rem, 0.7vw + 1.25rem, 1.65rem);
+  --text-h1: clamp(3rem, 2.5vw + 2.25rem, 5rem);
+  --text-h2: clamp(2.5rem, 2vw + 2rem, 3.75rem);
+  --text-h3: clamp(2rem, 1.5vw + 1.5rem, 3rem);
+  --text-h4: clamp(1.65rem, 1.2vw + 1.25rem, 2.25rem);
+}
+
+html.a11y-high-contrast {
+  filter: contrast(150%) saturate(150%) !important;
+}
+
+html.a11y-grayscale {
+  filter: grayscale(100%) !important;
+}
+
+html.a11y-readable-font *:not(.material-symbols-outlined) {
+  font-family: Arial, Helvetica, sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  line-height: 1.8 !important;
+}
+
+html.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 4px !important;
+}
+
+html.a11y-reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+html.a11y-big-cursor, html.a11y-big-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M5.5 2L18.5 13.5L12 14.5L15.5 21.5L13.5 22.5L10 15.5L5.5 21L5.5 2Z" fill="%23000" stroke="%23FFF" stroke-width="1.5"/></svg>'), auto !important;
+}
+
+html.a11y-protanopia {
+  filter: url('#protanopia') !important;
+}
+
+html.a11y-deuteranopia {
+  filter: url('#deuteranopia') !important;
+}
+
+html.a11y-tritanopia {
+  filter: url('#tritanopia') !important;
+}

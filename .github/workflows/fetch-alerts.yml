@@ -1,0 +1,61 @@
+# .github/workflows/fetch-alerts.yml
+# ═══════════════════════════════════════════════════════════════
+# Runs every 2 hours to keep the scam alerts feed updated.
+# Executes fetch-alerts.js → rewrites alerts.json →
+# commits and pushes the change back to the repo.
+# GitHub Pages picks up the new file automatically on next deploy.
+# ═══════════════════════════════════════════════════════════════
+
+name: Refresh Scam Alerts
+
+on:
+  schedule:
+    - cron: "0 * * * *"     # Every 1 hour
+  workflow_dispatch:          # Manual trigger from Actions tab
+
+# ── Prevent overlapping runs ────────────────────────────────────
+# If a new run is triggered while one is already in progress,
+# cancel the in-progress run and start fresh.
+concurrency:
+  group: refresh-scam-alerts
+  cancel-in-progress: true
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10       # Kill the job if it hangs > 10 min
+
+    permissions:
+      contents: write         # Needed to push updated alerts.json
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ── Node 24 (Node 20 removed Sep 2026) ──────────────────
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Fetch latest scam alerts
+        id: fetch
+        run: node fetch-alerts.js
+
+      - name: Commit & push alerts.json if changed
+        run: |
+          git config user.name  "PROOF Alert Bot"
+          git config user.email "alerts-bot@users.noreply.github.com"
+          git add public/alerts.json
+          git diff --cached --quiet \
+            || git commit -m "chore: refresh scam alerts [skip ci]"
+          git push
+
+      # ── Notify on failure (optional: add your webhook URL) ───
+      # Uncomment and set DISCORD_WEBHOOK in repo secrets to enable.
+      # - name: Notify on failure
+      #   if: failure()
+      #   run: |
+      #     curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
+      #       -H "Content-Type: application/json" \
+      #       -d '{"content":"⚠️ **PROOF Alert Bot** — fetch-alerts workflow failed! Check GitHub Actions."}'
