@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-03T19:20:47.780Z",
+  "fetchedAt": "2026-04-04T01:18:56.722Z",
   "alerts": [
     {
       "id": "alert-local-1775244043784-povjvh",
@@ -13,6 +13,20 @@
       "date": "April 4, 2026",
       "rawDate": "2026-04-04T03:19:02.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/globalnation.inquirer.net.ico",
+      "scope": "local"
+    },
+    {
+      "id": "alert-local-1775265534870-axv3co",
+      "title": "[Vantage Point] The P1-billion layer in the LTO DBP-DCI insurance certificate system",
+      "url": "https://www.rappler.com/voices/thought-leaders/vantage-point-lto-motor-vehicle-certificate-dbp-dci-insurance/",
+      "source": "Rappler",
+      "sourceLabel": "Rappler",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 4, 2026",
+      "rawDate": "2026-04-04T00:00:00.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.rappler.com.ico",
       "scope": "local"
     },
     {
@@ -74,21 +88,6 @@
       "scope": "local"
     },
     {
-      "id": "gnews-cyber-April 1, 2026-0",
-      "source": "Mindanao Times",
-      "sourceLabel": "Mindanao Times",
-      "sourceLogo": "security",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 1, 2026",
-      "rawDate": "2026-04-01T09:15:31.000Z",
-      "title": "GCash urges vigilance against online scams and fraud this Holy Week",
-      "summary": "Read more at the source.",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeEVEODNUU0ZqNEhpVjRiQ1MwMzkxNnVmZ21GMU5adERpdmxxdVdQM09UQkJOMmFiNVdiMUlRcGFZaFRGY2Eya3lxaUdaYWRwM3FrS3VSaUNuSFNwTi0yeVVQcU1pTGV6eTc5OHE5bHZTcHAtWHIwS3MxQkpLazhJYlR6VUdTV0lXb1ZMUlQ4MG5Hci1YWFhNeU1ZYjVETW1wQ2NB?oc=5",
-      "logo": "https://icons.duckduckgo.com/ip3/news.google.com.ico",
-      "scope": "local"
-    },
-    {
       "id": "alert-international-1775244046205-s6vetf",
       "title": "Black Hat USA",
       "url": "https://www.darkreading.com/events/black-hat-usa",
@@ -103,7 +102,7 @@
       "scope": "international"
     },
     {
-      "id": "alert-international-1775244044785-8fzac",
+      "id": "alert-international-1775265535319-4hwxvm",
       "title": "2026-004: Critical Vulnerability in SharePoint Exploited",
       "url": "https://cert.europa.eu/publications/security-advisories/2026-004/",
       "source": "CERT-EU",
@@ -112,12 +111,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-03T19:20:44.785Z",
+      "rawDate": "2026-04-04T01:18:55.319Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775244044785-scx5p",
+      "id": "alert-international-1775265535319-6a7gu",
       "title": "2026-003: Multiple Vulnerabilities in Citrix NetScaler and Citrix ADC",
       "url": "https://cert.europa.eu/publications/security-advisories/2026-003/",
       "source": "CERT-EU",
@@ -126,12 +125,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-03T19:20:44.785Z",
+      "rawDate": "2026-04-04T01:18:55.319Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775244044785-qj3cpa",
+      "id": "alert-international-1775265535319-zavw09",
       "title": "2026-002: Multiple Vulnerabilities in Cisco Products",
       "url": "https://cert.europa.eu/publications/security-advisories/2026-002/",
       "source": "CERT-EU",
@@ -140,12 +139,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-03T19:20:44.785Z",
+      "rawDate": "2026-04-04T01:18:55.319Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775244044785-d3jww",
+      "id": "alert-international-1775265535319-31gkss",
       "title": "2026-001: Critical vulnerabilities in Ivanti EPMM",
       "url": "https://cert.europa.eu/publications/security-advisories/2026-001/",
       "source": "CERT-EU",
@@ -154,12 +153,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-03T19:20:44.785Z",
+      "rawDate": "2026-04-04T01:18:55.319Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775244044785-vu9th9",
+      "id": "alert-international-1775265535319-0zrx1g",
       "title": "2025-042: Critical Vulnerability in Cisco Secure Email and Web Manager",
       "url": "https://cert.europa.eu/publications/security-advisories/2025-042/",
       "source": "CERT-EU",
@@ -168,7 +167,7 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-03T19:20:44.785Z",
+      "rawDate": "2026-04-04T01:18:55.319Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     }
