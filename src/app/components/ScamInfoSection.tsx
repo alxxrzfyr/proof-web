@@ -2,16 +2,22 @@ import { useState, useEffect } from "react";
 import { scamTypes, quickJumpPills, alerts as staticAlerts, type Lang, translations } from "./data";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+// Add these imports (adjust the paths if the exact filenames differ)
+import bspLogo from "@/assets/backgrounds/bsp-logo.png";
+import ciccLogo from "@/assets/backgrounds/cicc.png";
+import nbiLogo from "@/assets/backgrounds/nbi.png";
+import pnpAcgLogo from "@/assets/backgrounds/pnp-acg-logo.png";
+
 interface Props {
   lang: Lang;
 }
 
 // Official logo URLs (using clearbit for logos)
 const resourceLogos: Record<string, string> = {
-  CICC: "https://logo.clearbit.com/cicc.gov.ph",
-  "NBI-CCD": "https://logo.clearbit.com/nbi.gov.ph",
-  BSP: "https://logo.clearbit.com/bsp.gov.ph",
-  "PNP-ACG": "https://logo.clearbit.com/pnp.gov.ph",
+  CICC: ciccLogo,
+  "NBI-CCD": nbiLogo,
+  BSP: bspLogo,
+  "PNP-ACG": pnpAcgLogo,
 };
 
 function ScamExampleCard({ tab, index }: { tab: any; index: number }) {
