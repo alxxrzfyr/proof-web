@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-04T06:49:34.793Z",
+  "fetchedAt": "2026-04-04T16:24:41.011Z",
   "alerts": [
     {
       "id": "alert-local-1775244043784-povjvh",
@@ -102,7 +102,21 @@
       "scope": "international"
     },
     {
-      "id": "alert-international-1775285371016-gltnwh",
+      "id": "alert-international-1775319879723-dc3o6a4",
+      "title": "2025-037: Multiple Vulnerabilities in F5 Products",
+      "url": "https://cert.europa.eu/publications/security-advisories/2025-037/",
+      "source": "CERT-EU",
+      "sourceLabel": "CERT-EU",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "Recently",
+      "rawDate": "2026-04-04T16:24:39.723Z",
+      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
+      "scope": "international"
+    },
+    {
+      "id": "alert-international-1775319879722-z5ixvh",
       "title": "2025-042: Critical Vulnerability in Cisco Secure Email and Web Manager",
       "url": "https://cert.europa.eu/publications/security-advisories/2025-042/",
       "source": "CERT-EU",
@@ -111,12 +125,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-04T06:49:31.016Z",
+      "rawDate": "2026-04-04T16:24:39.722Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775285371016-n67188",
+      "id": "alert-international-1775319879722-9dn95",
       "title": "2025-041: Critical Security Vulnerability in React Server Components",
       "url": "https://cert.europa.eu/publications/security-advisories/2025-041/",
       "source": "CERT-EU",
@@ -125,12 +139,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-04T06:49:31.016Z",
+      "rawDate": "2026-04-04T16:24:39.722Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775285371016-mvk2iv",
+      "id": "alert-international-1775319879722-jbs309",
       "title": "2025-040: Critical Vulnerability in Windows Server Update Service (WSUS)",
       "url": "https://cert.europa.eu/publications/security-advisories/2025-040/",
       "source": "CERT-EU",
@@ -139,12 +153,12 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-04T06:49:31.016Z",
+      "rawDate": "2026-04-04T16:24:39.722Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     },
     {
-      "id": "alert-international-1775285371016-mpnuka",
+      "id": "alert-international-1775319879722-jrolte",
       "title": "2025-039: High Severity Vulnerability in FortiOS",
       "url": "https://cert.europa.eu/publications/security-advisories/2025-039/",
       "source": "CERT-EU",
@@ -153,21 +167,7 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "Recently",
-      "rawDate": "2026-04-04T06:49:31.016Z",
-      "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1775285371016-rclk6r",
-      "title": "2025-038: Critical Vulnerabilities in Veeam Backup",
-      "url": "https://cert.europa.eu/publications/security-advisories/2025-038/",
-      "source": "CERT-EU",
-      "sourceLabel": "CERT-EU",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "Recently",
-      "rawDate": "2026-04-04T06:49:31.016Z",
+      "rawDate": "2026-04-04T16:24:39.722Z",
       "logo": "https://icons.duckduckgo.com/ip3/cert.europa.eu.ico",
       "scope": "international"
     }
