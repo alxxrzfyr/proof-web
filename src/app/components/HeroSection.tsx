@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { translations, threatStats, type Lang } from "./data";
+import { translations, threatStats, pieData, lineData, type Lang } from "./data";
 import { PieChart, Pie, Cell, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import bg1 from "@/assets/backgrounds/bg-1.jpg";
 import bg2 from "@/assets/backgrounds/bg-2.jpg";
@@ -16,26 +16,6 @@ const HERO_IMAGES = [
   bg2,
   bg3,
   bg4,
-];
-
-// Factual data based on CICC, PNP-ACG, BSP, DICT reports
-const pieData = [
-  { name: "Phishing / Smishing", value: 35, color: "#dc2626" },
-  { name: "Online Selling Scam", value: 25, color: "#0a2fad" },
-  { name: "Investment Scam", value: 18, color: "#f97316" },
-  { name: "Romance Scam", value: 12, color: "#eab308" },
-  { name: "Others", value: 10, color: "#6b7280" },
-];
-
-// Factual trend: PNP-ACG & CICC reported cybercrime cases in PH
-const lineData = [
-  { year: "2019", cases: 8453 },
-  { year: "2020", cases: 13671 },
-  { year: "2021", cases: 20870 },
-  { year: "2022", cases: 27081 },
-  { year: "2023", cases: 30567 },
-  { year: "2024", cases: 35102 },
-  { year: "2025", cases: 39000 },
 ];
 
 export function HeroSection({ lang, onNavigate }: Props) {

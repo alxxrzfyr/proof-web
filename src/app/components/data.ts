@@ -334,7 +334,7 @@ export interface QuizScenario {
 
 export const quizScenarios: QuizScenario[] = [
   {
-    id: 1, category: "Email Phishing", medium: "Email", isScam: true,
+    id: 1, category: "Account Security Alert (Email)", medium: "Email", isScam: true,
     sender: "BDO Unibank Security", senderDetail: "security@bdo-alert-ph.net",
     subject: "[ACTION REQUIRED] Your BDO account has been locked",
     body: "Dear Valued Customer,\n\nWe have detected multiple failed login attempts on your BDO account. To prevent unauthorized access, your account has been temporarily locked.\n\nClick the button below within 24 hours to restore full access. Failure to verify will result in permanent account suspension.",
@@ -345,7 +345,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. The sender domain 'bdo-alert-ph.net' is a fake lookalike of BDO's real domain 'bdo.com.ph'. Legitimate banks never ask you to click email links to unlock accounts.",
   },
   {
-    id: 2, category: "Legitimate Email", medium: "Email", isScam: false,
+    id: 2, category: "Transaction Confirmation (Email)", medium: "Email", isScam: false,
     sender: "GCash", senderDetail: "noreply@gcash.com",
     subject: "Your GCash transfer of \u20b1500 was successful",
     body: "Hi Maria,\n\nYour GCash transfer is complete.\n\nAmount: \u20b1500.00\nRecipient: Juan dela Cruz\nDate: April 3, 2026 \u2014 2:14 PM\nReference No: GC20260403-7749281\n\nIf you did not make this transaction, please call GCash Support at 2882 immediately.",
@@ -354,7 +354,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. The sender is noreply@gcash.com \u2014 GCash's official domain. The email contains a real reference number and no suspicious links.",
   },
   {
-    id: 3, category: "SMS Phishing (Smishing)", medium: "SMS", isScam: true,
+    id: 3, category: "Account Activity Alert (SMS)", medium: "SMS", isScam: true,
     sender: "Landbank PH", senderDetail: "+63 917 482 0011",
     body: "LANDBANK: Your account has been flagged for suspicious activity. Immediate verification required. Click here to confirm your identity: landbank-secure-verify.com/ph or your account will be frozen within 2 hours.",
     redFlags: ["Sender is a mobile number, not a short code", "Unofficial domain: landbank-secure-verify.com", "2-hour freeze threat creates panic", "Asks you to click a link via SMS"],
@@ -362,7 +362,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. Landbank's official SMS alerts come from registered short codes, not mobile numbers. The link is not affiliated with Landbank.",
   },
   {
-    id: 4, category: "Fake Prize Scam", medium: "Email", isScam: true,
+    id: 4, category: "Rewards Notification (Email)", medium: "Email", isScam: true,
     sender: "GCash Rewards Program", senderDetail: "gcashrewards@gcash-winners.ph",
     subject: "\ud83c\udf89 Congratulations! You've been selected as a GCash Lucky Winner!",
     body: "Dear GCash User,\n\nYou have been randomly selected as one of 10 LUCKY WINNERS in our monthly rewards draw!\n\nYour prize: \u20b110,000 GCash Credit\n\nTo claim your prize, reply to this email with your:\n\u2022 Full Name\n\u2022 GCash Mobile Number\n\u2022 GCash MPIN\n\u2022 Birthday\n\nOffer expires in 48 hours.",
@@ -371,7 +371,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. GCash will NEVER ask for your MPIN or personal details via email. The sender domain is fake.",
   },
   {
-    id: 5, category: "Legitimate SMS", medium: "SMS", isScam: false,
+    id: 5, category: "Billing Notification (SMS)", medium: "SMS", isScam: false,
     sender: "PLDT", senderDetail: "PLDT",
     body: "PLDT: Your bill for account 02-XXXX-1234 is now available. Amount due: \u20b11,299.00. Due date: April 15, 2026. Pay via myPldt app or authorized payment centers. For billing inquiries call 171.",
     redFlags: [],
@@ -379,7 +379,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. This is a standard billing notification. It provides an amount and due date, and directs you to official PLDT channels.",
   },
   {
-    id: 6, category: "OTP Social Engineering", medium: "Phone Call", isScam: true,
+    id: 6, category: "Fraud Prevention Call", medium: "Phone Call", isScam: true,
     sender: "BPI Customer Service", senderDetail: "Caller ID: BPI-HOTLINE (spoofed)",
     body: "CALLER: Good afternoon po. Ako po si Agent Torres mula sa BPI Fraud Prevention Team. Na-detect po namin ang suspicious na transaction sa inyong account \u2014 \u20b125,000 transfer papunta sa unknown account.\n\nPara ma-stop po namin ito, kailangan ko pong i-verify ang inyong identity. Magpapadala po kami ng 6-digit OTP sa inyong registered number. Ibigay lang po sa akin ang code para ma-cancel namin ang transaction.",
     redFlags: ["No real bank will ask for your OTP over the phone \u2014 ever", "Spoofed caller ID can mimic official numbers", "Creates panic with a fake \u20b125,000 transaction", "Asks you to 'cancel' a transaction by sharing OTP"],
@@ -387,7 +387,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is a classic OTP social engineering call. Banks will NEVER ask for your OTP by phone.",
   },
   {
-    id: 7, category: "Social Media Phishing", medium: "Social Media", isScam: true,
+    id: 7, category: "Page Violation Notice (Social Media)", medium: "Social Media", isScam: true,
     sender: "Meta Business Support", senderDetail: "Facebook Messenger \u2014 Unverified Page",
     body: "Hello! We have received multiple reports against your Facebook Page for violating our Terms of Service.\n\nYour Page is scheduled for PERMANENT REMOVAL in 24 hours unless you submit an appeal.\n\nClick below to file your appeal:\nfb-page-appeal-center.com/verify-identity",
     cta: "APPEAL NOW",
@@ -396,7 +396,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. Facebook/Meta does not send violation notices through Messenger DMs.",
   },
   {
-    id: 8, category: "Legitimate Email", medium: "Email", isScam: false,
+    id: 8, category: "Order Shipment Update (Email)", medium: "Email", isScam: false,
     sender: "Shopee Philippines", senderDetail: "no-reply@shopee.ph",
     subject: "Your order #2204571839 has been shipped!",
     body: "Hi there!\n\nGreat news \u2014 your order is on its way.\n\nOrder #2204571839\nItem: Xiaomi Redmi Note 13 \u2014 Space Black\nShipping via: J&T Express\nTracking No: JT0094827461PH\n\nEstimated delivery: April 5\u20137, 2026\n\nTrack your order in the Shopee app under 'My Purchases'.",
@@ -405,7 +405,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. This is a standard Shopee order shipment notification from no-reply@shopee.ph.",
   },
   {
-    id: 9, category: "Romance Scam", medium: "Dating App", isScam: true,
+    id: 9, category: "Dating App Message", medium: "Dating App", isScam: true,
     sender: "Michael_Anderson_Dubai", senderDetail: "Bumble Match \u2014 Profile created 6 weeks ago",
     body: "Hey, I almost never match with someone as genuine as you. I'm a civil engineer currently on a project in Dubai \u2014 single dad, widower. I don't usually do this but I feel like we have something real.\n\nI'd love to move to WhatsApp if that's okay? \u2764\ufe0f",
     redFlags: ["Pushes to move off the dating app immediately", "Profile only 6 weeks old", "'Widower + engineer abroad' is a common template", "Love-bombing after one match"],
@@ -413,7 +413,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This matches the classic romance scammer profile: foreign engineer, widower, new account, immediate push to move off-platform.",
   },
   {
-    id: 10, category: "Fake Online Seller", medium: "Marketplace", isScam: true,
+    id: 10, category: "Marketplace Listing (Social Media)", medium: "Marketplace", isScam: true,
     sender: "TechDeals_PH", senderDetail: "Facebook Marketplace \u2014 Account: 2 months old, 0 reviews",
     body: "iPhone 15 Pro Max 256GB Natural Titanium \u2014 BRAND NEW SEALED with Apple PH receipt\nPrice: \u20b19,500 (SRP \u20b182,000)\n\n[Seller chat]: COD is not available po kasi mataas ang value ng item. GCash full payment muna bago i-ship. May proof of stocks kami. Marami na kaming nai-ship!\n\nBuy now \u2014 only 1 unit left! \ud83d\udd25",
     redFlags: ["Price is 88% below SRP", "2-month-old account with zero reviews", "Refuses Cash on Delivery", "Urgency: 'only 1 unit left'"],
@@ -421,7 +421,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. The price is nearly 90% below retail \u2014 a hallmark of a fake listing.",
   },
   {
-    id: 11, category: "SIM Swap / OTP Fraud", medium: "SMS", isScam: true,
+    id: 11, category: "SIM Card Notice", medium: "SMS", isScam: true,
     sender: "Globe Telecom", senderDetail: "+63 995 210 4481 (mobile number, not short code)",
     body: "Globe: Your SIM card replacement request has been received. To confirm the transfer and protect your number, reply with your 6-digit account PIN within 10 minutes.\n\nYour confirmation code: 482910",
     redFlags: ["Real Globe messages come from official short codes, never mobile numbers", "Asks you to reply with your account PIN", "Includes a fake 'confirmation code'"],
@@ -429,7 +429,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is a SIM swap social engineering attack. By replying with your PIN, you confirm the fraudulent SIM transfer.",
   },
   {
-    id: 12, category: "Legitimate Notification", medium: "Social Media", isScam: false,
+    id: 12, category: "Login Activity Notice (App)", medium: "Social Media", isScam: false,
     sender: "Facebook", senderDetail: "security@facebookmail.com",
     subject: "We noticed a new login to your Facebook account",
     body: "Hi Maria Santos,\n\nWe noticed a new login to your Facebook account from a new device.\n\nDevice: iPhone 14\nLocation: Quezon City, Philippines\nTime: April 3, 2026 \u2014 3:41 PM\n\nIf this was you, no action is needed.\n\nIf this wasn't you, secure your account at facebook.com/hacked",
@@ -438,7 +438,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. This is an authentic Facebook security notification from @facebookmail.com.",
   },
   {
-    id: 13, category: "Email Phishing", medium: "Email", isScam: true,
+    id: 13, category: "Member Benefits Notice (Email)", medium: "Email", isScam: true,
     sender: "PhilHealth Online Services", senderDetail: "philhealth-portal@ph-gov-services.com",
     subject: "URGENT: Update your PhilHealth MDR or lose your benefits",
     body: "Dear PhilHealth Member,\n\nOur records show your Member Data Record (MDR) has not been updated since 2022. Failure to update by April 10, 2026 will result in suspension of your PhilHealth benefits.\n\nUpdate your MDR now through our secure online portal.",
@@ -449,7 +449,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. PhilHealth's official domain is philhealth.gov.ph. The sender uses a fake domain.",
   },
   {
-    id: 14, category: "Fake Prize Pop-up", medium: "Pop-up", isScam: true,
+    id: 14, category: "Browser Notification (Ads)", medium: "Pop-up", isScam: true,
     sender: "Survey Rewards PH", senderDetail: "survey-rewardsPH.info (browser pop-up)",
     body: "\ud83c\udf8a CONGRATULATIONS, VISITOR! \ud83c\udf8a\n\nYou are our 1,000,000th visitor today!\n\nYou have been selected to receive one of the following prizes:\n\u2022 Samsung Galaxy S25 Ultra\n\u2022 \u20b150,000 GCash\n\u2022 Apple AirPods Pro\n\nSpin the wheel NOW to claim your prize \u2014 offer expires in 4:59",
     cta: "SPIN THE WHEEL",
@@ -459,7 +459,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. The '1,000,000th visitor' prize is one of the oldest internet scams.",
   },
   {
-    id: 15, category: "Legitimate Email", medium: "Email", isScam: false,
+    id: 15, category: "Password Change Alert (Email)", medium: "Email", isScam: false,
     sender: "BDO Unibank", senderDetail: "customercare@bdo.com.ph",
     subject: "Your BDO Online Banking password was changed",
     body: "Dear Account Holder,\n\nThis is to confirm that your BDO Online Banking password was successfully changed on April 3, 2026 at 10:22 AM.\n\nIf you made this change, no further action is required.\n\nIf you did NOT make this change, please call BDO Customer Service immediately at (02) 8631-8000.",
@@ -468,7 +468,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. This is a standard BDO security confirmation email from bdo.com.ph. It contains no links or requests.",
   },
   {
-    id: 16, category: "Romance Scam \u2014 Money Request", medium: "Social Media", isScam: true,
+    id: 16, category: "Personal Message (Social Media)", medium: "Social Media", isScam: true,
     sender: "Col. James Morrison", senderDetail: "Facebook Messenger \u2014 Profile: US Army, deployed Syria, widower",
     body: "My love, I am so sorry to bother you with this. I would never ask if I had any other option.\n\nI am stranded at the Damascus airport \u2014 my military transport was cancelled and I need to buy a civilian ticket back to the US. The cost is $800.\n\nPlease send via Western Union or GCash. You are the only person I trust in this world. \ud83d\ude22",
     redFlags: ["Emergency money request after emotional relationship", "Asks for Western Union or GCash \u2014 untraceable", "'Pay you back double' is manipulation", "US military have official travel support"],
@@ -476,7 +476,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is the 'stranded abroad' money trap. US military personnel never need civilian funds.",
   },
   {
-    id: 17, category: "Quishing / QR Phishing", medium: "SMS", isScam: true,
+    id: 17, category: "Utility Payment Notice (SMS)", medium: "SMS", isScam: true,
     sender: "Meralco", senderDetail: "+63 908 341 7722 (mobile number)",
     body: "MERALCO NOTICE: Your electricity service for account 104-582-0011 is scheduled for DISCONNECTION tomorrow due to an unpaid balance of \u20b13,841.50.\n\nAvoid disconnection \u2014 pay at: meralco-payment.online/settle",
     redFlags: ["Sender is a mobile number, not Meralco's official 1622", "Domain 'meralco-payment.online' is not meralco.com.ph", "Disconnection threat creates urgency"],
@@ -484,7 +484,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. Meralco does not send disconnection notices via mobile numbers. All payments go through meralco.com.ph only.",
   },
   {
-    id: 18, category: "Off-Platform Scam", medium: "Marketplace", isScam: true,
+    id: 18, category: "Marketplace Chat (App)", medium: "Marketplace", isScam: true,
     sender: "Shopee Seller: gadgets_cheapph", senderDetail: "Shopee In-App Chat",
     body: "Hi po! Salamat sa inyong order. Pasensya na po pero na-sold out na po yung stocks namin sa Shopee.\n\nPero meron pa po kaming available sa aming personal stock \u2014 mas mura pa po pag direct.\n\nPwede po nating i-transact sa labas? Ibigay lang po ang GCash number at bayad na po.",
     redFlags: ["Pushes transaction outside Shopee", "Claims stock is 'sold out' but has personal stock", "GCash payment outside platform is untraceable"],
@@ -492,7 +492,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is off-platform scamming. Once you pay via GCash directly, there is no recourse.",
   },
   {
-    id: 19, category: "Fake Support OTP Scam", medium: "SMS", isScam: true,
+    id: 19, category: "Customer Support Message (SMS)", medium: "SMS", isScam: true,
     sender: "GCash Support", senderDetail: "+63 912 774 0038 (mobile number)",
     body: "Magandang araw po! Ito po si Ma. Reyes mula sa GCash Customer Service. Na-flag po ang inyong account para sa unusual activity.\n\nPara ma-secure po ang inyong account, kailangan naming i-verify ang inyong identity. Ipapadala namin ang OTP sa inyong number \u2014 ibigay lang po sa amin.",
     redFlags: ["GCash support uses 2882, never a +63 mobile number", "GCash will NEVER ask for your OTP", "Framing OTP sharing as 'for your protection'"],
@@ -500,7 +500,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is a fake GCash support OTP scam. Real GCash support never asks for OTPs.",
   },
   {
-    id: 20, category: "Legitimate Email", medium: "Email", isScam: false,
+    id: 20, category: "Transaction Notification (Email)", medium: "Email", isScam: false,
     sender: "Maya (formerly PayMaya)", senderDetail: "no-reply@maya.ph",
     subject: "You've received \u20b11,500 from Jose Reyes",
     body: "Hi Maria,\n\nGood news! You have received a money transfer.\n\nAmount: \u20b11,500.00\nFrom: Jose Reyes (+63 917 *** 4421)\nDate: April 3, 2026 \u2014 4:55 PM\nTransaction ID: MAYA-20260403-99123\n\nYour new Maya balance: \u20b12,341.00\n\nCheck your wallet in the Maya app.",
@@ -509,7 +509,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. This is an authentic Maya transaction notification from no-reply@maya.ph.",
   },
   {
-    id: 21, category: "Spear Phishing", medium: "Email", isScam: true,
+    id: 21, category: "Government Services Notice (Email)", medium: "Email", isScam: true,
     sender: "SSS \u2014 Social Security System", senderDetail: "sss-onlineservices@sss-member-portal.com",
     subject: "Your SSS Pension Application \u2014 Additional Documents Required",
     body: "Dear SSS Member,\n\nYour online pension application (Ref# SSS-2026-0403-7741) is under review. Our records show a discrepancy in your submitted documents.\n\nTo avoid delays, please log in and re-upload:\n\u2022 Government-issued ID (front & back)\n\u2022 Latest payslip\n\u2022 Bank account details for pension disbursement\n\nDeadline: April 10, 2026.",
@@ -519,7 +519,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is a spear phishing attack targeting SSS members. The fake domain is designed to steal your credentials.",
   },
   {
-    id: 22, category: "Pig Butchering / Investment Romance Scam", medium: "Social Media", isScam: true,
+    id: 22, category: "Investment Opportunity (Social Media)", medium: "Social Media", isScam: true,
     sender: "Mei Lin", senderDetail: "WhatsApp \u2014 referred via Facebook group",
     body: "Hi! Sorry to message you out of nowhere \u2014 I got your number from the investment group. I'm Mei Lin, based in Singapore. I've been doing crypto trading for 3 years.\n\nMy uncle manages a private trading platform. Last month I made \u20b1180,000 from a \u20b130,000 deposit.\n\nInterested? I can guide you step by step. \ud83d\ude0a",
     redFlags: ["Unsolicited contact from stranger", "500% returns in one month is unrealistic", "'Private platform' = pig butchering", "Will coach you to deposit, show fake profits, then freeze your account"],
@@ -527,7 +527,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. This is the 'pig butchering' romance-investment scam. The platform is fake and controlled by scammers.",
   },
   {
-    id: 23, category: "Legitimate SMS", medium: "SMS", isScam: false,
+    id: 23, category: "One-Time Password (SMS)", medium: "SMS", isScam: false,
     sender: "BPI", senderDetail: "BPI (official short code)",
     body: "BPI: Your BPI OTP is 738291. Use this to complete your transaction. Valid for 5 minutes. Never share this code with anyone, including BPI staff. If you did not request this, call 889-100 immediately.",
     redFlags: [],
@@ -535,7 +535,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "LEGIT. This OTP was sent from BPI's official short code in response to a transaction you initiated.",
   },
   {
-    id: 24, category: "Fake Shipping Proof", medium: "Marketplace", isScam: true,
+    id: 24, category: "Shipping Update (App)", medium: "Marketplace", isScam: true,
     sender: "Seller: budgetgadgets_mnl", senderDetail: "Carousell Chat + Screenshot sent via Messenger",
     body: "Shipped na po! Napadala ko na kanina. Heto po ang tracking number at receipt.\n\n[Attached: LBC receipt showing Tracking No. LBC9988120044PH, Sender: Budget Gadgets, Recipient: Maria Santos, Pasig City, Status: ACCEPTED \u2014 April 3, 2026]\n\nMacheck na lang po sa LBC website. 3\u20135 days po ang delivery.",
     redFlags: ["Always verify tracking numbers directly on lbcexpress.com", "Tracking numbers can be fabricated or reused", "Seller pushed for GCash payment before showing proof"],
@@ -543,7 +543,7 @@ export const quizScenarios: QuizScenario[] = [
     explanation: "SCAM. Forged shipping receipts are one of the most common online seller scams in the Philippines.",
   },
   {
-    id: 25, category: "Homoglyph / Advanced Phishing", medium: "Email", isScam: true,
+    id: 25, category: "Security Notification (Email)", medium: "Email", isScam: true,
     sender: "BDO Unibank", senderDetail: "security@bd\u043e.com.ph  \u2190 (Cyrillic '\u043e' in 'bdo')",
     subject: "Security Notice: Unusual login detected on your BDO account",
     body: "Dear Valued Customer,\n\nWe detected a login attempt from an unrecognized device:\n\nDevice: Windows PC\nLocation: Cebu City, Philippines\nTime: April 3, 2026 \u2014 11:47 PM\n\nIf this was not you, please secure your account immediately by verifying your identity through our official portal.",
@@ -706,6 +706,26 @@ export const threatStats = [
   { label: "Most targeted age group", value: "45–65", color: "text-yellow-400", sublabel: "Highest victim demographic (DICT)" },
 ];
 
+// Factual data based on CICC, PNP-ACG, BSP, DICT reports
+export const pieData = [
+  { name: "Phishing / Smishing", value: 35, color: "#dc2626" },
+  { name: "Online Selling Scam", value: 25, color: "#0a2fad" },
+  { name: "Investment Scam", value: 18, color: "#f97316" },
+  { name: "Love Scam", value: 12, color: "#eab308" },
+  { name: "Others", value: 10, color: "#6b7280" },
+];
+
+// Factual trend: PNP-ACG & CICC reported cybercrime cases in PH
+export const lineData = [
+  { year: "2019", cases: 8453 },
+  { year: "2020", cases: 13671 },
+  { year: "2021", cases: 20870 },
+  { year: "2022", cases: 27081 },
+  { year: "2023", cases: 30567 },
+  { year: "2024", cases: 35102 },
+  { year: "2025", cases: 39000 },
+];
+
 export const quickJumpPills = [
-  "PHISHING", "FAKE PRIZES", "FRAUDULENT LINKS", "ROMANCE SCAM", "OTP FRAUD", "FAKE SELLER", "SIM SWAP"
+  "PHISHING", "FAKE PRIZES", "FRAUDULENT LINKS", "LOVE SCAM", "OTP FRAUD", "FAKE SELLER", "SIM SWAP"
 ];

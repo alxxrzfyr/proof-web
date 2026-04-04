@@ -182,7 +182,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                           </div>
                           {scenario.subject && <div className="mt-4 font-bold text-lg sm:text-xl text-[#1a1816]">{stripText(scenario.subject)}</div>}
                         </div>
-                        <div className="p-5 sm:p-6 text-[#2d2926] whitespace-pre-line text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: renderBody(scenario.body) }} />
+                        <div className="p-5 sm:p-6 text-black whitespace-pre-line text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: renderBody(scenario.body) }} />
                         {scenario.cta && (
                           <div className="px-5 sm:px-6 pb-6">
                             <span className="inline-block bg-blue-600 text-white px-6 py-2.5 rounded-md text-sm font-bold cursor-pointer shadow-sm hover:bg-blue-700">{stripText(scenario.cta)}</span>
@@ -220,7 +220,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                                 <span className="material-symbols-outlined text-[14px] leading-tight text-gray-500 flex items-center justify-center h-full w-full">person</span>
                               )}
                             </div>
-                            <div className="bg-white text-[#1a1816] p-3 shadow-sm text-[15px] whitespace-pre-line leading-snug rounded-2xl rounded-bl-sm max-w-[85%]" dangerouslySetInnerHTML={{ __html: renderBody(scenario.body) }} />
+                            <div className="bg-white text-black p-3 shadow-sm text-[15px] whitespace-pre-line leading-snug rounded-2xl rounded-bl-sm max-w-[85%]" dangerouslySetInnerHTML={{ __html: renderBody(scenario.body) }} />
                           </div>
 
                           {scenario.cta && (
@@ -259,7 +259,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                         )}
                         
                         <div
-                          className="text-[#2d2926] whitespace-pre-line leading-relaxed bg-[#f8f7f5] rounded-xl p-4 sm:p-6 border border-[#e5ded4] text-sm sm:text-base"
+                          className="text-black whitespace-pre-line leading-relaxed bg-[#f8f7f5] rounded-xl p-4 sm:p-6 border border-[#e5ded4] text-sm sm:text-base"
                           dangerouslySetInnerHTML={{ __html: renderBody(scenario.body) }}
                         />
                         
@@ -287,7 +287,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                     )}
 
                     {/* Clue */}
-                    {showClues && (
+                    {(showClues || (answered && !isCorrect)) && (
                       <div className="mt-5 bg-yellow-50 border border-yellow-200 rounded-xl p-5">
                         <p className="text-yellow-800 flex items-start gap-2" style={{ fontWeight: 600 }}>
                           <span className="material-symbols-outlined text-yellow-600 text-xl shrink-0">lightbulb</span>
@@ -306,14 +306,14 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                       className="flex-1 text-red-700 border-3 border-red-600 bg-white hover:bg-red-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
                       style={{ fontWeight: 900 }}
                     >
-                      {t("quiz.btn_scam")} 🚨
+                      {t("quiz.btn_scam")}!
                     </button>
                     <button
                       onClick={() => handleAnswer(false)}
                       className="flex-1 text-[#0a2fad] border-3 border-[#0a2fad] bg-white hover:bg-blue-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
                       style={{ fontWeight: 900 }}
                     >
-                      {t("quiz.btn_legit")} ✅
+                      {t("quiz.btn_legit")}!
                     </button>
                   </div>
                 )}
