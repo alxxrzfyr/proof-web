@@ -242,7 +242,7 @@ export function ScamInfoSection({ lang }: Props) {
       <div className="bg-[#f8f7f5] border-t border-[#e5ded4]">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16">
           <h2 className="text-[#1a1816] uppercase tracking-tight mb-2" style={{ fontWeight: 900, fontSize: "clamp(1.35rem, 3vw, 2.25rem)" }}>
-            {lang === "fil" ? "Direktoryo ng mga Banta" : "Threat Directory"}
+            {lang === "fil" ? "Karaniwang Uri ng Panloloko" : "Common Types of Scams"}
           </h2>
           <p className="text-[#3d3530] mb-10 sm:mb-12 text-base" style={{ fontWeight: 500 }}>
             {lang === "fil" ? "Suriin ang mga pattern ng panloloko upang maprotektahan ang inyong sarili." : "Analyze malicious patterns to protect yourself and your loved ones."}
