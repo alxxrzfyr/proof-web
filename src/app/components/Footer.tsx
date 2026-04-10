@@ -16,7 +16,7 @@ export function Footer({ lang, onNavigate, onOpenTerms }: Props) {
     <footer className="bg-[#1a1816] py-10 sm:py-12 px-5 sm:px-8 md:px-12 lg:px-16">
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {/* Brand */}
+          {/* LOGO */}
           <div>
             <div className="inline-block">
               <h2 className="font-sleek text-[#0a2fad] text-xl leading-tight uppercase border-2 border-[#0a2fad] rounded-sm bg-[#f4f1ea] px-2.5 py-0.5 shadow-[3px_3px_0_0_#0725b0]" style={{ fontWeight: 700 }}>
@@ -28,7 +28,7 @@ export function Footer({ lang, onNavigate, onOpenTerms }: Props) {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* QUICK LINKS */}
           <div>
             <h4 className="text-yellow-400 text-sm uppercase tracking-wider mb-3" style={{ fontWeight: 900 }}>{t("footer.quick_links")}</h4>
             <div className="flex flex-col space-y-0 items-start">
@@ -38,19 +38,26 @@ export function Footer({ lang, onNavigate, onOpenTerms }: Props) {
                 { label: lang === "fil" ? "Sentro ng Scam" : "Scam Information", section: "about-scam" as Section },
                 { label: lang === "fil" ? "Pagtatasa" : "Assessment", section: "try-me" as Section },
               ]).map((link) => (
-                <button
-                  key={link.section}
-                  onClick={() => onNavigate(link.section)}
-                  className="text-white hover:text-yellow-400 hover:translate-x-1 transition-all text-xs cursor-pointer py-1 text-left"
-                  style={{ fontWeight: 600 }}
-                >
-                  {link.label}
-                </button>
+              <button
+                key={link.section}
+                onClick={() => onNavigate(link.section)}
+                className="text-white hover:text-yellow-400 transition-all text-xs cursor-pointer py-1 text-left 
+                           flex items-center 
+                           before:content-['\203a'] before:w-0 before:opacity-0 before:overflow-hidden before:transition-all before:ease-in-out
+                           hover:before:w-3 hover:before:opacity-100"
+                style={{ fontWeight: 600 }}
+              >
+                {link.label}
+              </button>
               ))}
-              {/* Terms of Use */}
+              
+              {/* TERMS OF USE */}
               <button
                 onClick={onOpenTerms}
-                className="text-white hover:text-yellow-400 hover:translate-x-1 transition-all text-xs cursor-pointer py-1 text-left"
+                className="text-white hover:text-yellow-400 transition-all text-xs cursor-pointer py-1 text-left 
+                           flex items-center 
+                           before:content-['\203a'] before:w-0 before:opacity-0 before:overflow-hidden before:transition-all before:ease-in-out
+                           hover:before:w-3 hover:before:opacity-100"
                 style={{ fontWeight: 600 }}
               >
                 {lang === "fil" ? "Mga Tuntunin ng Paggamit" : "Terms of Use"}
@@ -58,7 +65,7 @@ export function Footer({ lang, onNavigate, onOpenTerms }: Props) {
             </div>
           </div>
 
-          {/* References / QR */}
+          {/* REFERENCES & QR */}
           <div>
             <h4 className="text-yellow-400 text-sm uppercase tracking-wider mb-3" style={{ fontWeight: 900 }}>References</h4>
             <div className="w-24 h-24 bg-white rounded-lg p-1.5 flex items-center justify-center">

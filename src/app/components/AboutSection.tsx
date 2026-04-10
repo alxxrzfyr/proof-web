@@ -68,7 +68,7 @@ export function AboutSection({ lang }: Props) {
         </p>
       </div>
 
-      {/* Team Section — with background picture */}
+      {/* TEAM SECTION — with background picture */}
       <div
         className="relative mt-10 sm:mt-14"
         style={{
@@ -88,7 +88,7 @@ export function AboutSection({ lang }: Props) {
             </p>
           </div>
 
-          {/* Team Grid */}
+          {/* TEAM MEMBERS GRID */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-8 sm:gap-y-10 md:gap-y-12">
             {teamMembers.map((member, i) => (
               <div key={i} className="flex flex-col items-center text-center group">

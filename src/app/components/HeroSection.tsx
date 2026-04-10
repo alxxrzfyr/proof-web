@@ -241,7 +241,7 @@ export function HeroSection({ lang, onNavigate }: Props) {
           {/* Why This Matters — open layout, title left, text underneath */}
           <div className="w-full lg:max-w-none">
             <h3 className="text-[#0a2fad] uppercase tracking-tight" style={{ fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}>
-              {lang === "fil" ? "Bakit Mahalaga Ito" : "Why This Matters"}
+              {lang === "fil" ? "Bakit Mahalaga Ito?" : "Why This Matters?"}
             </h3>
             <div className="w-16 h-1.5 bg-[#0a2fad] rounded-full mt-4 mb-6" />
             <p className="text-[#2d2926] text-base sm:text-lg leading-relaxed w-full" style={{ fontWeight: 500, textIndent: "2em", textAlign: "justify" }}>

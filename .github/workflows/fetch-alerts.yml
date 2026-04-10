@@ -32,10 +32,10 @@ jobs:
         with:
           ref: react-ver          # ← FIX: commit lands on the deployed branch
 
-      - name: Set up Node.js 24
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "22"
 
       - name: Fetch latest scam alerts
         id: fetch

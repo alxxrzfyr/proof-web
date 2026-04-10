@@ -20,10 +20,10 @@ function getMediumIcon(medium: string) {
 }
 
 function getScoreData(score: number) {
-  if (score >= 23) return { label: "Exceptional Awareness", emoji: "", color: "text-yellow-500", message: "Your assessment results indicate an exceptional understanding of digital threats. We encourage you to share your knowledge to promote community vigilance." };
-  if (score >= 18) return { label: "Proficient Awareness", emoji: "", color: "text-green-500", message: "Your assessment results indicate a solid understanding of common scams. However, further review of the Scam Information Center will help address any remaining vulnerabilities." };
-  if (score >= 12) return { label: "Developing Awareness", emoji: "", color: "text-blue-500", message: "Your assessment suggests a developing awareness of cyber threats. We highly recommend utilizing the resources in the Scam Information Center to further educate yourself." };
-  return { label: "Requires Immediate Vigilance", emoji: "", color: "text-red-500", message: "Your assessment results highlight a critical need for improved digital awareness. It is strongly advised that you review all materials provided in the Scam Information Center to protect yourself from sophisticated threats." };
+  if (score >= 23) return { label: "Exceptional Awareness", icon: "emoji_events", color: "text-yellow-500", message: "Your assessment results indicate an exceptional understanding of digital threats. We encourage you to share your knowledge to promote community vigilance." };
+  if (score >= 18) return { label: "Proficient Awareness", icon: "thumb_up", color: "text-green-500", message: "Your assessment results indicate a solid understanding of common scams. However, further review of the Scam Information Center will help address any remaining vulnerabilities." };
+  if (score >= 12) return { label: "Developing Awareness", icon: "insights", color: "text-blue-500", message: "Your assessment suggests a developing awareness of cyber threats. We highly recommend utilizing the resources in the Scam Information Center to further educate yourself." };
+  return { label: "Requires Immediate Vigilance", icon: "report_problem", color: "text-red-500", message: "Your assessment results highlight a critical need for improved digital awareness. It is strongly advised that you review all materials provided in the Scam Information Center to protect yourself from sophisticated threats." };
 }
 
 export function TryMeSection({ lang, onNavigate }: Props) {
@@ -37,12 +37,11 @@ export function TryMeSection({ lang, onNavigate }: Props) {
   const [completed, setCompleted] = useState(false);
   const [streak, setStreak] = useState(0);
 
-  const [showRedFlags, setShowRedFlags] = useState(false);
   const [showClues, setShowClues] = useState(false);
-  const [markLinks, setMarkLinks] = useState(false);
 
   const scenario = quizScenarios[currentIndex];
   const isCorrect = selectedScam === scenario.isScam;
+  const scoreData = getScoreData(score);
 
   const handleAnswer = (pickedScam: boolean) => {
     if (answered) return;
@@ -67,9 +66,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
     setAnswered(false);
     setSelectedScam(null);
     setShowNext(false);
-    setShowRedFlags(false);
     setShowClues(false);
-    setMarkLinks(false);
   };
 
   const restart = () => {
@@ -80,9 +77,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
     setShowNext(false);
     setCompleted(false);
     setStreak(0);
-    setShowRedFlags(false);
     setShowClues(false);
-    setMarkLinks(false);
   };
 
   const renderBody = (body: string) => {
@@ -90,12 +85,6 @@ export function TryMeSection({ lang, onNavigate }: Props) {
     // Remove em-dashes and semicolons as requested
     cleanBody = cleanBody.replace(/[—;]/g, "");
     
-    if (markLinks) {
-      return cleanBody.replace(
-        /(https?:\/\/[^\s"]+|[a-z0-9-]+\.[a-z]{2,}(?:\/[^\s"]*)?)/gi,
-        '<span class="text-red-600 underline decoration-wavy">$1</span>'
-      );
-    }
     return cleanBody;
   };
 
@@ -204,7 +193,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                           </div>
                           <div className="flex flex-col flex-1 min-w-0">
                             <p className="font-bold text-[#1a1816] text-sm truncate">{stripText(scenario.sender)}</p>
-                            <p className="text-[10px] text-gray-500 truncate">{scenario.medium === "SMS" ? stripText(scenario.senderDetail) : "Active now"}</p>
+                            <p className="text-[10px] text-gray-500 truncate">{scenario.medium === "SMS" ? stripText(scenario.senderDetail) : "Active Now"}</p>
                           </div>
                           <span className="material-symbols-outlined text-gray-400 text-lg">info</span>
                         </div>
@@ -275,16 +264,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                       </div>
                     )}
 
-                    {/* Red Flags */}
-                    {showRedFlags && scenario.redFlags.length > 0 && (
-                      <div className="mt-5 bg-red-50 border border-red-200 rounded-xl p-5 space-y-2">
-                        {scenario.redFlags.map((flag, i) => (
-                          <p key={i} className="text-red-700 text-sm flex items-start gap-2" style={{ fontWeight: 600 }}>
-                            <span className="shrink-0">⚠</span> {flag}
-                          </p>
-                        ))}
-                      </div>
-                    )}
+                    {/* Red Flags - moved inside Feedback below */}
 
                     {/* Clue */}
                     {(showClues || (answered && !isCorrect)) && (
@@ -298,45 +278,70 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                   </div>
                 </div>
 
-                {/* Voting Buttons */}
-                {!answered && (
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-5 sm:mt-6">
-                    <button
-                      onClick={() => handleAnswer(true)}
-                      className="flex-1 text-red-700 border-3 border-red-600 bg-white hover:bg-red-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
-                      style={{ fontWeight: 900 }}
-                    >
-                      {t("quiz.btn_scam")}!
-                    </button>
-                    <button
-                      onClick={() => handleAnswer(false)}
-                      className="flex-1 text-[#0a2fad] border-3 border-[#0a2fad] bg-white hover:bg-blue-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
-                      style={{ fontWeight: 900 }}
-                    >
-                      {t("quiz.btn_legit")}!
-                    </button>
-                  </div>
-                )}
+                {/* Interaction Area Wrapper to prevent layout shift */}
+                <div className="min-h-[240px] sm:min-h-[220px] flex flex-col justify-start">
+                  {/* Voting Buttons */}
+                  {!answered && (
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-5 sm:mt-6">
+                      <button
+                        onClick={() => handleAnswer(true)}
+                        className="flex-1 text-red-700 border-3 border-red-600 bg-white hover:bg-red-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
+                        style={{ fontWeight: 900 }}
+                      >
+                        {t("quiz.btn_scam")}!
+                      </button>
+                      <button
+                        onClick={() => handleAnswer(false)}
+                        className="flex-1 text-[#0a2fad] border-3 border-[#0a2fad] bg-white hover:bg-blue-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
+                        style={{ fontWeight: 900 }}
+                      >
+                        {t("quiz.btn_legit")}!
+                      </button>
+                    </div>
+                  )}
 
-                {/* Feedback */}
-                {answered && (
-                  <div className={`mt-5 sm:mt-6 border-l-4 ${isCorrect ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50"} p-4 sm:p-6 rounded-r-xl animate-fadeIn`}>
-                    <p className="text-base sm:text-lg text-[#1a1816] leading-relaxed" style={{ fontWeight: 600 }}>
-                      {isCorrect ? "✅ Correct!" : "❌ Incorrect."} {scenario.explanation}
-                    </p>
-                  </div>
-                )}
+                  {/* Feedback */}
+                  {answered && (
+                    <div className={`mt-5 sm:mt-6 border-l-4 ${isCorrect ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50"} p-4 sm:p-6 rounded-r-xl animate-fadeIn`}>
+                      <div className="flex items-start gap-4">
+                        <span className={`${isCorrect ? "text-green-600" : "text-red-600"} material-symbols-outlined text-2xl mt-1`}>
+                          {isCorrect ? "check_circle" : "cancel"}
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-base sm:text-lg text-[#1a1816]" style={{ fontWeight: 700 }}>
+                            {isCorrect ? "Correct!" : "Incorrect."}
+                          </p>
+                          <p className="text-base sm:text-lg text-[#1a1816] mt-1 leading-relaxed" style={{ fontWeight: 600 }}>
+                            {scenario.explanation}
+                          </p>
+                          
+                          {scenario.redFlags.length > 0 && (
+                            <div className="mt-5 space-y-2 border-t border-[#1a1816]/10 pt-4">
+                              <p className="text-sm uppercase tracking-wider text-[#1a1816]" style={{ fontWeight: 800 }}>Key Red Flags:</p>
+                              {scenario.redFlags.map((flag, i) => (
+                                <p key={i} className="text-[#1a1816] text-sm flex items-start gap-2" style={{ fontWeight: 600 }}>
+                                  <span className="material-symbols-outlined text-red-600 text-xl shrink-0">warning</span>
+                                  <span className="flex-1 leading-snug">{flag}</span>
+                                </p>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
-                {/* Next Button */}
-                {showNext && (
-                  <button
-                    onClick={handleNext}
-                    className="mt-4 sm:mt-5 bg-[#0a2fad] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl hover:bg-[#1a1816] transition-colors cursor-pointer animate-fadeIn text-base sm:text-lg min-h-[52px] sm:min-h-[60px]"
-                    style={{ fontWeight: 700 }}
-                  >
-                    {currentIndex >= 24 ? "See Final Score →" : `${t("quiz.btn_next")} →`}
-                  </button>
-                )}
+                  {/* Next Button */}
+                  {showNext && (
+                    <button
+                      onClick={handleNext}
+                      className="mt-4 sm:mt-5 bg-[#0a2fad] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl hover:bg-[#1a1816] transition-colors cursor-pointer animate-fadeIn text-base sm:text-lg min-h-[52px] sm:min-h-[60px] self-start"
+                      style={{ fontWeight: 700 }}
+                    >
+                      {currentIndex >= 24 ? "See Final Score →" : `${t("quiz.btn_next")} →`}
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Analysis Tools Sidebar */}
@@ -348,9 +353,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                   </div>
                   <div className="p-4 space-y-1">
                     {[
-                      { label: "Highlight Red Flags", icon: "flag", active: showRedFlags, toggle: () => setShowRedFlags(!showRedFlags) },
-                      { label: "Show Clues", icon: "lightbulb", active: showClues, toggle: () => setShowClues(!showClues) },
-                      { label: "Mark Suspicious Links", icon: "link", active: markLinks, toggle: () => setMarkLinks(!markLinks) },
+                      { label: "Show Clues (Experimental)", icon: "lightbulb", active: showClues, toggle: () => setShowClues(!showClues) },
                     ].map((tool) => (
                       <div key={tool.label} className="flex items-center justify-between p-4 hover:bg-[#f4f1ea] rounded-lg cursor-pointer min-h-[52px]" onClick={tool.toggle}>
                         <div className="flex items-center gap-3">
@@ -388,8 +391,9 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                   <p className="text-white/70 text-lg" style={{ fontWeight: 500 }}>Summary of Results</p>
                   <div className="mt-6">
                     <p className="text-7xl md:text-8xl" style={{ fontWeight: 900 }}>{score} / 25</p>
-                    <p className={`text-2xl md:text-3xl mt-4 ${getScoreData(score).color}`} style={{ fontWeight: 900 }}>
-                      {getScoreData(score).emoji} {getScoreData(score).label}
+                    <p className={`text-2xl md:text-3xl mt-4 ${scoreData.color} flex items-center justify-center gap-2`} style={{ fontWeight: 900 }}>
+                      <span className={`material-symbols-outlined ${scoreData.color} text-3xl`}>{scoreData.icon}</span>
+                      {scoreData.label}
                     </p>
                   </div>
                 </div>
@@ -397,7 +401,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                 {/* Feedback & Actions */}
                 <div className="p-8 md:p-10">
                   <p className="text-[#1a1816]/80 text-lg leading-relaxed text-center" style={{ fontWeight: 500 }}>
-                    {getScoreData(score).message}
+                    {scoreData.message}
                   </p>
 
                   {/* Score breakdown */}

@@ -88,11 +88,7 @@ body {
 
 /* Accessibility */
 html.a11y-large-text {
-  --text-body: clamp(1.35rem, 0.7vw + 1.25rem, 1.65rem);
-  --text-h1: clamp(3rem, 2.5vw + 2.25rem, 5rem);
-  --text-h2: clamp(2.5rem, 2vw + 2rem, 3.75rem);
-  --text-h3: clamp(2rem, 1.5vw + 1.5rem, 3rem);
-  --text-h4: clamp(1.65rem, 1.2vw + 1.25rem, 2.25rem);
+  font-size: 125% !important;
 }
 
 html.a11y-high-contrast {

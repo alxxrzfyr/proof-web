@@ -178,7 +178,7 @@ export function AccessibilityWidget({ lang, setLang }: Props) {
               </div>
             </div>
 
-            {/* Reset */}
+            {/* RESET */}
             <button
               onClick={resetAll}
               className="w-full mt-5 p-3 sm:p-3.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-[#1a1816] text-base cursor-pointer transition-colors active:bg-gray-300 min-h-[48px] sm:min-h-[50px]"
@@ -187,14 +187,14 @@ export function AccessibilityWidget({ lang, setLang }: Props) {
               {t("a11y.reset")}
             </button>
 
-            {/* Language */}
+            {/* LANGUAGE */}
             <div className="border-t-2 border-[#e5ded4] mt-6 pt-6">
               <p className="text-sm uppercase tracking-widest text-[#5c544d] mb-4" style={{ fontWeight: 700 }}>{t("a11y.language_title")}</p>
               <div className="flex gap-2">
                 {([
-                  { code: "en" as Lang, flag: "🇺🇸", label: "EN" },
-                  { code: "fil" as Lang, flag: "🇵🇭", label: "FIL" },
-                  { code: "ceb" as Lang, flag: "🇵🇭", label: "CEB" },
+                  { code: "en"  as Lang, label: "English (US)" },
+                  { code: "fil" as Lang, label: "Filipino" },
+                  { code: "ceb" as Lang, label: "Cebuano" },
                 ]).map((l) => (
                   <button
                     key={l.code}
