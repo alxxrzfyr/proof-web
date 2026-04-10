@@ -10,7 +10,7 @@ name: automated alert scam
 
 on:
   schedule:
-    - cron: "0 * * * *"     # Every 1 hour
+    - cron: "0 */12 * * *"     # Every 12 hours
   workflow_dispatch:          # Manual trigger from Actions tab
 
 concurrency:
@@ -30,7 +30,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: react-ver          # ← FIX: commit lands on the deployed branch
+          ref: react-ver-4          # ← FIX: commit lands on the deployed branch
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -62,4 +62,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh workflow run deploy.yml --ref react-ver
+          gh workflow run deploy.yml --ref react-ver-4
