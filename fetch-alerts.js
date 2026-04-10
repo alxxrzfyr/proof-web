@@ -6,29 +6,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = join(__dirname, "public", "alerts.json");
 const MAX_ALERTS = 6;
 
-// Reliable & Official RSS sources based on your research
+// Reliable & Keyword-Focused Google News queries & top-tier RSS feeds
 const INTL_FEEDS = [
-    { url: "https://www.cisa.gov/cybersecurity-advisories/all.xml", label: "CISA Advisories" },
-    { url: "https://www.cisa.gov/news-events/news/rss.xml", label: "CISA News" },
-    { url: "https://www.fbi.gov/investigate/cyber/alerts/RSS", label: "FBI Cyber Alerts" },
-    { url: "https://www.ftc.gov/news-events/stay-connected/rss-feeds", label: "FTC Consumer Advice" },
-    { url: "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml", label: "NCSC UK" },
-    { url: "https://cert.europa.eu/publications/security-advisories-rss", label: "CERT-EU" },
-    { url: "https://isc.sans.edu/rssfeed_full.xml", label: "SANS ISC" },
-    { url: "https://krebsonsecurity.com/feed", label: "Krebs on Security" },
-    { url: "https://feeds.feedburner.com/TheHackersNews", label: "The Hacker News" },
-    { url: "https://www.darkreading.com/rss.xml", label: "Dark Reading" }
+    { url: "https://news.google.com/rss/search?q=%22online+scam%22+OR+%22emerging+fraud%22+OR+%22cybercrime%22+when:7d&hl=en-US&gl=US&ceid=US:en", label: "Google News Feed" },
+    { url: "https://news.google.com/rss/search?q=%22phishing+attack%22+OR+%22identity+theft%22+when:7d&hl=en-US&gl=US&ceid=US:en", label: "Google News Feed" },
+    { url: "https://www.bleepingcomputer.com/feed/", label: "BleepingComputer" },
+    { url: "https://krebsonsecurity.com/feed", label: "Krebs on Security" }
 ];
 
 const LOCAL_FEEDS = [
-    { url: "https://mastodon.social/@rssphilippinenewsagency.rss", label: "PNA (Official)" },
-    { url: "https://technology.inquirer.net/feed", label: "Inquirer (Technology)" },
-    { url: "https://globalnation.inquirer.net/feed", label: "Inquirer (Global News)" },
-    { url: "https://newsinfo.inquirer.net/feed", label: "Inquirer (Newsinfo)" },
-    { url: "https://www.gmanetwork.com/news/rss/", label: "GMA News Online" },
-    { url: "https://www.philstar.com/rss/", label: "Philstar" },
-    { url: "https://www.rappler.com/feed", label: "Rappler" },
-    { url: "https://cirt.gov.bd/feed/", label: "BGD e-GOV CIRT" }
+    { url: "https://news.google.com/rss/search?q=%22online+scam%22+philippines+OR+%22cybercrime%22+philippines+when:7d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH News Search" },
+    { url: "https://news.google.com/rss/search?q=(DICT+OR+NTC+OR+CICC+OR+PNP-ACG)+%22scam%22+OR+%22phishing%22+when:7d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH Gov News Search" },
+    { url: "https://news.google.com/rss/search?q=%22gcash+scam%22+OR+%22maya+scam%22+OR+%22smishing%22+philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH Local Tech Search" }
 ];
 
 async function fetchFromFeeds(feeds, type) {
@@ -65,13 +54,21 @@ async function fetchFromFeeds(feeds, type) {
                 const dateMatch = block.match(/<(?:pubDate|published|updated|dc:date)[^>]*>([\s\S]*?)<\/(?:pubDate|published|updated|dc:date)>/i);
                 const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();
 
-                const title = titleRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").replace(/<[^>]+>/g, '').trim();
+                const sourceMatch = block.match(/<source[^>]*>([\s\S]*?)<\/source>/i);
+                const extractedSource = sourceMatch ? sourceMatch[1] : feed.label;
+
+                let title = titleRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").replace(/<[^>]+>/g, '').trim();
+                if (feed.url.includes("news.google.com")) {
+                    const lastDash = title.lastIndexOf(" - ");
+                    if (lastDash !== -1) title = title.substring(0, lastDash).trim();
+                }
+
                 const desc = descRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").replace(/<[^>]+>/g, '').trim();
                 const link = linkRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, "$1").trim();
                 
                 // Strictly filter local news to ONLY cyber/scam topics (Intl feeds provide pure cyber news primarily)
                 const keywordRegex = /scam|cyber|hack|phish|fraud|breach|malware|ransomware|smishing|vishing/i;
-                const isRelevant = type === "international" || keywordRegex.test(title) || keywordRegex.test(desc);
+                const isRelevant = type === "international" || keywordRegex.test(title) || keywordRegex.test(desc) || feed.url.includes("news.google.com");
 
                 if (isRelevant) {
                     const dateObj = new Date(pubDate);
@@ -90,8 +87,8 @@ async function fetchFromFeeds(feeds, type) {
                         id: `alert-${type}-${Date.now()}-${Math.random().toString(36).substring(7)}`,
                         title: title,
                         url: link,
-                        source: feed.label,
-                        sourceLabel: feed.label,
+                        source: extractedSource,
+                        sourceLabel: extractedSource,
                         sourceLogo: "newspaper",
                         category: "cybercrime",
                         severity: "medium",
