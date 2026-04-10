@@ -62,27 +62,6 @@ export const teamMembers: TeamMember[] = [
 // SCAM PAGE SECTION DATA
 // ═══════════════════════════════════════════════════════════════
 
-export interface Alert {
-  id: string;
-  source: string;
-  sourceLabel: string;
-  sourceLogo: string;
-  category: string;
-  severity: string;
-  date: string;
-  title: string;
-  url: string;
-}
-
-export const alerts: Alert[] = [
-  { id: "1", source: "Mindanao Times", sourceLabel: "Mindanao Times", sourceLogo: "security", category: "cybercrime", severity: "medium", date: "2026-04-01", title: "GCash urges vigilance against online scams and fraud this Holy Week", url: "#" },
-  { id: "2", source: "Manila Standard", sourceLabel: "Manila Standard", sourceLogo: "security", category: "cybercrime", severity: "medium", date: "2026-04-01", title: "GCash warns users against scams during Holy Week", url: "#" },
-  { id: "3", source: "WalasTech", sourceLabel: "WalasTech", sourceLogo: "newspaper", category: "scam", severity: "medium", date: "2026-04-01", title: "BPI reminds Filipinos to stay alert vs scams this Holy Week", url: "#" },
-  { id: "4", source: "Newsbytes.PH", sourceLabel: "Newsbytes.PH", sourceLogo: "newspaper", category: "scam", severity: "medium", date: "2026-03-31", title: "BPI warns of scams during Holy Week, April Fool's Day", url: "#" },
-  { id: "5", source: "Philippine News Agency", sourceLabel: "Philippine News Agency", sourceLogo: "newspaper", category: "scam", severity: "medium", date: "2026-03-27", title: "16 caught in 2-month PNP cyber scam crackdown", url: "#" },
-  { id: "6", source: "Travel And Tour World", sourceLabel: "Travel And Tour World", sourceLogo: "newspaper", category: "scam", severity: "medium", date: "2026-03-28", title: "Alarming Rise of Online Hotel Booking Scams in the Philippines", url: "#" },
-];
-
 export interface ScamType {
   number: string;
   title: string;

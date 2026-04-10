@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { scamTypes, quickJumpPills, alerts as staticAlerts, type Lang, translations } from "./data";
+import { scamTypes, quickJumpPills, type Lang, translations } from "./data";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 // Add these imports (adjust the paths if the exact filenames differ)
@@ -174,7 +174,7 @@ function LogoImage({ name }: { name: string }) {
 
 export function ScamInfoSection({ lang }: Props) {
   const t = (key: string) => translations[lang]?.[key] || translations.en[key] || key;
-  const [alerts, setAlerts] = useState<any[]>(staticAlerts);
+  const [alerts, setAlerts] = useState<any[]>([]);
   const [alertScope, setAlertScope] = useState<"local" | "international">("local");
 
   useEffect(() => {

@@ -17,7 +17,9 @@ const INTL_FEEDS = [
 const LOCAL_FEEDS = [
     { url: "https://news.google.com/rss/search?q=%22online+scam%22+philippines+OR+%22cybercrime%22+philippines+when:7d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH News Search" },
     { url: "https://news.google.com/rss/search?q=(DICT+OR+NTC+OR+CICC+OR+PNP-ACG)+%22scam%22+OR+%22phishing%22+when:7d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH Gov News Search" },
-    { url: "https://news.google.com/rss/search?q=%22gcash+scam%22+OR+%22maya+scam%22+OR+%22smishing%22+philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH Local Tech Search" }
+    { url: "https://news.google.com/rss/search?q=%22gcash+scam%22+OR+%22maya+scam%22+OR+%22smishing%22+philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en", label: "PH Local Tech Search" },
+    { url: "https://news.google.com/rss/search?q=source:GMA+News+(scam+OR+phishing+OR+cybercrime)+when:7d&hl=en-PH&gl=PH&ceid=PH:en", label: "GMA News Search" },
+    { url: "https://news.google.com/rss/search?q=source:ABS-CBN+News+(scam+OR+phishing+OR+cybercrime)+when:7d&hl=en-PH&gl=PH&ceid=PH:en", label: "ABS-CBN News Search" }
 ];
 
 async function fetchFromFeeds(feeds, type) {
@@ -79,7 +81,9 @@ async function fetchFromFeeds(feeds, type) {
                     // Find base domain for the logo
                     let domainIcon = "https://icons.duckduckgo.com/ip3/news.google.com.ico"; // Fallback
                     try {
-                        const urlObj = new URL(feed.url);
+                        const sourceUrlMatch = block.match(/<source[^>]*url=["'](.*?)["']/i);
+                        const sourceUrl = sourceUrlMatch ? sourceUrlMatch[1] : feed.url;
+                        const urlObj = new URL(sourceUrl);
                         domainIcon = `https://icons.duckduckgo.com/ip3/${urlObj.hostname.replace("feeds.feedburner.com", "thehackernews.com")}.ico`;
                     } catch(e) {}
 
