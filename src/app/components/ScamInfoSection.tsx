@@ -328,7 +328,7 @@ export function ScamInfoSection({ lang }: Props) {
                   href={alert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white border border-[#e5ded4] rounded-xl p-5 hover:border-[#0a2fad]/40 hover:shadow-lg transition-all flex flex-col"
+                  className="group bg-white border border-[#0a2fad] lg:border-[#e5ded4] rounded-xl p-5 hover:border-[#0a2fad]/40 hover:shadow-lg transition-all flex flex-col"
                 >
                   <div className="flex items-center justify-between mb-3 w-full">
                     <div className="flex items-center gap-2 max-w-[65%]">
@@ -378,7 +378,7 @@ export function ScamInfoSection({ lang }: Props) {
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group bg-white rounded-xl border border-[#e5ded4] p-4 sm:p-5 hover:border-[#0a2fad]/40 hover:shadow-md transition-all"
+                    className="group bg-white rounded-xl border border-[#0a2fad] lg:border-[#e5ded4] p-4 sm:p-5 hover:border-[#0a2fad]/40 hover:shadow-md transition-all"
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <LogoImage name={resource.name} />

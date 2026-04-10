@@ -152,7 +152,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                   </div>
 
                   {/* Content - Dynamically styled based on medium */}
-                  <div className="p-4 sm:p-6 md:p-8 bg-[#f8f7f5]">
+                  <div className="p-4 sm:p-6 md:p-8 bg-[#f8f7f5] max-h-[45vh] lg:max-h-[500px] overflow-y-auto custom-scrollbar">
                     {scenario.medium === "Email" ? (
                       <div className="bg-white border border-[#e5ded4] rounded-xl overflow-hidden shadow-sm">
                         {/* Minimal email client header */}
@@ -181,7 +181,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                       </div>
 
                     ) : scenario.medium === "SMS" || scenario.medium === "Social Media" || scenario.medium === "Dating App" ? (
-                      <div className="bg-[#eef2f5] border border-[#d1d9e0] rounded-[2rem] max-w-sm mx-auto overflow-hidden shadow-inner relative h-[500px] flex flex-col">
+                      <div className="bg-[#eef2f5] border border-[#d1d9e0] rounded-[2rem] max-w-sm mx-auto overflow-hidden shadow-inner relative h-[400px] sm:h-[500px] flex flex-col">
                         {/* Phone Header */}
                         <div className="bg-white/90 backdrop-blur-md px-4 py-3 border-b border-gray-200 flex items-center gap-3 text-sm z-10 shrink-0">
                           <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 overflow-hidden shrink-0">
@@ -279,20 +279,20 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                 </div>
 
                 {/* Interaction Area Wrapper to prevent layout shift */}
-                <div className="min-h-[240px] sm:min-h-[220px] flex flex-col justify-start">
+                <div className="min-h-[160px] sm:min-h-[220px] flex flex-col justify-start">
                   {/* Voting Buttons */}
                   {!answered && (
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-5 sm:mt-6">
+                    <div className="flex flex-row gap-3 sm:gap-4 mt-4 sm:mt-6">
                       <button
                         onClick={() => handleAnswer(true)}
-                        className="flex-1 text-red-700 border-3 border-red-600 bg-white hover:bg-red-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
+                        className="flex-1 text-red-700 border-3 border-red-600 bg-white hover:bg-red-50 rounded-xl px-2 sm:px-8 py-3 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-base sm:text-xl min-h-[48px] sm:min-h-[64px]"
                         style={{ fontWeight: 900 }}
                       >
                         {t("quiz.btn_scam")}!
                       </button>
                       <button
                         onClick={() => handleAnswer(false)}
-                        className="flex-1 text-[#0a2fad] border-3 border-[#0a2fad] bg-white hover:bg-blue-50 rounded-xl px-6 sm:px-8 py-4 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-lg sm:text-xl min-h-[56px] sm:min-h-[64px]"
+                        className="flex-1 text-[#0a2fad] border-3 border-[#0a2fad] bg-white hover:bg-blue-50 rounded-xl px-2 sm:px-8 py-3 sm:py-5 hover:shadow-lg transition-all cursor-pointer text-base sm:text-xl min-h-[48px] sm:min-h-[64px]"
                         style={{ fontWeight: 900 }}
                       >
                         {t("quiz.btn_legit")}!
@@ -302,25 +302,25 @@ export function TryMeSection({ lang, onNavigate }: Props) {
 
                   {/* Feedback */}
                   {answered && (
-                    <div className={`mt-5 sm:mt-6 border-l-4 ${isCorrect ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50"} p-4 sm:p-6 rounded-r-xl animate-fadeIn`}>
-                      <div className="flex items-start gap-4">
-                        <span className={`${isCorrect ? "text-green-600" : "text-red-600"} material-symbols-outlined text-2xl mt-1`}>
+                    <div className={`mt-4 sm:mt-6 border-l-4 ${isCorrect ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50"} p-3 sm:p-6 rounded-r-xl animate-fadeIn`}>
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <span className={`${isCorrect ? "text-green-600" : "text-red-600"} material-symbols-outlined text-xl sm:text-2xl mt-1`}>
                           {isCorrect ? "check_circle" : "cancel"}
                         </span>
                         <div className="min-w-0">
-                          <p className="text-base sm:text-lg text-[#1a1816]" style={{ fontWeight: 700 }}>
+                          <p className="text-sm sm:text-lg text-[#1a1816]" style={{ fontWeight: 700 }}>
                             {isCorrect ? "Correct!" : "Incorrect."}
                           </p>
-                          <p className="text-base sm:text-lg text-[#1a1816] mt-1 leading-relaxed" style={{ fontWeight: 600 }}>
+                          <p className="text-sm sm:text-lg text-[#1a1816] mt-1 leading-relaxed" style={{ fontWeight: 600 }}>
                             {scenario.explanation}
                           </p>
                           
                           {scenario.redFlags.length > 0 && (
-                            <div className="mt-5 space-y-2 border-t border-[#1a1816]/10 pt-4">
-                              <p className="text-sm uppercase tracking-wider text-[#1a1816]" style={{ fontWeight: 800 }}>Key Red Flags:</p>
+                            <div className="mt-3 sm:mt-5 space-y-1 sm:space-y-2 border-t border-[#1a1816]/10 pt-3 sm:pt-4">
+                              <p className="text-xs sm:text-sm uppercase tracking-wider text-[#1a1816]" style={{ fontWeight: 800 }}>Key Red Flags:</p>
                               {scenario.redFlags.map((flag, i) => (
-                                <p key={i} className="text-[#1a1816] text-sm flex items-start gap-2" style={{ fontWeight: 600 }}>
-                                  <span className="material-symbols-outlined text-red-600 text-xl shrink-0">warning</span>
+                                <p key={i} className="text-[#1a1816] text-xs sm:text-sm flex items-start gap-1 sm:gap-2" style={{ fontWeight: 600 }}>
+                                  <span className="material-symbols-outlined text-red-600 text-lg sm:text-xl shrink-0">warning</span>
                                   <span className="flex-1 leading-snug">{flag}</span>
                                 </p>
                               ))}
@@ -335,7 +335,7 @@ export function TryMeSection({ lang, onNavigate }: Props) {
                   {showNext && (
                     <button
                       onClick={handleNext}
-                      className="mt-4 sm:mt-5 bg-[#0a2fad] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl hover:bg-[#1a1816] transition-colors cursor-pointer animate-fadeIn text-base sm:text-lg min-h-[52px] sm:min-h-[60px] self-start"
+                      className="mt-3 sm:mt-5 bg-[#0a2fad] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-xl hover:bg-[#1a1816] transition-colors cursor-pointer animate-fadeIn text-sm sm:text-lg min-h-[48px] sm:min-h-[60px] self-start"
                       style={{ fontWeight: 700 }}
                     >
                       {currentIndex >= 24 ? "See Final Score →" : `${t("quiz.btn_next")} →`}

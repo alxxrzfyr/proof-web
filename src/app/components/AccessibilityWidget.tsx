@@ -89,30 +89,21 @@ export function AccessibilityWidget({ lang, setLang }: Props) {
         </defs>
       </svg>
 
-      {/* 
-        Toggle Tab — shows only HALF when closed.
-        The button is 56px wide. When closed, right: -28px hides the right half.
-        When open, it moves to sit flush against the panel.
-      */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="fixed top-1/2 -translate-y-1/2 z-[61] bg-[#1a1816] text-white flex items-center justify-center cursor-pointer hover:bg-[#0a2fad] transition-all duration-300 rounded-l-2xl w-14 h-14 sm:w-16 sm:h-16"
-        style={{
-          right: open ? 340 : -28,
-          transition: "right 0.3s ease-out, background-color 0.2s",
-        }}
-        aria-label="Open accessibility settings"
-      >
-        <span className="material-symbols-outlined text-2xl sm:text-3xl">accessibility_new</span>
-      </button>
-
-      {/* Slide-in Panel */}
+      {/* Slide-in Container */}
       <div
-        className="fixed top-1/2 -translate-y-1/2 right-0 z-[62] transition-transform duration-300 ease-out rounded-l-[1.5rem] shadow-2xl"
-        style={{ transform: open ? "translateX(0)" : "translateX(100%)" }}
+        className="fixed top-1/2 -translate-y-1/2 right-0 z-[61] flex items-center transition-transform duration-300 ease-out"
+        style={{ transform: open ? "translateX(0)" : "translateX(calc(100% - 28px))" }}
       >
-        <div className="bg-white border-y-4 border-l-4 border-[#1a1816] w-[340px] max-h-[90vh] overflow-y-auto rounded-l-[1.5rem]">
-          <div className="p-5 sm:p-6">
+        <button
+          onClick={() => setOpen(!open)}
+          className="bg-[#1a1816] text-white flex items-center justify-center cursor-pointer hover:bg-[#0a2fad] transition-colors duration-200 rounded-l-2xl w-14 h-14 sm:w-16 sm:h-16 shadow-lg shrink-0 border-y-4 border-l-4 border-transparent"
+          aria-label="Open accessibility settings"
+        >
+          <span className="material-symbols-outlined text-2xl sm:text-3xl">accessibility_new</span>
+        </button>
+
+        <div className="bg-white border-y-4 border-l-4 border-[#1a1816] w-[280px] sm:w-[340px] max-h-[85vh] overflow-y-auto rounded-l-[1.5rem] shadow-2xl shrink-0">
+          <div className="p-4 sm:p-6">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-[#1a1816]" style={{ fontWeight: 800, textTransform: "uppercase", fontSize: "1.15rem", letterSpacing: "0.05em" }}>
