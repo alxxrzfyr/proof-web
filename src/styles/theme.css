@@ -2,8 +2,10 @@
 
 :root {
   --font-size: 18px;
-  --background: #f4f1ea;
-  --foreground: #1a1816;
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --gradient-natural: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --gradient-accent: linear-gradient(135deg, #0f172a 0%, #334155 100%);
   --text-body: clamp(1.1rem, 0.5vw + 1rem, 1.35rem);
   --text-h1: clamp(2.5rem, 2vw + 1.75rem, 4rem);
   --text-h2: clamp(2rem, 1.5vw + 1.5rem, 3rem);
@@ -14,9 +16,9 @@
 @theme inline {
   --color-city-blue: #0a2fad;
   --color-birdhouse-brown: #4a3224;
-  --color-nano-white: #f4f1ea;
-  --color-modest-white: #e5ded4;
-  --color-brownish-black: #1a1816;
+  --color-nano-white: #f8fafc;
+  --color-modest-white: #e2e8f0;
+  --color-brownish-black: #1e293b;
   --color-pure-white: #ffffff;
 }
 
@@ -29,8 +31,8 @@ body {
   font-size: var(--text-body);
   line-height: 1.75;
   overflow-x: hidden;
-  background-color: #f4f1ea;
-  color: #1a1816;
+  background: var(--background);
+  color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,8 +60,14 @@ body {
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fadeIn {
@@ -67,19 +75,29 @@ body {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
   display: flex;
   white-space: nowrap;
-  animation: marquee 25s linear infinite;
+  animation: marquee 50s linear infinite;
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(2.5); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 .pulse-ring {
@@ -117,8 +135,11 @@ html.a11y-reduce-motion * {
   transition: none !important;
 }
 
-html.a11y-big-cursor, html.a11y-big-cursor * {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M5.5 2L18.5 13.5L12 14.5L15.5 21.5L13.5 22.5L10 15.5L5.5 21L5.5 2Z" fill="%23000" stroke="%23FFF" stroke-width="1.5"/></svg>'), auto !important;
+html.a11y-big-cursor,
+html.a11y-big-cursor * {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M5.5 2L18.5 13.5L12 14.5L15.5 21.5L13.5 22.5L10 15.5L5.5 21L5.5 2Z" fill="%23000" stroke="%23FFF" stroke-width="1.5"/></svg>'),
+    auto !important;
 }
 
 html.a11y-protanopia {
