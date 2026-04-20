@@ -8,106 +8,117 @@
 <img src="https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" />
 <img src="https://img.shields.io/badge/Updates-Every_12_Hours-0075CA?style=for-the-badge&logo=githubactions&logoColor=white" />
 
-# 🛡️ P.R.O.O.F
+# P.R.O.O.F
 
-### Program for Responsible Online Operations and Fraud-awareness
+### Program for Responsible Online Operations and Fraud-Awareness
 
-**A localized, tech-driven campaign platform designed to protect Filipinos from online scams and cyber fraud.**
+**A localized, technology-driven campaign platform designed to protect Filipinos from online scams and cyber fraud.**
 
-P.R.O.O.F delivers real-time scam alerts, data-backed statistics, educational resources, and direct links to official government reporting agencies — all in one free, automatically updated website built for the Philippines.
+P.R.O.O.F delivers real-time scam alerts, data-backed statistics, educational resources, and direct links to official government reporting agencies, consolidated into a single free website that is updated automatically on a 12-hour cycle and built specifically for use in the Philippines.
 
-**🌐 [Visit the Live Website →](https://alxxrzfyr.github.io/peoof-web)**
+**[Visit the Live Website](https://alxxrzfyr.github.io/peoof-web)**
 
 </div>
 
 ---
 
-## 📌 Table of Contents
-- [Executive Summary](#-executive-summary)
-- [Why P.R.O.O.F?](#-why-proof)
-- [Features](#-features)
-  - [Live Scam Alerts](#-live-scam-alerts)
-  - [Statistics Dashboard](#-statistics-dashboard)
-  - [Scam Type Encyclopedia](#-scam-type-encyclopedia)
-  - [Interactive Scenarios](#-interactive-scenarios-try-me)
-  - [How to Report](#-how-to-report)
-- [How the Automation & Logic Works](#-how-the-automation--logic-works)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started Locally](#-getting-started-locally)
-- [GitHub Actions Workflows](#-github-actions-workflows)
-- [Official Reporting Channels](#-official-reporting-channels)
-- [Contributing](#-contributing)
-- [Attributions](#-attributions--acknowledgements)
+## Table of Contents
+- [Executive Summary](#executive-summary)
+- [Background and Rationale](#background-and-rationale)
+- [Features](#features)
+  - [Live Scam Alerts](#live-scam-alerts)
+  - [Statistics Dashboard](#statistics-dashboard)
+  - [Scam Type Encyclopedia](#scam-type-encyclopedia)
+  - [Interactive Scenarios](#interactive-scenarios)
+  - [How to Report](#how-to-report)
+- [Automation and System Logic](#automation-and-system-logic)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Local Development Guide](#local-development-guide)
+- [GitHub Actions Workflows](#github-actions-workflows)
+- [Official Reporting Channels](#official-reporting-channels)
+- [Contributing](#contributing)
+- [Attributions and Acknowledgements](#attributions-and-acknowledgements)
 
 ---
 
-## 📖 Executive Summary
-With the rapid digitalization of financial and social services in the Philippines, phishing, identity theft, and online scams have surged to unprecedented levels. P.R.O.O.F was developed as an educational and preventive response to this growing national threat.
+## Executive Summary
 
-The platform bridges the gap between complex cybersecurity concepts and the general public. It pulls verified cybercrime advisories from trusted local domains and top-tier global journalism every single day, surfaces them in a bilingual (English and Filipino) accessible interface, and pairs them with factual statistics and educational resources. No subscriptions. No algorithms. Just free, accurate, always-current scam awareness.
+The rapid digitalization of financial and social services in the Philippines has contributed to a significant rise in phishing, identity theft, and online fraud. P.R.O.O.F was developed as an educational and preventive response to this growing national concern.
 
----
-
-## 🇵🇭 Why P.R.O.O.F?
-
-Online fraud is one of the fastest-growing threats to Filipinos. Nearly **8 in 10 Filipino adults** encounter scams annually. Despite the scale of the problem, information about active scams remains fragmented across government websites, social media posts, and news articles that most people never see.
-
-P.R.O.O.F exists to change that. It pulls verified cybercrime advisories from trusted Philippine sources, surfaces them in a clean and accessible interface, and pairs them with factual statistics and educational resources. 
+The platform bridges the gap between complex cybersecurity concepts and the general public. It retrieves verified cybercrime advisories from trusted local domains and reputable international journalism on a daily basis, presents them through a bilingual (English and Filipino) accessible interface, and supplements them with factual statistics and educational resources. The platform operates at no cost to users, is free of algorithmic curation, and is designed to remain accurate and current at all times.
 
 ---
 
-## ✨ Features
+## Background and Rationale
 
-### 🔴 Live Scam Alerts
-> _Always current. Automatically updated every 12 hours._
+Online fraud is among the fastest-growing threats to Filipinos today. Approximately eight in ten Filipino adults encounter scam attempts on an annual basis. Despite the scale of the problem, information about active threats remains fragmented across government websites, social media, and news articles that most members of the public never encounter.
 
-The alerts feed is the core of P.R.O.O.F. A GitHub Actions workflow runs on a 12-hour schedule, pulling fresh RSS feeds from a curated whitelist of reliable cybersecurity journalists and local news sources. Every alert on the platform has been sourced from a verified, trusted domain and fact-checked via strict programmatic filters.
+P.R.O.O.F addresses this gap directly. It retrieves verified cybercrime advisories from trusted Philippine sources, surfaces them through a clean and accessible interface, and pairs them with factual statistics and educational materials.
 
-Each alert card displays:
+---
+
+## Features
+
+### Live Scam Alerts
+> _Automatically refreshed every 12 hours._
+
+The alerts feed is the core component of P.R.O.O.F. A GitHub Actions workflow runs on a 12-hour schedule, retrieving fresh RSS feeds from a curated whitelist of reliable cybersecurity journalists and local news sources. Every alert published on the platform has been sourced from a verified, trusted domain and validated through strict programmatic filters.
+
+Each alert card displays the following:
 - **Headline** — the title of the advisory or news report
-- **Source logo** — so you immediately know which agency or outlet published it (powered by DuckDuckGo API)
+- **Source logo** — identifies the publishing agency or outlet (powered by the DuckDuckGo Favicon API)
 - **Publication date** — formatted and normalized across all feed sources
-- **Direct link** — takes you straight to the original article or advisory
+- **Direct link** — navigates to the original article or advisory
 
-### 📊 Statistics Dashboard
-> _Real numbers. Real context. Powered by Recharts._
+### Statistics Dashboard
+> _Verified data presented through interactive visualizations. Powered by Recharts._
 
-The statistics section presents verified Philippine cybercrime data through a set of fully interactive, responsive charts covering:
-- **Scam Type Distribution**: A breakdown of the most reported fraud categories.
-- **Victim Demographics**: Age group and regional data showing which populations are most targeted.
-- **Financial Loss Trends**: Year-over-year data on total reported financial losses.
-- **Incident Volume Over Time**: Monthly and annual reported cybercrime incident counts.
+The statistics section presents verified Philippine cybercrime data through a set of fully interactive, responsive charts covering the following areas:
+- **Scam Type Distribution:** A breakdown of the most commonly reported fraud categories
+- **Victim Demographics:** Age group and regional data indicating which populations are most frequently targeted
+- **Financial Loss Trends:** Year-over-year data on total reported financial losses
+- **Incident Volume Over Time:** Monthly and annual reported cybercrime incident counts
 
-### 🎣 Scam Type Encyclopedia
-> _Know what to look for before it's too late._
+### Scam Type Encyclopedia
+> _A reference guide for identifying threats before they occur._
 
-P.R.O.O.F documents the most common fraud tactics actively targeting Filipinos, written in plain, accessible language. Includes mechanics, red flags, and avoidance strategies for Phishing, Smishing, Vishing, Online Selling Scams, Love Scams, Investment Fraud, SIM Swap Attacks, Job Scams, and Parcel Scams.
+P.R.O.O.F documents the most prevalent fraud tactics actively targeting Filipinos, written in plain and accessible language. Each entry includes an explanation of mechanics, identifiable warning signs, and recommended avoidance strategies for the following scam types: Phishing, Smishing, Vishing, Online Selling Scams, Love Scams, Investment Fraud, SIM Swap Attacks, Job Scams, and Parcel Scams.
 
-### 🧪 Interactive Scenarios ("Try Me")
-> _Practice identifying scams in a safe, consequence-free environment._
+### Interactive Scenarios
+> _Practical, consequence-free scam recognition exercises._
 
-Engaging simulation modules let users test their ability to spot phishing attempts and fraudulent schemes before encountering them in the real world. 
+Simulation modules allow users to test their ability to identify phishing attempts and fraudulent schemes in a controlled environment before encountering them in real-world situations.
 
-### 📣 How to Report
-> _Because knowing who to call is half the battle._
+### How to Report
+> _Guidance on which agencies to contact and how._
 
-The reporting section provides direct, up-to-date contact information for every major Philippine agency that handles cybercrime and fraud, outlining their mandates and hotlines.
+The reporting section provides direct, current contact information for every major Philippine government agency responsible for handling cybercrime and fraud, including an outline of each agency's mandate and available hotlines.
 
 ---
 
-## ⚙️ How the Automation & Logic Works
+## Automation and System Logic
 
-P.R.O.O.F has no backend server or traditional database. Live data flows through a single automated pipeline driven by **GitHub Actions** and a zero-dependency **Node.js** scraper.
+P.R.O.O.F operates without a backend server or traditional database. All live data flows through a single automated pipeline driven by GitHub Actions and a zero-dependency Node.js script.
 
-### The Logic (`rss feed/fetch-alerts.js`)
-1. **The Sources**:
-   - **Local (PH):** Analyzes Google News RSS filtered tightly to Philippine domains (`gmanetwork.com`, `inquirer.net`, `mb.com.ph`, etc.) or articles containing Philippine-centric keywords.
-   - **International:** Relies on dedicated reliable cybersecurity journalism (`Krebs On Security`, `The Guardian's Scam feed`) + a strict News aggregator filtered *only* to highly credible global publishers (`reuters`, `bbc`, `apnews`, `wired`, `wall street journal`, etc.).
-2. **The Filter (Regex):** Every single article downloaded is tested against a rigid Regular Expression looking for specific online scam identifiers (e.g., `phishing`, `pig butchering`, `crypto scam`, `sim swap`, `ransomware`). If an article does not explicitly discuss an online scam/fraud, or stringently match the domains whitelist, it is automatically dropped.
-3. **The Output:** Verified articles are formatted, date-normalized, assigned a publisher logo, and saved directly into `rss feed/alerts.json` (max 12 alerts per category).
+### Script Logic (`rss feed/fetch-alerts.js`)
 
-A simplified look at what the scraper does under the hood:
+**1. Source Retrieval**
+
+The script pulls from two categories of sources:
+
+- **Local (Philippines):** Analyzes Google News RSS feeds filtered to Philippine domains such as `gmanetwork.com`, `inquirer.net`, and `mb.com.ph`, or articles containing Philippines-specific keywords.
+- **International:** Retrieves from dedicated cybersecurity journalism outlets (Krebs on Security, The Guardian's Scam feed) and a strictly filtered news aggregator limited to highly credible global publishers including Reuters, BBC, AP News, Wired, and The Wall Street Journal.
+
+**2. Content Filtering (Regular Expression)**
+
+Every article retrieved is evaluated against a strict regular expression pattern that checks for specific online fraud identifiers such as `phishing`, `pig butchering`, `crypto scam`, `sim swap`, and `ransomware`. Articles that do not explicitly address online scams or fraud, or that do not match the domain whitelist, are automatically excluded.
+
+**3. Output**
+
+Verified articles are formatted, date-normalized, assigned a publisher logo via the DuckDuckGo Favicon API, and saved directly into `rss feed/alerts.json`, with a maximum of 12 alerts per category.
+
+A simplified representation of the core pipeline logic is as follows:
 
 ```javascript
 // fetch-alerts.js — core pipeline logic (simplified)
@@ -123,7 +134,7 @@ async function run() {
   const global = await fetchAndFilter(KREBS_RSS);
 
   const verified = [...local, ...global]
-    .map(item => attachLogo(item))     // DuckDuckGo favicon API
+    .map(item => attachLogo(item))     // DuckDuckGo Favicon API
     .map(item => normalizeDate(item))  // Consistent ISO date format
     .slice(0, 12);                     // Max 12 alerts per category
 
@@ -134,7 +145,7 @@ async function run() {
 run();
 ```
 
-### The Pipeline
+### Full Pipeline Overview
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -173,25 +184,25 @@ run();
 
 ---
 
-## 🛠️ Tech Stack
+## Technology Stack
 
-| Technology                                            | Role                                 |
-| ----------------------------------------------------- | ------------------------------------ |
-| [React 18](https://react.dev/)                        | UI framework                         |
-| [Vite](https://vitejs.dev/)                           | Build tool and dev server            |
-| [TypeScript](https://www.typescriptlang.org/)         | Type-safe JavaScript                 |
+| Technology | Role |
+| --- | --- |
+| [React 18](https://react.dev/) | UI framework |
+| [Vite](https://vitejs.dev/) | Build tool and development server |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe JavaScript |
 | [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | Core scripting language (`fetch-alerts.js`) |
-| [Tailwind CSS](https://tailwindcss.com/)              | Utility-first styling                |
-| [Radix UI](https://www.radix-ui.com/)                 | Accessible, headless UI components   |
-| [Recharts](https://recharts.org/)                     | Interactive data visualization       |
-| [Node.js](https://nodejs.org/)                        | Runtime for the `fetch-alerts.js` script  |
-| [GitHub Actions](https://github.com/features/actions) | 12-hour automation and CI/CD pipeline|
-| [GitHub Pages](https://pages.github.com/)             | Free static hosting                  |
-| [Figma](https://figma.com/)                           | Original design source               |
+| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling |
+| [Radix UI](https://www.radix-ui.com/) | Accessible, headless UI components |
+| [Recharts](https://recharts.org/) | Interactive data visualization |
+| [Node.js](https://nodejs.org/) | Runtime for the `fetch-alerts.js` script |
+| [GitHub Actions](https://github.com/features/actions) | Scheduled automation and CI/CD pipeline |
+| [GitHub Pages](https://pages.github.com/) | Static site hosting |
+| [Figma](https://figma.com/) | Original design source |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 PROOF-WEBSITE/
@@ -199,13 +210,13 @@ PROOF-WEBSITE/
 │   ├── deploy.yml           # Builds Vite UI & deploys to GitHub Pages
 │   └── fetch-alerts.yml     # Cron: pulls latest scam news every 12 hrs
 ├── guidelines/              # Project guidelines and documentation
-├── rss feed/                # The public static storage folder
-│   ├── alerts.json          # The database (auto-generated JSON)
-│   └── fetch-alerts.js      # The heart of the platform's automation logic
+├── rss feed/                # Public static storage directory
+│   ├── alerts.json          # Auto-generated data output (JSON)
+│   └── fetch-alerts.js      # Core automation logic
 ├── src/
-│   ├── assets/              # Local images and backgrounds
+│   ├── assets/              # Local images and background files
 │   ├── components/          # Reusable React components
-│   │   ├── figma/           # Exported Figma/design components
+│   │   ├── figma/           # Exported Figma design components
 │   │   └── ui/              # Component library elements (Radix/Shadcn)
 │   ├── hooks/               # Custom React hooks (e.g., use-mobile)
 │   ├── lib/                 # Utility functions and helpers
@@ -215,21 +226,21 @@ PROOF-WEBSITE/
 ├── .prettierrc.mjs          # Prettier formatting configuration
 ├── eslint.config.js         # ESLint rules configuration
 ├── index.html               # Main HTML template
-├── package-lock.json        # NPM dependency tree lockfile
-├── package.json             # NPM dependencies & scripts
+├── package-lock.json        # NPM dependency lockfile
+├── package.json             # NPM dependencies and scripts
 ├── postcss.config.mjs       # PostCSS configuration
-└── vite.config.ts           # Configured to expose 'rss feed' publicly
+└── vite.config.ts           # Configured to expose 'rss feed' as a public directory
 ```
 
 ---
 
-## 🚀 Getting Started Locally
+## Local Development Guide
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) v18+
-- npm v9+
+- [Node.js](https://nodejs.org/) v18 or higher
+- npm v9 or higher
 
-### 1. Clone & Install
+### 1. Clone and Install Dependencies
 
 ```bash
 git clone https://github.com/alxxrzfyr/proof-web.git
@@ -238,15 +249,15 @@ git checkout main
 npm install
 ```
 
-### 2. Manual Guide: Fetching Alerts Locally
+### 2. Fetching Alerts Locally
 
-You can update the live scam feed manually on your machine before running the app. Run the fetcher script located in the `rss feed/` directory:
+The live scam feed can be updated manually on a local machine prior to running the application. Execute the fetcher script located in the `rss feed/` directory:
 
 ```bash
 node "rss feed/fetch-alerts.js"
 ```
 
-Expected output:
+Expected console output:
 
 ```console
 [PROOF Alert Bot] Fetching PH sources...  ✔
@@ -256,9 +267,9 @@ Expected output:
 ✅ Done — 12 alerts written to alerts.json
 ```
 
-**What this does:** Connects to the internet to pull the latest security RSS feeds, applies the strict scam regex filters, formats the remaining data, pulls domain logos, and completely overwrites `rss feed/alerts.json` with the new data.
+This command connects to the internet to retrieve the latest security RSS feeds, applies the scam regex filters, formats the resulting data, retrieves domain logos, and overwrites `rss feed/alerts.json` with the updated output.
 
-### 3. Start the Development Server
+### 3. Starting the Development Server
 
 ```bash
 npm run dev
@@ -272,9 +283,9 @@ npm run dev
   ➜  press h + enter to show help
 ```
 
-*Note: The frontend automatically reads the local JSON DB via `fetch('alerts.json')` because Vite is configured (`vite.config.ts` via the `publicDir` flag) to treat the `rss feed` directory exactly like a standard public static assets folder!*
+The frontend reads the local JSON data file via `fetch('alerts.json')`. This works because Vite is configured in `vite.config.ts` (via the `publicDir` flag) to treat the `rss feed/` directory as a standard public static assets folder.
 
-### 4. Build for Production
+### 4. Building for Production
 
 ```bash
 npm run build
@@ -289,17 +300,17 @@ dist/assets/index-[hash].js    312.04 kB │ gzip: 91.23 kB
 ✓ built in 3.21s
 ```
 
-Outputs an optimized React bundle to the `dist/` directory, copying the `rss feed/` assets alongside the Javascript and CSS.
+This produces an optimized React bundle in the `dist/` directory, with the `rss feed/` assets copied alongside the JavaScript and CSS output.
 
 ### 5. Linting and Formatting
 
-Run the linter to catch errors:
+To run the linter:
 
 ```bash
 npm run lint
 ```
 
-Format the code using Prettier:
+To format the codebase using Prettier:
 
 ```bash
 npm run format
@@ -307,28 +318,30 @@ npm run format
 
 ---
 
-## 🤖 GitHub Actions Workflows
+## GitHub Actions Workflows
 
 ### `fetch-alerts.yml`
-| Property       | Value                                                                        |
-| -------------- | ---------------------------------------------------------------------------- |
-| Trigger        | Cron schedule — every 12 hours (`0 */12 * * *`)                              |
-| Manual trigger | `workflow_dispatch` — run on demand from the GitHub UI                       |
-| What it does   | Runs `"rss feed/fetch-alerts.js"`, commits `alerts.json` to the `main` branch|
+
+| Property | Value |
+| --- | --- |
+| Trigger | Cron schedule — every 12 hours (`0 */12 * * *`) |
+| Manual trigger | `workflow_dispatch` — can be run on demand from the GitHub Actions UI |
+| Function | Executes `"rss feed/fetch-alerts.js"` and commits the updated `alerts.json` to the `main` branch |
 
 ### `deploy.yml`
-| Property     | Value                                                                          |
-| ------------ | ------------------------------------------------------------------------------ |
-| Trigger      | Any push to the `main` branch (including commits from the fetch workflow)      |
-| What it does | Installs dependencies, runs `vite build` using the `rss feed/` public dir      |
+
+| Property | Value |
+| --- | --- |
+| Trigger | Any push to the `main` branch, including automated commits from the fetch workflow |
+| Function | Installs dependencies and runs `vite build` using the `rss feed/` directory as the public asset source |
 
 ---
 
-## 🏛️ Official Reporting Channels
+## Official Reporting Channels
 
-If you or someone you know has been victimized by an online scam in the Philippines, report it immediately to one of these agencies:
+Any individual who has been victimized by an online scam in the Philippines is encouraged to file a report promptly with one of the following agencies:
 
-| Agency | Handles | Contact |
+| Agency | Jurisdiction | Contact |
 | --- | --- | --- |
 | **CICC** | All cybercrime coordination | [cicc.gov.ph](https://cicc.gov.ph) · Hotline **1326** |
 | **PNP Anti-Cybercrime Group** | Criminal enforcement and cybercrime cases | [acg.pnp.gov.ph](https://acg.pnp.gov.ph) |
@@ -336,22 +349,20 @@ If you or someone you know has been victimized by an online scam in the Philippi
 | **BSP** | Bank-related fraud and financial scams | [bsp.gov.ph](https://bsp.gov.ph) · consumer@bsp.gov.ph |
 | **DICT** | Digital governance and cyber policy | [dict.gov.ph](https://dict.gov.ph) |
 
-> 💡 **Tip:** When reporting, prepare your evidence in advance. Screenshots of messages, transaction records, URLs, phone numbers, and email headers all strengthen your case.
+**Note:** When filing a report, it is advisable to prepare supporting evidence in advance. Screenshots of messages, transaction records, URLs, phone numbers, and email headers all strengthen a reported case.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome. To contribute, fork the repository, create a feature branch off `main`, make your changes, and open a pull request with a clear description of what you added or fixed.
-
----
-
-## 🤝 Attributions & Acknowledgements
-
-The original design for this platform was conceptualized and generated in Figma. Built using React, Vite, Tailwind CSS, TypeScript, and powered by highly credible independent open-internet journalism.
+Contributions are welcome. To contribute, fork the repository, create a feature branch off `main`, implement your changes, and submit a pull request with a clear and detailed description of what was added or modified.
 
 ---
 
-_P.R.O.O.F is a community awareness initiative._ _It is not affiliated with any Philippine government agency._ _All links to official channels are provided for public convenience._
+## Attributions and Acknowledgements
 
-**Stay safe. Stay informed. Don't be the next victim. 🇵🇭**
+The original design for this platform was conceptualized and prototyped in Figma. The platform is built on React, Vite, Tailwind CSS, and TypeScript, and is sustained by reporting from credible, independent open-internet journalism.
+
+---
+
+_P.R.O.O.F is a community awareness initiative. It is not affiliated with any Philippine government agency. All links to official channels are provided for public convenience._
