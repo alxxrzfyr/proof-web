@@ -231,19 +231,19 @@ PROOF-WEBSITE/
 
 ### 1. Clone & Install
 
-```bash
-git clone https://github.com/alxxrzfyr/proof-web.git
-cd proof-web
-git checkout main
-npm install
+```ansi
+$ [36mgit[0m clone https://github.com/alxxrzfyr/proof-web.git
+$ [36mcd[0m proof-web
+$ [36mgit[0m checkout main
+$ [33mnpm[0m install
 ```
 
 ### 2. Manual Guide: Fetching Alerts Locally
 
 You can update the live scam feed manually on your machine before running the app. Run the fetcher script located in the `rss feed/` directory:
 
-```bash
-node "rss feed/fetch-alerts.js"
+```ansi
+$ [32mnode[0m "rss feed/fetch-alerts.js"
 ```
 
 Expected output:
@@ -260,8 +260,8 @@ Expected output:
 
 ### 3. Start the Development Server
 
-```bash
-npm run dev
+```ansi
+$ [33mnpm[0m run dev
 ```
 
 ```console
@@ -276,8 +276,8 @@ npm run dev
 
 ### 4. Build for Production
 
-```bash
-npm run build
+```ansi
+$ [33mnpm[0m run build
 ```
 
 ```console
@@ -295,14 +295,14 @@ Outputs an optimized React bundle to the `dist/` directory, copying the `rss fee
 
 Run the linter to catch errors:
 
-```bash
-npm run lint
+```ansi
+$ [33mnpm[0m run lint
 ```
 
 Format the code using Prettier:
 
-```bash
-npm run format
+```ansi
+$ [33mnpm[0m run format
 ```
 
 ---
