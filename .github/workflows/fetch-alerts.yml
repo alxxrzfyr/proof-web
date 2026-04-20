@@ -30,7 +30,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: react-ver-4 # ← FIX: commit lands on the deployed branch
+          ref: main # ← FIX: commit lands on the deployed branch
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -39,14 +39,14 @@ jobs:
 
       - name: Fetch latest scam alerts
         id: fetch
-        run: node fetch-alerts.js
+        run: node "rss feed/fetch-alerts.js"
 
       - name: Commit & push alerts.json if changed
         id: commit_step
         run: |
           git config user.name  "PROOF Alert Bot"
           git config user.email "alerts-bot@users.noreply.github.com"
-          git add public/alerts.json
+          git add "rss feed/alerts.json"
 
           if git diff --cached --quiet; then
             echo "No new alerts to commit."
@@ -62,4 +62,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh workflow run deploy.yml --ref react-ver-4
+          gh workflow run deploy.yml --ref main

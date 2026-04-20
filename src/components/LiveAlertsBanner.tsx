@@ -1,4 +1,5 @@
 // src/app/components/LiveAlertsBanner.tsx
+/*
 import { useState, useEffect } from 'react';
 
 interface AlertItem {
@@ -84,3 +85,5 @@ export function LiveAlertsBanner() {
     </div>
   );
 }
+
+/*

@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   base: './', // Uses relative paths so it works on any GitHub Pages URL
+  publicDir: 'rss feed', // Tells Vite to treat the 'rss feed' folder exactly like the old 'public' folder
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them

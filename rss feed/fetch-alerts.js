@@ -3,54 +3,49 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUTPUT_PATH = join(__dirname, 'public', 'alerts.json');
+const OUTPUT_PATH = join(__dirname, 'alerts.json');
 const MAX_ALERTS = 12;
 
-// International feeds — scam & fraud AWARENESS only, no general cybersecurity/infosec news
+// International feeds - Online scam alerts, consumer fraud prevention, and factual reporting
 const INTL_FEEDS = [
-  // Official government consumer/fraud alert feeds
-  { url: 'https://consumer.ftc.gov/consumer-alerts/rss', label: 'FTC Consumer Alerts' },
-  // Google News: strictly scam & fraud awareness — excludes vulnerability/breach/malware noise
+  { url: 'https://www.theguardian.com/money/scamsandfraud/rss', label: 'The Guardian (Scams)' },
+  { url: 'https://krebsonsecurity.com/feed/', label: 'Krebs on Security' },
   {
-    url: 'https://news.google.com/rss/search?q=(%22online+scam%22+OR+%22internet+scam%22+OR+%22romance+scam%22+OR+%22investment+scam%22+OR+%22crypto+scam%22+OR+%22pig+butchering%22+OR+%22tech+support+scam%22+OR+%22phishing+scam%22+OR+%22scam+warning%22+OR+%22scam+alert%22+OR+%22fraud+alert%22+OR+%22scam+awareness%22+OR+%22lottery+scam%22+OR+%22job+scam%22+OR+%22deepfake+scam%22+OR+%22AI+scam%22+OR+%22money+mule%22+OR+%22advance+fee+scam%22+OR+%22impersonation+scam%22+OR+%22fake+website+scam%22)+when:7d&hl=en-US&gl=US&ceid=US:en',
-    label: 'Google News International',
-  },
-  // Google News: scam victim stories & consumer fraud awareness — second angle
-  {
-    url: 'https://news.google.com/rss/search?q=(%22scam+victim%22+OR+%22fraud+victim%22+OR+%22scammed+out+of%22+OR+%22lost+money+to+scam%22+OR+%22warned+about+scam%22+OR+%22new+scam%22+OR+%22emerging+scam%22+OR+%22scam+trend%22+OR+%22how+to+spot+scam%22+OR+%22how+to+avoid+scam%22+OR+%22protect+yourself+from+scam%22)+when:7d&hl=en-US&gl=US&ceid=US:en',
-    label: 'Google News Scam Awareness',
-  },
+    // Simplified query since Google ignores complex site: blocks. We will filter the domains in JavaScript.
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22crypto+scam%22+OR+%22pig+butchering%22+OR+%22tech+support+scam%22+OR+%22malware%22+OR+%22ransomware%22)+when:30d&hl=en-US&gl=US&ceid=US:en',
+    label: 'Global News (Scams)',
+    whitelist: ['reuters', 'associated press', 'bbc', 'npr', 'consumer reports', 'cnbc', 'bloomberg', 'wired', 'techcrunch', 'wall street journal', 'cbs news', 'nbc news']
+  }
 ];
 
-// Local feeds — Philippines ONLY, strictly online scam & fraud awareness
+// Local feeds - Philippines ONLY (online scam & fraud awareness)
 const LOCAL_FEEDS = [
-  // Generic PH news search using the major networks natively in the query
   {
-    url: 'https://news.google.com/rss/search?q=(online+scam+OR+online+fraud+OR+phishing+OR+gcash+scam+OR+smishing+OR+investment+scam+OR+scam+alert)+site:ph+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:ph+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'PH Online Scam News',
   },
   {
-    url: 'https://news.google.com/rss/search?q=(scam+OR+fraud+OR+phishing+OR+smishing+OR+gcash+OR+budol)+site:gmanetwork.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:gmanetwork.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'GMA News',
   },
   {
-    url: 'https://news.google.com/rss/search?q=(scam+OR+fraud+OR+phishing+OR+smishing+OR+gcash+OR+budol)+site:abs-cbn.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:abs-cbn.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'ABS-CBN News',
   },
   {
-    url: 'https://news.google.com/rss/search?q=(scam+OR+fraud+OR+phishing+OR+smishing+OR+gcash+OR+budol)+site:inquirer.net+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:inquirer.net+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'Inquirer',
   },
   {
-    url: 'https://news.google.com/rss/search?q=(scam+OR+fraud+OR+phishing+OR+smishing+OR+gcash+OR+budol)+site:philstar.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:philstar.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'Philstar',
   },
   {
-    url: 'https://news.google.com/rss/search?q=(scam+OR+fraud+OR+phishing+OR+smishing+OR+gcash+OR+budol)+site:mb.com.ph+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:mb.com.ph+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'Manila Bulletin',
   },
   {
-    url: 'https://news.google.com/rss/search?q=(scam+OR+fraud+OR+phishing+OR+smishing+OR+gcash+OR+budol)+site:rappler.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
+    url: 'https://news.google.com/rss/search?q=(%22phishing%22+OR+%22smishing%22+OR+%22gcash+scam%22+OR+%22online+selling+scam%22+OR+%22love+scam%22+OR+%22crypto+scam%22+OR+%22task+scam%22+OR+%22fake+booking+scam%22)+site:rappler.com+when:30d&hl=en-PH&gl=PH&ceid=PH:en',
     label: 'Rappler',
   },
 ];
@@ -112,10 +107,9 @@ async function fetchFromFeeds(feeds, type) {
           .trim();
         const link = linkRaw.replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1').trim();
 
-        // Strictly scam & fraud awareness — excludes generic infosec/security news terms
-        // (no vulnerability, ransomware, malware, data breach, exploit, zero-day, patch)
+        // Broadened scam matching since we are now relying on strictly whitelisted, high-quality sources
         const onlineScamRegex =
-          /(online scam|internet scam|online fraud|internet fraud|cyber fraud|phishing scam|spear.?phishing scam|smishing|vishing|romance scam|love scam|investment scam|pig.?butchering|crypto scam|cryptocurrency scam|bitcoin scam|nft scam|tech support scam|lottery scam|prize scam|job scam|employment scam|recruitment scam|business email compromise|\bBEC\b|account takeover|identity theft|sim.?swap|otp scam|qr.?code scam|deepfake scam|ai.?scam|social media scam|online shopping scam|e.?commerce fraud|gcash scam|maya scam|paymaya scam|budol|text scam|scam warning|scam alert|fraud alert|scam awareness|money mule|money muling|digital fraud|wire fraud|advance.?fee scam|419 scam|nigerian prince|impersonation scam|fake website scam|scam victim|fraud victim|scammed out of|warned about scam|new scam|emerging scam|scam trend)/i;
+          /(scam|fraud|phishing|smishing|vishing|crypto|bitcoin|nft|tech support|lottery|job fake|employment|recruitment|BEC|account takeover|identity theft|sim.?swap|otp|qr.?code|deepfake|ai fake|malware|ransomware|pig.?butchering|money mule|impersonation|scammer|swindle|extortion|cybercrime|hacker|breach)/i;
 
         // Strictly enforce local news to only include articles explicitly mentioning the Philippines or from PH domains
         const philippinesRef =
@@ -130,9 +124,12 @@ async function fetchFromFeeds(feeds, type) {
         const isLocallyRelevant =
           type !== 'local' || isPhDomain || philippinesRef.test(title) || philippinesRef.test(desc);
 
+        // Optional Source Whitelist (For International Google News)
+        const passesWhitelist = !feed.whitelist || feed.whitelist.some(w => extractedSource.toLowerCase().includes(w));
+
         // All feeds go through the same scam filter — no source is whitelisted to bypass it
         const isRelevant =
-          (onlineScamRegex.test(title) || onlineScamRegex.test(desc)) && isLocallyRelevant;
+          (onlineScamRegex.test(title) || onlineScamRegex.test(desc)) && isLocallyRelevant && passesWhitelist;
 
         if (isRelevant) {
           const dateObj = new Date(pubDate);
