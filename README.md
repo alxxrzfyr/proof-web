@@ -231,12 +231,10 @@ PROOF-WEBSITE/
 
 ### 1. Clone & Install
 
-```ansi
-$ [36mgit[0m clone https://github.com/alxxrzfyr/proof-web.git
-$ [36mcd[0m proof-web
-$ [36mgit[0m checkout main
-$ [33mnpm[0m install
-```
+$ [36mgit[0m clone https://github.com/alxxrzfyr/proof-web.git
+$ [36mcd[0m proof-web
+$ [36mgit[0m checkout main
+$ [33mnpm[0m install
 
 ### 2. Manual Guide: Fetching Alerts Locally
 
