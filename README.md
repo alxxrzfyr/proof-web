@@ -16,7 +16,7 @@
 
 P.R.O.O.F delivers real-time scam alerts, data-backed statistics, educational resources, and direct links to official government reporting agencies — all in one free, automatically updated website built for the Philippines.
 
-**🌐 [Visit the Live Website →](https://alxxrzfyr.github.io/PROOF-WEBSITE)**
+**🌐 [Visit the Live Website →](https://alxxrzfyr.github.io/peoof-web)**
 
 </div>
 
@@ -107,16 +107,43 @@ P.R.O.O.F has no backend server or traditional database. Live data flows through
 2. **The Filter (Regex):** Every single article downloaded is tested against a rigid Regular Expression looking for specific online scam identifiers (e.g., `phishing`, `pig butchering`, `crypto scam`, `sim swap`, `ransomware`). If an article does not explicitly discuss an online scam/fraud, or stringently match the domains whitelist, it is automatically dropped.
 3. **The Output:** Verified articles are formatted, date-normalized, assigned a publisher logo, and saved directly into `rss feed/alerts.json` (max 12 alerts per category).
 
+A simplified look at what the scraper does under the hood:
+
+```javascript
+// fetch-alerts.js — core pipeline logic (simplified)
+const scamRegex = /phishing|pig butchering|crypto scam|sim swap|ransomware/i;
+
+async function fetchAndFilter(feedUrl) {
+  const items = await parseRSS(feedUrl);
+  return items.filter(item => scamRegex.test(item.title + item.description));
+}
+
+async function run() {
+  const local = await fetchAndFilter(PH_GOOGLE_NEWS_RSS);
+  const global = await fetchAndFilter(KREBS_RSS);
+
+  const verified = [...local, ...global]
+    .map(item => attachLogo(item))     // DuckDuckGo favicon API
+    .map(item => normalizeDate(item))  // Consistent ISO date format
+    .slice(0, 12);                     // Max 12 alerts per category
+
+  fs.writeFileSync('rss feed/alerts.json', JSON.stringify(verified, null, 2));
+  console.log(`✅ Done — ${verified.length} alerts written to alerts.json`);
+}
+
+run();
+```
+
 ### The Pipeline
 
-```text
+```
 ┌─────────────────────────────────────────────────┐
 │       GitHub Actions — Runs Every 12 Hours      │
 └────────────────────┬────────────────────────────┘
                      │
                      ▼
            ┌─────────────────────┐
-           │ rss feed/fetch-alerts.js │  (Node.js scraper)
+           │  fetch-alerts.js    │  (Node.js scraper)
            └────────┬────────────┘
                     │
        ┌────────────┼─────────────────┐
@@ -153,10 +180,11 @@ P.R.O.O.F has no backend server or traditional database. Live data flows through
 | [React 18](https://react.dev/)                        | UI framework                         |
 | [Vite](https://vitejs.dev/)                           | Build tool and dev server            |
 | [TypeScript](https://www.typescriptlang.org/)         | Type-safe JavaScript                 |
+| [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | Core scripting language (`fetch-alerts.js`) |
 | [Tailwind CSS](https://tailwindcss.com/)              | Utility-first styling                |
 | [Radix UI](https://www.radix-ui.com/)                 | Accessible, headless UI components   |
 | [Recharts](https://recharts.org/)                     | Interactive data visualization       |
-| [Node.js](https://nodejs.org/)                        | Powers the `fetch-alerts.js` script  |
+| [Node.js](https://nodejs.org/)                        | Runtime for the `fetch-alerts.js` script  |
 | [GitHub Actions](https://github.com/features/actions) | 12-hour automation and CI/CD pipeline|
 | [GitHub Pages](https://pages.github.com/)             | Free static hosting                  |
 | [Figma](https://figma.com/)                           | Original design source               |
@@ -165,7 +193,7 @@ P.R.O.O.F has no backend server or traditional database. Live data flows through
 
 ## 📁 Project Structure
 
-```text
+```
 PROOF-WEBSITE/
 ├── .github/workflows/
 │   ├── deploy.yml           # Builds Vite UI & deploys to GitHub Pages
@@ -202,45 +230,77 @@ PROOF-WEBSITE/
 - npm v9+
 
 ### 1. Clone & Install
+
 ```bash
-git clone https://github.com/alxxrzfyr/PROOF-WEBSITE.git
-cd PROOF-WEBSITE
+git clone https://github.com/alxxrzfyr/proof-web.git
+cd proof-web
 git checkout main
 npm install
 ```
 
 ### 2. Manual Guide: Fetching Alerts Locally
-You can update the live scam feed manually on your machine before running the app. 
 
-Run the fetcher script located in the `rss feed/` directory by executing:
+You can update the live scam feed manually on your machine before running the app. Run the fetcher script located in the `rss feed/` directory:
+
 ```bash
 node "rss feed/fetch-alerts.js"
 ```
-**What this does:** It connects to the internet to pull the latest security RSS feeds. It applies the strict scam regex filters, formats the remaining data, pulls domain logos, and completely overwrites `rss feed/alerts.json` with the new data.
+
+Expected output:
+
+```console
+[PROOF Alert Bot] Fetching PH sources...  ✔
+[PROOF Alert Bot] Fetching global sources... ✔
+[PROOF Alert Bot] Applying scam regex filter...
+[PROOF Alert Bot] 9 PH articles matched. 7 global articles matched.
+✅ Done — 12 alerts written to alerts.json
+```
+
+**What this does:** Connects to the internet to pull the latest security RSS feeds, applies the strict scam regex filters, formats the remaining data, pulls domain logos, and completely overwrites `rss feed/alerts.json` with the new data.
 
 ### 3. Start the Development Server
+
 ```bash
 npm run dev
 ```
-The frontend React application will start at `http://localhost:5173`. 
+
+```console
+  VITE v5.x.x  ready in 312 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
 
 *Note: The frontend automatically reads the local JSON DB via `fetch('alerts.json')` because Vite is configured (`vite.config.ts` via the `publicDir` flag) to treat the `rss feed` directory exactly like a standard public static assets folder!*
 
 ### 4. Build for Production
+
 ```bash
 npm run build
 ```
+
+```console
+vite v5.x.x building for production...
+✓ 84 modules transformed.
+dist/index.html                  0.46 kB │ gzip:  0.30 kB
+dist/assets/index-[hash].css    42.18 kB │ gzip:  8.91 kB
+dist/assets/index-[hash].js    312.04 kB │ gzip: 91.23 kB
+✓ built in 3.21s
+```
+
 Outputs an optimized React bundle to the `dist/` directory, copying the `rss feed/` assets alongside the Javascript and CSS.
 
 ### 5. Linting and Formatting
-To ensure code quality and consistent styling, this project uses ESLint and Prettier.
 
 Run the linter to catch errors:
+
 ```bash
 npm run lint
 ```
 
 Format the code using Prettier:
+
 ```bash
 npm run format
 ```
