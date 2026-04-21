@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-21T02:05:26.704Z",
+  "fetchedAt": "2026-04-21T13:14:08.338Z",
   "alerts": [
+    {
+      "id": "alert-local-1776777246723-plbnk4",
+      "title": "Bank Liability for Phishing Scam Losses and Denied Refunds in the Philippines",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQXzZiOHlUX1NRV3R3b09FS2w3WUtmckdYbzdXUHRXWUxiZE9zaDQyRk1VeG9MOHpLNlFfUk5ZWW1GS3NteXNvM21TRmlMSHZ1RWJGdUlKd2pGM2hIM3hDUkFuWldfYl9jajZUa0swSlB2Ylc4Z29PQzFRM3Job2h1Wk1mZ1NvNTAwZl9VbDNCN3RGanlVemZicTh5TFBoRnJYU0xyNGNodTdUMExCYmhTSVdSLWM?oc=5",
+      "source": "respicio &amp; co.",
+      "sourceLabel": "respicio &amp; co.",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 21, 2026",
+      "rawDate": "2026-04-21T02:41:27.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1776737125240-kbbyf",
       "title": "Phishing Scam",
@@ -68,6 +82,20 @@
       "severity": "medium",
       "date": "April 20, 2026",
       "rawDate": "2026-04-20T11:53:29.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.onlinejobs.ph.ico",
+      "scope": "local"
+    },
+    {
+      "id": "alert-local-1776777246726-r5qi5f",
+      "title": "IT Security &amp; Cloud Engineer 1627461",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTlWMGdOTmNEWkRPbjJMMUJuOE5Ub3VkTEhSdVlUYngyOTB6amhBS19rdVFJa25TZWxXU1UyOWFETzBLMUJLQ0d6WmxuTU04ZkxfUGRGOENTdjRUdk41WnFtcTlWeEZ6RVAxb20tMlVWMDVlTkt2TXp0NXFVUHJkMA?oc=5",
+      "source": "OnlineJobs.ph",
+      "sourceLabel": "OnlineJobs.ph",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 20, 2026",
+      "rawDate": "2026-04-20T11:53:21.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.onlinejobs.ph.ico",
       "scope": "local"
     },
@@ -142,32 +170,18 @@
       "scope": "local"
     },
     {
-      "id": "alert-local-1776654995901-dto7sn",
-      "title": "Filing a Police Report for Online Financial Scams in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMTZFeTBjcThLUHNVdVJRSnFEZ2ViOFZlaFRIT1FzeTE5NlRhRVJtell2ZXpyMkVEcWpLdkVYSS1lYXdmRUdtS1pBQ2M4dm40Y3lKRDZxSFBaeTNNSkE5cTBCSHlrV2VJcWkwT3pvQjdXNjhQWElYTzRwdHRTM2Y1b2c0U09NaUQzdFRma2ZzaDltcTViR0E5MmNUUGVobjBjcFNGRFlOVzM?oc=5",
-      "source": "respicio &amp; co.",
-      "sourceLabel": "respicio &amp; co.",
+      "id": "alert-international-1776777246485-1ln7j",
+      "title": "AI job scams are booming – and I was fooled by one. Here is how to avoid them",
+      "url": "https://www.theguardian.com/money/2026/apr/21/how-to-avoid-ai-online-job-recruitment-scams",
+      "source": "The Guardian (Scams)",
+      "sourceLabel": "The Guardian (Scams)",
       "sourceLogo": "newspaper",
       "category": "cybercrime",
       "severity": "medium",
-      "date": "April 19, 2026",
-      "rawDate": "2026-04-19T04:25:29.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776654995898-0vcz56",
-      "title": "Legal Actions Against Social Media Scammers and Online Fraud in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQa3R3RUVBMFRtVEZ0OHhBUml5bmQzQUpaWkY2WTRfVGEtTGxnVHhQZlFmM3pQNVJGTVE0REN6cHFHbmI5QVl5NTlxWkdVUzJEWTdUMmNrbHBCTjZZTENjQ2RJQ2I5d2lzbmdLTHpienRlUlZzMURmTkxKbTJKZy1KbU9ZYzJHcmV5cnJIM1NjV0x6c2xTejNkSnJvX2w4S1Y4NWVSbk9WVHFoNEdaaElsVFRXb2IwZ2c?oc=5",
-      "source": "respicio &amp; co.",
-      "sourceLabel": "respicio &amp; co.",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 19, 2026",
-      "rawDate": "2026-04-18T20:46:37.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
+      "date": "April 21, 2026",
+      "rawDate": "2026-04-21T04:00:15.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
+      "scope": "international"
     },
     {
       "id": "alert-international-1776654996173-v9350um",
@@ -321,20 +335,6 @@
       "date": "March 26, 2026",
       "rawDate": "2026-03-26T07:00:00.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.wired.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1776691188970-6ue0i",
-      "title": "Foster City declares state of emergency following ransomware attack",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQZmZPaUItTTdEc2ZGT3ZTa3N1cGtHZXY3NmtKOHlXdF96R3VGNElUbmhLc3RoaVZPN25nWVFQYmJ6Y0FPMnZqZ1JSVTE0S2I1N1JaZkMyeTBxUlhKdDMwN2dvLVdJTU85UkFZbUlYWVNIMVlMVFNNMDhDSE9xcTlQV1FkZTBKM1NoUVFzdm83ZWRYby1uSWhBcWUtemZ5ZGMwa21xd0NYTXhTblk?oc=5",
-      "source": "CBS News",
-      "sourceLabel": "CBS News",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "March 24, 2026",
-      "rawDate": "2026-03-24T07:00:00.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.cbsnews.com.ico",
       "scope": "international"
     }
   ]
