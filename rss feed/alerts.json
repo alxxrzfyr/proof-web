@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-22T02:03:47.425Z",
+  "fetchedAt": "2026-04-22T13:16:18.912Z",
   "alerts": [
+    {
+      "id": "alert-local-1776863777442-wiiwp8",
+      "title": "GCash blocks 4,900 ‘quishing’ scam merchants",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOQWd0Umk1WnJzQ1Zad0hiWlRPNVk5UDI2R01BUzBZY3BOWk5RSFI2dktNODE5SmlNNGtlRzgyZ2dNbXg4Zno2ZVkwcE55Yk9rREtnU0hBNlVKRU5PbHZMbEZybWdJSXQ5LXJnekE0NEJubjc3S1M1TGgxaTJMVHVER9IBjgFBVV95cUxQWE9YZlI0dURBMVY4c0pzTVE3OUdOS0hESmVSdGNjckFMVVMyVDJ5cXFva3J6WlhlVEx4MFlSWXR0c05ocUxCel9pY0M3U0dGSTlHV2pTeTgxUGRQRHduczhQTVZaN2J5ZTZxblJwS0pmLW40UDNialo1a1JzX0xDbF9HTC04Y2UyMzdRam1n?oc=5",
+      "source": "Daily Tribune",
+      "sourceLabel": "Daily Tribune",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 22, 2026",
+      "rawDate": "2026-04-22T10:33:55.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/tribune.net.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1776823426049-ccbpp",
       "title": "Bank OTP Scam and Unauthorized Transactions in the Philippines",
@@ -156,18 +170,18 @@
       "scope": "local"
     },
     {
-      "id": "alert-local-1776737125714-976upk",
-      "title": "48 arestado sa scam hub sa Parañaque City",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOZGpYMF9SWGpPcml2dVlZaExWbEoyalNCdVBYRkNnV0tZSGJ3ZW9mWm4tbHlpcTByZnE4bFlMSjFYb3VRcGpUN3dXWkxlRUExVF90QlJsc3hKUE1jako2SDZQYnF4MkVpZmRSNkRpWmtOSi1NdExDRmhRNmZEZHNVa0xwWnNkekRfNGdEcVVlYlY3a0JWRzlR?oc=5",
-      "source": "ABS-CBN",
-      "sourceLabel": "ABS-CBN",
+      "id": "alert-international-1776863777432-u6lwy6",
+      "title": "‘Fullz’, ‘clicking’ and ‘addys’: how teens talk about fraud",
+      "url": "https://www.theguardian.com/money/2026/apr/22/street-words-parents-young-people-fraud-scams",
+      "source": "The Guardian (Scams)",
+      "sourceLabel": "The Guardian (Scams)",
       "sourceLogo": "newspaper",
       "category": "cybercrime",
       "severity": "medium",
-      "date": "April 20, 2026",
-      "rawDate": "2026-04-20T10:52:27.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.abs-cbn.com.ico",
-      "scope": "local"
+      "date": "April 22, 2026",
+      "rawDate": "2026-04-22T10:01:34.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
+      "scope": "international"
     },
     {
       "id": "alert-international-1776823426039-3gh2as",
@@ -321,20 +335,6 @@
       "date": "April 6, 2026",
       "rawDate": "2026-04-06T02:07:17.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/krebsonsecurity.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1776654997132-0kn5x",
-      "title": "Security News This Week: Hackers Are Posting the Claude Code Leak With Bonus Malware",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQdlJ1QWZVYUJaQ2hOUmoxaUw4ZGVVZUZVTzZvTWdDUmh5Y29TQWVqam81Tl9Pa18zRUhVYVBFaU5JT3pjRmtVVkdYMmVpV3JfRml1VVZsVWVNZ3dxQ3h3Tm1VWmJYNXN2SDB0UE1kNkZHd0JJdW85SDM1dWdxU29PQXZYcHcxai0wb1gwdUxiM01GcXhEMmRNVU9qcnZTUXFnRXBVV3pfMmZ2Z1FzeS1UR2Nn?oc=5",
-      "source": "WIRED",
-      "sourceLabel": "WIRED",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 4, 2026",
-      "rawDate": "2026-04-04T07:00:00.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.wired.com.ico",
       "scope": "international"
     }
   ]
