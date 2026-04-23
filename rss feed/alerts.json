@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-22T13:16:18.912Z",
+  "fetchedAt": "2026-04-23T02:07:14.465Z",
   "alerts": [
+    {
+      "id": "alert-local-1776910033063-utmx0j",
+      "title": "GCash upholds zero tolerance on 'quishing' scam, blocks fake illegal sites",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPVUlEUXI0cnhkREVZbVBNaW1QX2VmYkJnOU8ydzN3T09mVWt3WDdzVGtIMnQzRldOaGJEdHBuMFV5LUVKa1AzVGdSUENrU3BJX1J1WWlaWlpCSjJHODZ4Zmg1MzJJajYxS0swSXBsMUZrcmJLU0FfeTRKdnlONXA3SjIzWkV2c3FfZm9YOWt6ZTZzZ2NFX2Zxci0yOG9lVEQySXc?oc=5",
+      "source": "Manila Bulletin",
+      "sourceLabel": "Manila Bulletin",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 23, 2026",
+      "rawDate": "2026-04-23T00:45:55.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/mb.com.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1776863777442-wiiwp8",
       "title": "GCash blocks 4,900 ‘quishing’ scam merchants",
@@ -156,18 +170,18 @@
       "scope": "local"
     },
     {
-      "id": "alert-local-1776777246726-r5qi5f",
-      "title": "IT Security &amp; Cloud Engineer 1627461",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTlWMGdOTmNEWkRPbjJMMUJuOE5Ub3VkTEhSdVlUYngyOTB6amhBS19rdVFJa25TZWxXU1UyOWFETzBLMUJLQ0d6WmxuTU04ZkxfUGRGOENTdjRUdk41WnFtcTlWeEZ6RVAxb20tMlVWMDVlTkt2TXp0NXFVUHJkMA?oc=5",
-      "source": "OnlineJobs.ph",
-      "sourceLabel": "OnlineJobs.ph",
+      "id": "alert-international-1776910032962-0ussqo",
+      "title": "British woman died in Ghana trying to recoup money from scammers, inquest told",
+      "url": "https://www.theguardian.com/uk-news/2026/apr/22/british-woman-died-in-ghana-trying-to-recoup-money-from-scammers-inquest-told",
+      "source": "The Guardian (Scams)",
+      "sourceLabel": "The Guardian (Scams)",
       "sourceLogo": "newspaper",
       "category": "cybercrime",
       "severity": "medium",
-      "date": "April 20, 2026",
-      "rawDate": "2026-04-20T11:53:21.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.onlinejobs.ph.ico",
-      "scope": "local"
+      "date": "April 22, 2026",
+      "rawDate": "2026-04-22T16:13:00.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
+      "scope": "international"
     },
     {
       "id": "alert-international-1776863777432-u6lwy6",
@@ -321,20 +335,6 @@
       "date": "April 6, 2026",
       "rawDate": "2026-04-06T15:00:23.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1776654996538-qvbgkh",
-      "title": "Germany Doxes &#8220;UNKN,&#8221; Head of RU Ransomware Gangs REvil, GandCrab",
-      "url": "https://krebsonsecurity.com/2026/04/germany-doxes-unkn-head-of-ru-ransomware-gangs-revil-gandcrab/",
-      "source": "Krebs on Security",
-      "sourceLabel": "Krebs on Security",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 6, 2026",
-      "rawDate": "2026-04-06T02:07:17.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/krebsonsecurity.com.ico",
       "scope": "international"
     }
   ]
