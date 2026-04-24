@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-23T13:16:04.769Z",
+  "fetchedAt": "2026-04-24T02:07:58.548Z",
   "alerts": [
+    {
+      "id": "alert-local-1776996477251-neqdda",
+      "title": "How to Recover Money From Task Scam Websites in the Philippines",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQeEY0TmhlTzdiZWtGNWpNakRob1VBdHE2SG5zclpMZTdFTkNZcDBfMVhsTDdWcDFDSm5razNZX1EteUktZE4ycjhIRHJ3ejhROU5YQlR5Q25VRF9IdDBLMW05cHZwNkhpTE0xWk1zeEE1LUJNWEpzeUZnTlBtYmdvWW1uU3h4V291Wktta0M5OW94cHM5MEd2bFZQbm9uWXJOTWc?oc=5",
+      "source": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLabel": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 23, 2026",
+      "rawDate": "2026-04-23T18:10:38.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1776950164252-5zosvg",
       "title": "GCash upholds zero tolerance on 'quishing' scam, blocks fake illegal sites",
@@ -156,18 +170,32 @@
       "scope": "local"
     },
     {
-      "id": "alert-local-1776737126287-ylcqv",
-      "title": "48 held in Parañaque scam hub",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNZTVraS1idUtIYVBWVHBiMmc4cVZHYUJKRF9mUzB3V3NvRFFfTzdUUXA5WFY1WV82UnRaejd0bXoxTGpiOEYwYVJpVjJRY016cGFLNFBKMnRqdGs5UnNyOWFJeGZoNUhNcUd5QmRrUHJHczA1MkJ1cFZzaTVhemxMY2VB0gGIAUFVX3lxTE5xOGpFYjk1TXJqdDNMUDFMUXhlbHk1ZEZPWTZxM0VNMW40cVUtdE81V1F0RUVFc3lXWkZPMGNzajJDczJVR1dCN1VwaGRHc0JFUTBfOEUtR3lKNjZKa1RPazdsaTgxcVQzZDFMb202WDBLX25DUVNxUExIMVlleWRIWUNRWGFrMmM?oc=5",
-      "source": "Philstar.com",
-      "sourceLabel": "Philstar.com",
+      "id": "alert-international-1776996477829-hdhmil",
+      "title": "Newly Deciphered Sabotage Malware May Have Targeted Iran’s Nuclear Program—and Predates Stuxnet",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOS2VBTTZwS0RXQmNlTDRucTJzaXlrTktLREN1UU1PUTN2MHZVUjljMlY5NmRwS25CSmdkemo2WmxLLVNMS2Z6RURoOWNWVXpvZEpXaXc0aUd2dHYzdU91OE1IM0JEM3kzU2VTNzg4QnQwTFBkMENkMU1tRi1KSDZfd1V6SFhsTFNq?oc=5",
+      "source": "WIRED",
+      "sourceLabel": "WIRED",
       "sourceLogo": "newspaper",
       "category": "cybercrime",
       "severity": "medium",
-      "date": "April 20, 2026",
-      "rawDate": "2026-04-20T16:00:00.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.philstar.com.ico",
-      "scope": "local"
+      "date": "April 23, 2026",
+      "rawDate": "2026-04-23T22:00:00.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.wired.com.ico",
+      "scope": "international"
+    },
+    {
+      "id": "alert-international-1776996477829-y0v03f",
+      "title": "5 AI Models Tried to Scam Me. Some of Them Were Scary Good",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE96amZLemxJZ2hIbkYzOGlpamZJRXlKZzZpMlh6RnVDYUFiOTZQODlNZzlSNTNNNm5EUzdJTnZyYlFwY19vRENybkI3dFQ3VGREWktKZVlHRjcybkQ5M1FiRjVDTndkX0pTWkVnWFNGbE0zc1Q2UFE?oc=5",
+      "source": "WIRED",
+      "sourceLabel": "WIRED",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 22, 2026",
+      "rawDate": "2026-04-22T18:00:00.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.wired.com.ico",
+      "scope": "international"
     },
     {
       "id": "alert-international-1776910032962-0ussqo",
@@ -306,34 +334,6 @@
       "severity": "medium",
       "date": "April 12, 2026",
       "rawDate": "2026-04-12T06:00:09.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1776654996538-953fl4",
-      "title": "Russia Hacked Routers to Steal Microsoft Office Tokens",
-      "url": "https://krebsonsecurity.com/2026/04/russia-hacked-routers-to-steal-microsoft-office-tokens/",
-      "source": "Krebs on Security",
-      "sourceLabel": "Krebs on Security",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 8, 2026",
-      "rawDate": "2026-04-07T17:02:44.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/krebsonsecurity.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1776654996173-linpvn",
-      "title": "Private jets, deserted shores and an unbuilt resort: alleged links to sanctioned ‘scam’ empire revealed in Timor-Leste",
-      "url": "https://www.theguardian.com/world/ng-interactive/2026/apr/06/prince-group-timor-leste-links-to-alleged-scam-empire",
-      "source": "The Guardian (Scams)",
-      "sourceLabel": "The Guardian (Scams)",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 6, 2026",
-      "rawDate": "2026-04-06T15:00:23.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
       "scope": "international"
     }
