@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-24T02:07:58.548Z",
+  "fetchedAt": "2026-04-24T13:12:16.302Z",
   "alerts": [
+    {
+      "id": "alert-local-1777036335039-n0yiv7",
+      "title": "IT Security &amp; Cloud Engineer 1627461",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTlWMGdOTmNEWkRPbjJMMUJuOE5Ub3VkTEhSdVlUYngyOTB6amhBS19rdVFJa25TZWxXU1UyOWFETzBLMUJLQ0d6WmxuTU04ZkxfUGRGOENTdjRUdk41WnFtcTlWeEZ6RVAxb20tMlVWMDVlTkt2TXp0NXFVUHJkMA?oc=5",
+      "source": "OnlineJobs.ph",
+      "sourceLabel": "OnlineJobs.ph",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 24, 2026",
+      "rawDate": "2026-04-24T02:35:46.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.onlinejobs.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1776996477251-neqdda",
       "title": "How to Recover Money From Task Scam Websites in the Philippines",
@@ -153,20 +167,6 @@
       "date": "April 21, 2026",
       "rawDate": "2026-04-21T02:41:27.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776737125240-kbbyf",
-      "title": "Phishing Scam",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBsT1NiSFd6OW9OQjNLUHZtYl9YWUtacDVPMGl0cVowcC0xMG9xWG5YUTVscGpBQ3dFbWllWkxOYWo5cGlaU2VUSEhIT0tBdw?oc=5",
-      "source": "Philippine Statistics Authority",
-      "sourceLabel": "Philippine Statistics Authority",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 20, 2026",
-      "rawDate": "2026-04-20T23:00:43.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/psa.gov.ph.ico",
       "scope": "local"
     },
     {
@@ -324,17 +324,17 @@
       "scope": "international"
     },
     {
-      "id": "alert-international-1776654996173-pjlxqe",
-      "title": "‘Your photos will be deleted’: Apple users warned over ‘nasty’ iCloud storage scam",
-      "url": "https://www.theguardian.com/money/2026/apr/12/apple-icloud-storage-scam-emails",
-      "source": "The Guardian (Scams)",
-      "sourceLabel": "The Guardian (Scams)",
+      "id": "alert-international-1777036336299-gqxlw8",
+      "title": "FBI Atlanta, Indonesian authorities dismantle global phishing operation",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOZWZTb1hsM1RmTDk1Um9RTXpuYjg5RkY2WGV5MmpoUzVxUGZiN2FLZXBiUFBUUGU2SlR2ZDNuNm1oSWhqRjZRQmdudU9zQ2M3NU40MkdvbHhOLXdFSktYWWdoQVhwMFlDYXdPdDY1MnQ1cmJ4V1NpckhTaUN3RmdrTkNwUWlSc2lVeFJKUTdiMC13UEJIYUFicW1XMjZYZ0dMbzk0RFVPT3VibXJj?oc=5",
+      "source": "CBS News",
+      "sourceLabel": "CBS News",
       "sourceLogo": "newspaper",
       "category": "cybercrime",
       "severity": "medium",
-      "date": "April 12, 2026",
-      "rawDate": "2026-04-12T06:00:09.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
+      "date": "April 13, 2026",
+      "rawDate": "2026-04-13T07:00:00.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.cbsnews.com.ico",
       "scope": "international"
     }
   ]
