@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-24T13:12:16.302Z",
+  "fetchedAt": "2026-04-26T12:55:32.135Z",
   "alerts": [
     {
       "id": "alert-local-1777036335039-n0yiv7",
@@ -170,6 +170,20 @@
       "scope": "local"
     },
     {
+      "id": "alert-international-1777208130613-qp0hk6",
+      "title": "Ghost MOTs: drivers warned over fake certificates that lead to huge repair bills",
+      "url": "https://www.theguardian.com/money/2026/apr/26/ghost-mot-drivers-warned-fake-certificates-repair-bills-tests",
+      "source": "The Guardian (Scams)",
+      "sourceLabel": "The Guardian (Scams)",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 26, 2026",
+      "rawDate": "2026-04-26T06:00:07.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
+      "scope": "international"
+    },
+    {
       "id": "alert-international-1776996477829-hdhmil",
       "title": "Newly Deciphered Sabotage Malware May Have Targeted Iran’s Nuclear Program—and Predates Stuxnet",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOS2VBTTZwS0RXQmNlTDRucTJzaXlrTktLREN1UU1PUTN2MHZVUjljMlY5NmRwS25CSmdkemo2WmxLLVNMS2Z6RURoOWNWVXpvZEpXaXc0aUd2dHYzdU91OE1IM0JEM3kzU2VTNzg4QnQwTFBkMENkMU1tRi1KSDZfd1V6SFhsTFNq?oc=5",
@@ -321,20 +335,6 @@
       "date": "April 13, 2026",
       "rawDate": "2026-04-13T10:57:16.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1777036336299-gqxlw8",
-      "title": "FBI Atlanta, Indonesian authorities dismantle global phishing operation",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOZWZTb1hsM1RmTDk1Um9RTXpuYjg5RkY2WGV5MmpoUzVxUGZiN2FLZXBiUFBUUGU2SlR2ZDNuNm1oSWhqRjZRQmdudU9zQ2M3NU40MkdvbHhOLXdFSktYWWdoQVhwMFlDYXdPdDY1MnQ1cmJ4V1NpckhTaUN3RmdrTkNwUWlSc2lVeFJKUTdiMC13UEJIYUFicW1XMjZYZ0dMbzk0RFVPT3VibXJj?oc=5",
-      "source": "CBS News",
-      "sourceLabel": "CBS News",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 13, 2026",
-      "rawDate": "2026-04-13T07:00:00.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.cbsnews.com.ico",
       "scope": "international"
     }
   ]
