@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-26T12:55:32.135Z",
+  "fetchedAt": "2026-04-27T02:13:58.591Z",
   "alerts": [
+    {
+      "id": "alert-local-1777256037272-alruja",
+      "title": "Philippine Laws on Online Scams",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBkVnNZSmdWRl84RWJnRzNOeE1hekdjVy11eXVhb0FEcWJxZktFX19xUGJ0b2V2cHk1dElJNG1obWduRm43NmhzV1I1UHo2QVJiU0N0M2RNRTU4ZlVYVVZpYWRmcWhoY195MC1XQXhuTFVobnRyVk1B?oc=5",
+      "source": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLabel": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 26, 2026",
+      "rawDate": "2026-04-26T18:37:21.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1777036335039-n0yiv7",
       "title": "IT Security &amp; Cloud Engineer 1627461",
@@ -152,20 +166,6 @@
       "severity": "medium",
       "date": "April 21, 2026",
       "rawDate": "2026-04-21T13:31:50.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776777246723-plbnk4",
-      "title": "Bank Liability for Phishing Scam Losses and Denied Refunds in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQXzZiOHlUX1NRV3R3b09FS2w3WUtmckdYbzdXUHRXWUxiZE9zaDQyRk1VeG9MOHpLNlFfUk5ZWW1GS3NteXNvM21TRmlMSHZ1RWJGdUlKd2pGM2hIM3hDUkFuWldfYl9jajZUa0swSlB2Ylc4Z29PQzFRM3Job2h1Wk1mZ1NvNTAwZl9VbDNCN3RGanlVemZicTh5TFBoRnJYU0xyNGNodTdUMExCYmhTSVdSLWM?oc=5",
-      "source": "respicio &amp; co.",
-      "sourceLabel": "respicio &amp; co.",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 21, 2026",
-      "rawDate": "2026-04-21T02:41:27.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
       "scope": "local"
     },
