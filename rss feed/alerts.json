@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-27T02:13:58.591Z",
+  "fetchedAt": "2026-04-28T02:29:21.433Z",
   "alerts": [
+    {
+      "id": "alert-local-1777343359975-qs77jp",
+      "title": "How to Report Online Gambling Scams in the Philippines",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTFZZNnUyN0dYcWlUWjRkM2VXS1VrdDRVR3VXbXhNQkRldVJleUhpM2doVFdqX3N0SnlZLW50aGhqalhsT0o5a0pYbVdYbXN6U0JyRDNNV2w2bE1GMWh5Ymhob1N4VGNURmZvWmYtTTRaTVdGSm9MRUFjdGo3UGlieDZ1SFFtaTh4cDdDTDZLU09QSFhtNXc?oc=5",
+      "source": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLabel": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 27, 2026",
+      "rawDate": "2026-04-27T06:48:38.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1777256037272-alruja",
       "title": "Philippine Laws on Online Scams",
@@ -156,18 +170,18 @@
       "scope": "local"
     },
     {
-      "id": "alert-local-1776823426050-ghv88",
-      "title": "E-Wallet Scam Complaint and Fraud Reporting in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM2s1dWlHWXRqdHFQc0l6VGg5ZGVxZ1VPNEFoVmw3OFNFclFDemtPYkVKTmY3cDBZWDBFWFZBU1dfVU9iSDd2WU1MWW1qRkFsdFUyV1FLZVM0bnNuR2FqRC1RVGdkamdhVXBBcmNBOXRSZmV2WWYzZUZMN0xpN0VHY2FsMDNsUnpvMFBMSW5GRDNsUEF0dU01ZUEyTGNpTmdL?oc=5",
-      "source": "respicio &amp; co.",
-      "sourceLabel": "respicio &amp; co.",
+      "id": "alert-international-1777343359830-ksed4a",
+      "title": "How AI job scams are destroying people’s hopes | Letters",
+      "url": "https://www.theguardian.com/money/2026/apr/27/how-ai-job-scams-are-destroying-peoples-hopes",
+      "source": "The Guardian (Scams)",
+      "sourceLabel": "The Guardian (Scams)",
       "sourceLogo": "newspaper",
       "category": "cybercrime",
       "severity": "medium",
-      "date": "April 21, 2026",
-      "rawDate": "2026-04-21T13:31:50.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
+      "date": "April 27, 2026",
+      "rawDate": "2026-04-27T15:32:42.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
+      "scope": "international"
     },
     {
       "id": "alert-international-1777208130613-qp0hk6",
@@ -321,20 +335,6 @@
       "date": "April 16, 2026",
       "rawDate": "2026-04-16T08:59:41.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.thomsonreuters.com.ico",
-      "scope": "international"
-    },
-    {
-      "id": "alert-international-1776654996173-sjfnmq",
-      "title": "Booking.com warns customers of hack that exposed their data",
-      "url": "https://www.theguardian.com/technology/2026/apr/13/booking-com-customers-hack-exposed-data",
-      "source": "The Guardian (Scams)",
-      "sourceLabel": "The Guardian (Scams)",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 13, 2026",
-      "rawDate": "2026-04-13T10:57:16.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.theguardian.com.ico",
       "scope": "international"
     }
   ]
