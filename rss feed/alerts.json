@@ -1,8 +1,22 @@
 {
-  "fetchedAt": "2026-04-28T13:52:16.912Z",
+  "fetchedAt": "2026-04-29T02:29:45.683Z",
   "alerts": [
     {
-      "id": "alert-local-1777384336192-gqobk",
+      "id": "alert-local-1777429784412-n8qlp6",
+      "title": "Filing a Group Complaint for Online Scam Philippines",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUVY3bERjdTF5VkFHN3VsZ0c0NU5mUGxhMi0zbldtaWNjczk1U1ZNbW1qNDFYa2w3d0pITDZoSWFDZFB4UmhDTmpVX0ppZFNGeFlfZ0g1RGNPOUI1TXFWdGJOaVdVdWQ2d0pzREI0d0V2NFlqYUNwY0pkNDNDYlQ5OENEN0xWWVVkenlwbXlxTEFvOTg?oc=5",
+      "source": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLabel": "RESPICIO &amp; CO. LAW FIRM",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 28, 2026",
+      "rawDate": "2026-04-28T13:25:01.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
+      "scope": "local"
+    },
+    {
+      "id": "alert-local-1777429785033-05xwck",
       "title": "GCash blocks over 4,900 fraudulent merchants, warns vs ‘quishing’ scams",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQU2laQ3NQVV9WRGhFYTQ2ZC1oZDYyZ3BRd0VhZ1RQNnk2NlJpTExrbDh6ZWoweUFXQzc1U1V3V0hkeGlQNFI2RWR2ZnN4TmpIQ3FKRWlpQ1hFRjdLdkhtM1NtWDhFT1FqelVmdVpwV3hxSFp5TTNuM2tCRnVhcXd3d3d6Y0I4Unhj0gGOAUFVX3lxTE9BV2xUa19CNldfM3U3bXp5Wjg1VXBDcjZSLVBoR1dkYVE4ajY3Q1Vpa2NfMDEwQi1PZVVyczdEelY3U2kzNUhvNjVORWtUaThlVGNiSUp1c3hqa0VsMmNNLWpYMW1adjdtLU44OGIzTENON2R2SzZqdjZ3b2tKYkN1c0lBdDRoekNYRVVianc?oc=5",
       "source": "Cebu Daily News",
@@ -11,7 +25,7 @@
       "category": "cybercrime",
       "severity": "medium",
       "date": "April 28, 2026",
-      "rawDate": "2026-04-28T12:33:45.000Z",
+      "rawDate": "2026-04-28T12:33:58.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/cebudailynews.inquirer.net.ico",
       "scope": "local"
     },
@@ -152,20 +166,6 @@
       "severity": "medium",
       "date": "April 21, 2026",
       "rawDate": "2026-04-21T15:46:19.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776823426050-36qd4",
-      "title": "E-Wallet Scam Complaint in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQV25STGM0UUNGQVlXVGI4X1U5Y2J2Nzd4WVZVWEdqdGNnQWpwaXBOMzVlRkNOSFNSUmxmYzNXa0JFYzV1OGZfY2RHbElyVU9WdDFVYThTR0pweFV3MHVOWWM2elBOTF92TUxwQXJ0dlFBcnpXaDVHZjVRdVBFdGRZN3Y1dkpaQQ?oc=5",
-      "source": "respicio &amp; co.",
-      "sourceLabel": "respicio &amp; co.",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 21, 2026",
-      "rawDate": "2026-04-21T15:37:25.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
       "scope": "local"
     },
