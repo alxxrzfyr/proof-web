@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-29T02:29:45.683Z",
+  "fetchedAt": "2026-04-29T13:45:09.231Z",
   "alerts": [
+    {
+      "id": "alert-local-1777470308172-bi3rig",
+      "title": "Gov’t to launch integrated hub where public can report online, text scams",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQRzFYdkJtMlg0M005UzRmTkZmMG01WG1CQlFrVmdTajhSWkFvZ252Q0xmSnpjWThDQTZWenlVYndGdWZfalM5amREbzYwdExyc1A2d0wyc0IzdDBVc0pzd3lwVXRGaVRpLWtLa0dUZXBYR1BKNThkbm9tNk9kRUx2VmdnRWJzSTVvUG52WTQtSzNoMXF4VDlqQzFJejFJZm9fZUs1aXU4d0FZWjh3NUFoRkxROHpCTnFCS2dwLUFvczI?oc=5",
+      "source": "ABS-CBN",
+      "sourceLabel": "ABS-CBN",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 29, 2026",
+      "rawDate": "2026-04-29T07:34:28.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.abs-cbn.com.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1777429784412-n8qlp6",
       "title": "Filing a Group Complaint for Online Scam Philippines",
@@ -72,6 +86,20 @@
       "scope": "local"
     },
     {
+      "id": "alert-local-1777470307666-ir9acl",
+      "title": "GCash Blocks Over 4,900 Merchants in QR Code Fraud Crackdown",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVUFYdm00enJMWmRvN29rQXlKcTlEb1V1VlR6TXI2aHNnaV9QU0xscmUyanpRSDJUdmtyd2NuMUR5Y1ZEN1pJb2JHcjRYOGFTcTVqS2o1WFZZOVNVY3h5S2ZfNlIyZmF1RTJabTZ5NW9CSmRuNnNVdnZuaFQ2bV9MeFE3X3h2RC1TMVk3elpfaEQ2Ylc4?oc=5",
+      "source": "Fintech News Philippines",
+      "sourceLabel": "Fintech News Philippines",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 24, 2026",
+      "rawDate": "2026-04-24T01:51:40.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/fintechnews.ph.ico",
+      "scope": "local"
+    },
+    {
       "id": "alert-local-1776996477251-neqdda",
       "title": "How to Recover Money From Task Scam Websites in the Philippines",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQeEY0TmhlTzdiZWtGNWpNakRob1VBdHE2SG5zclpMZTdFTkNZcDBfMVhsTDdWcDFDSm5razNZX1EteUktZE4ycjhIRHJ3ejhROU5YQlR5Q25VRF9IdDBLMW05cHZwNkhpTE0xWk1zeEE1LUJNWEpzeUZnTlBtYmdvWW1uU3h4V291Wktta0M5OW94cHM5MEd2bFZQbm9uWXJOTWc?oc=5",
@@ -138,34 +166,6 @@
       "severity": "medium",
       "date": "April 23, 2026",
       "rawDate": "2026-04-23T02:33:36.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776863777442-wiiwp8",
-      "title": "GCash blocks 4,900 ‘quishing’ scam merchants",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOQWd0Umk1WnJzQ1Zad0hiWlRPNVk5UDI2R01BUzBZY3BOWk5RSFI2dktNODE5SmlNNGtlRzgyZ2dNbXg4Zno2ZVkwcE55Yk9rREtnU0hBNlVKRU5PbHZMbEZybWdJSXQ5LXJnekE0NEJubjc3S1M1TGgxaTJMVHVER9IBjgFBVV95cUxQWE9YZlI0dURBMVY4c0pzTVE3OUdOS0hESmVSdGNjckFMVVMyVDJ5cXFva3J6WlhlVEx4MFlSWXR0c05ocUxCel9pY0M3U0dGSTlHV2pTeTgxUGRQRHduczhQTVZaN2J5ZTZxblJwS0pmLW40UDNialo1a1JzX0xDbF9HTC04Y2UyMzdRam1n?oc=5",
-      "source": "Daily Tribune",
-      "sourceLabel": "Daily Tribune",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 22, 2026",
-      "rawDate": "2026-04-22T10:33:55.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/tribune.net.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776823426049-ccbpp",
-      "title": "Bank OTP Scam and Unauthorized Transactions in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNVFY3cUZzZ0ZxZUxqTEx3eHdGM1BFNmdEVG1nT2YydDFHWWI5VWpqMFlPTmV4T2w3NTMtelc0TEp5WGh1aXJNd21GenowazdFY1BsTEFndnkwQnU3QjRNUFBELWpmUWs3YzZ4Sm84UG1nMVFoSDZQc2QzbWRKcVJybzg1bC05OEV2T1drOV9xWEVkRDVPVkIzc3lkWVRpY3I0?oc=5",
-      "source": "respicio &amp; co.",
-      "sourceLabel": "respicio &amp; co.",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 21, 2026",
-      "rawDate": "2026-04-21T15:46:19.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
       "scope": "local"
     },
