@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-29T13:45:09.231Z",
+  "fetchedAt": "2026-04-30T02:30:40.789Z",
   "alerts": [
+    {
+      "id": "alert-local-1777516239490-s5kuh",
+      "title": "Scam Ready Asean launched to combat online fraud in SE Asia",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNTVJTT2xWcVhTSjJDZ1RMMDhMYndkb2lSTnltaFZpQ2pNZURzVFB6VVJ2RWJGSzlSWkhEX2xHZmJNdjYxVFhwb0Jxc1R5SjdIdk51UFFYZEtJZUlsX2lWYVRxQmFkSnh1RWhfdi1Ba1JyNnQzcG9lNFNzYm1GVllCY2tpQk45aDhwYlRaOTAwcS1Ba1FKeEpvLWt4VnR3Y2pXYWRnTdIBpAFBVV95cUxNTVJTT2xWcVhTSjJDZ1RMMDhMYndkb2lSTnltaFZpQ2pNZURzVFB6VVJ2RWJGSzlSWkhEX2xHZmJNdjYxVFhwb0Jxc1R5SjdIdk51UFFYZEtJZUlsX2lWYVRxQmFkSnh1RWhfdi1Ba1JyNnQzcG9lNFNzYm1GVllCY2tpQk45aDhwYlRaOTAwcS1Ba1FKeEpvLWt4VnR3Y2pXYWRnTQ?oc=5",
+      "source": "SunStar Publishing Inc.",
+      "sourceLabel": "SunStar Publishing Inc.",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 29, 2026",
+      "rawDate": "2026-04-29T13:48:56.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/www.sunstar.com.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1777470308172-bi3rig",
       "title": "Gov’t to launch integrated hub where public can report online, text scams",
@@ -153,20 +167,6 @@
       "date": "April 23, 2026",
       "rawDate": "2026-04-23T03:11:58.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.gmanetwork.com.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776950163212-9ntsj4",
-      "title": "How to Report a Scam in the Philippines",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTHZSMUI5RHRMYmgzWmdYZ2s1TDhiMVFQM09nUDNzbWczbFk3MDJwbDFpUHNFT2VDLXE1TGJnS0hrTGdiVFVuLTl0WFBlOWxKc2VsWXdrMmpORzVSdi13djJIeUpkSEY4dXh2SEZxYS1FNGM1NjJ3cHZMRS1aak16R3FkZ1M?oc=5",
-      "source": "RESPICIO &amp; CO. LAW FIRM",
-      "sourceLabel": "RESPICIO &amp; CO. LAW FIRM",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 23, 2026",
-      "rawDate": "2026-04-23T02:33:36.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
       "scope": "local"
     },
     {
