@@ -1,6 +1,20 @@
 {
-  "fetchedAt": "2026-04-30T02:30:40.789Z",
+  "fetchedAt": "2026-04-30T13:44:04.257Z",
   "alerts": [
+    {
+      "id": "alert-local-1777556644031-jjgoy4",
+      "title": "ASEAN Foundation launches 'Scam Ready ASEAN' in response to rising online scams in Southeast Asia",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPV0NLUUpWdkk2Q2lEY2F1d0dhelFpY3V5bkNYV3RvTzBNMDVaLXRqelBFWnJnN2ZfWG1yUWFHMl8tdlpUX0hOdmNWZU9QZExYRjA4c0V1aXFfN3BpamotQkRITjJLS2FrOVN4TWdnanFrQWNTLV8wTjZLUlRpN0g3M05FNHdJTjRNT3V6VExQb2ltWG9OTDgyYzN5YjJUQmZGRVVKY3hFMTBSM2toX3BzYW9JVVRLVUFHUUFtS0V5Qk9FZw?oc=5",
+      "source": "Manila Bulletin",
+      "sourceLabel": "Manila Bulletin",
+      "sourceLogo": "newspaper",
+      "category": "cybercrime",
+      "severity": "medium",
+      "date": "April 30, 2026",
+      "rawDate": "2026-04-30T02:46:39.000Z",
+      "logo": "https://icons.duckduckgo.com/ip3/mb.com.ph.ico",
+      "scope": "local"
+    },
     {
       "id": "alert-local-1777516239490-s5kuh",
       "title": "Scam Ready Asean launched to combat online fraud in SE Asia",
@@ -153,20 +167,6 @@
       "date": "April 23, 2026",
       "rawDate": "2026-04-23T08:59:45.000Z",
       "logo": "https://icons.duckduckgo.com/ip3/www.respicio.ph.ico",
-      "scope": "local"
-    },
-    {
-      "id": "alert-local-1776950163479-jhqbr",
-      "title": "Binibining Marikit: How to spot a love scam | Online Exclusive",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNejZBS3ZTaDdGVUxyT25RdVZ0ektQNmJMQ2p3aGs5VFRfMnNicDJCd1VKUW1RU2NxazNBeV82WFpsc2ZjNEdUSUFEZHY0ejVSS1FadnN2WXZLd3BXcEJpTGszLURucU8wYXk1RUZFN29ZMWxDbTVQbk5pZWNnQUZkNmhEeEdTd1VfZUNidmstOVc2c1JVWWZwMkVEdTJUWEdVdEdKeHpyUXdGYXRQRm8yNUE3dFJtX1VYU0ZpbjR0YXFWQ1FwLVU3R0FVSnMyb2s4N2NB?oc=5",
-      "source": "GMA Network",
-      "sourceLabel": "GMA Network",
-      "sourceLogo": "newspaper",
-      "category": "cybercrime",
-      "severity": "medium",
-      "date": "April 23, 2026",
-      "rawDate": "2026-04-23T03:11:58.000Z",
-      "logo": "https://icons.duckduckgo.com/ip3/www.gmanetwork.com.ico",
       "scope": "local"
     },
     {
